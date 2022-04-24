@@ -1,0 +1,22 @@
+.title-h3{
+	margin-left: 2%; 
+	font-size: 20px;
+	background-color: tomato;
+	padding-left: 2%; 
+	padding-right: 2%; 
+	padding-bottom: 0.5%;
+	border-radius: 5px; 
+	margin-bottom: 2%; 
+	color: white; 
+	font-family: 'Times New Roman', Times, serif;
+	width: fit-content;
+}
+
+.articles-bg{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+.subtitle{
+    color: black;
+}
