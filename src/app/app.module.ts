@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{MatToolbarModule} from '@angular/material/toolbar';
 import{MatButtonModule} from '@angular/material/button';
 import{MatMenuModule} from '@angular/material/menu';
+import { HomeComponent } from './home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import{MatMenuModule} from '@angular/material/menu';
     FooterComponent,
     HeaderComponent,
     NavbarComponent,
+    HomeComponent,
     
   ],
   imports: [
