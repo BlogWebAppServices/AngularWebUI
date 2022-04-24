@@ -1,0 +1,81 @@
+/* Footer */
+
+footer {
+	margin-top: 50px;
+	text-align: center;
+	background-color: #20232e;
+	padding-top: 40px;
+	padding-bottom: 10px;
+}
+
+footer ul.social-icons {
+	margin-bottom: 10px;
+	
+}
+
+footer ul.social-icons li {
+	display: inline-block;
+	margin-right: 30px;
+	background-color: dodgerblue; 
+}
+
+footer ul.social-icons li:last-child::after {
+	display: none;
+}
+
+footer ul.social-icons li a {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: 500;
+	letter-spacing: 0.25px;
+	transition: all .3s;
+}
+
+footer ul.social-icons li a:hover {
+	color: black;
+}
+
+
+footer ul.footer-links {
+	margin-bottom: 10px;
+	
+}
+
+footer ul.footer-links li {
+	display: inline-block;
+	margin-right: 30px;
+}
+
+footer ul.footer-links li:last-child::after {
+	display: none;
+}
+
+footer ul.footer-links li a {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: 500;
+	letter-spacing: 0.25px;
+	transition: all .3s;
+}
+
+footer ul.footer-links li a:hover {
+	color: dodgerblue;
+}
+
+
+
+footer p {
+	font-size: 13px;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+footer p a {
+	color: #4070f4;
+}
+
+footer p a:hover {
+	color: #4070f4;
+}

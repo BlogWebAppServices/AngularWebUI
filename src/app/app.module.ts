@@ -13,6 +13,7 @@ import { CarouselComponent } from './slider/carousel/carousel.component';
 import { FooterComponent } from './slider/footer/footer.component';
 import { HeaderComponent } from './slider/header/header.component';
 import { NavbarComponent } from './slider/navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { NavbarComponent } from './slider/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
