@@ -19,7 +19,8 @@ import{MatToolbarModule} from '@angular/material/toolbar';
 import{MatButtonModule} from '@angular/material/button';
 import{MatMenuModule} from '@angular/material/menu';
 import { HomeComponent } from './home/home/home.component';
-import{MatCardModule} from '@angular/material/card'
+import{MatCardModule} from '@angular/material/card';
+import { CategoriComponent } from './categori/categori.component'
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import{MatCardModule} from '@angular/material/card'
     HeaderComponent,
     NavbarComponent,
     HomeComponent,
+    CategoriComponent,
     
   ],
   imports: [
