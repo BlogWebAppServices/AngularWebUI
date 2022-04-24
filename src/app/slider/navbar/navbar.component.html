@@ -1,1 +1,18 @@
-<p>navbar works!</p>
+<mat-toolbar class="nav-bg-color">
+    <span>kültürdelisi</span>
+
+    <mat-toolbar class="center nav-bg-color">
+        <a mat-button class="nav-item">Anasayfa</a>
+        <a mat-button class="nav-item">Kategori 1</a>
+        <a mat-button class="nav-item">Kategori 2</a>
+        <a mat-button class="nav-item">Kategori 3</a>
+        <a mat-button class="nav-item">Kategori 4</a>
+        <button mat-button [matMenuTriggerFor]="menu" class="nav-item">Diğer Kategoriler</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item class="nav-item">Kategori 5</button>
+            <button mat-menu-item class="nav-item">Kategori 6</button>
+        </mat-menu>
+    </mat-toolbar>
+
+
+</mat-toolbar>

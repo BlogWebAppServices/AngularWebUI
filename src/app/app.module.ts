@@ -14,7 +14,10 @@ import { FooterComponent } from './slider/footer/footer.component';
 import { HeaderComponent } from './slider/header/header.component';
 import { NavbarComponent } from './slider/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import{MatToolbarModule} from '@angular/material/toolbar';
+import{MatButtonModule} from '@angular/material/button';
+import{MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

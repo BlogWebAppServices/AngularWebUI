@@ -1,7 +1,7 @@
 <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
     <ng-template ngbSlide *ngFor="let image of images">
       <div class="picsum-img-wrapper center">
-        <img [src]="image" alt="Random slide">
+        <img [src]="image" alt="Random slide" class="img-size">
       </div>
       <div class="carousel-caption">
         <h3>Title Of Article Would Be Here</h3>
@@ -9,8 +9,6 @@
       </div>
     </ng-template>
   </ngb-carousel>
-  
-
   
   <div class="btn-group" role="group" aria-label="Carousel toggle controls">
  </div>

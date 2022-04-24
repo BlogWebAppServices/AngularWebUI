@@ -1,0 +1,11 @@
+.nav-bg-color{
+    background-color: #20232E;
+    color: white;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+.nav-item{
+    font-size: 18px;
+}
