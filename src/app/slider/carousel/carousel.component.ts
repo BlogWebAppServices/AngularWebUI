@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-carousel',
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
- images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/1920/1080`);
+  showNavigationArrows = true;
+  showNavigationIndicators = true;
+  images = [1055, 194, 368].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
-  constructor() { }
+ constructor(config: NgbCarouselConfig) {
+ 
+}
+
 
   ngOnInit(): void {
   }
