@@ -26,7 +26,8 @@ import { UserListComponent } from './admin/user-list/user-list.component';
 import { CreateArticleDialogComponent } from './admin/create-article-dialog/create-article-dialog.component';
 import { ArticleListComponent } from './admin/article-list/article-list.component';
 import { CategoriListComponent } from './admin/categori-list/categori-list.component';
-import { CreateCategoriDialogComponent } from './admin/create-categori-dialog/create-categori-dialog.component'
+import { CreateCategoriDialogComponent } from './admin/create-categori-dialog/create-categori-dialog.component';
+import { LoginscreenComponent } from './admin/loginscreen/loginscreen.component'
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { CreateCategoriDialogComponent } from './admin/create-categori-dialog/cr
     ArticleListComponent,
     CategoriListComponent,
     CreateCategoriDialogComponent,
+    LoginscreenComponent,
     
   ],
   imports: [
