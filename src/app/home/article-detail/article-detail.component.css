@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,300&display=swap');
+.outer {
+    background-color: white;
+    padding: 4%;
+    border-radius: 4px;
+    margin-top: 10%;
+    max-width: 60%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    
+}
+
+div {
+    font-family: 'Roboto', sans-serif;
+}
+.info {
+    margin-right: 2%;
+    font-family: 'Roboto', sans-serif;
+    color: #7A7A7A;
+}
+.category-title {
+    color:#4070f4;
+    font-weight: 700;
+}
+
+.article-title {
+    color: black;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.25px;
+    text-rendering: optimizeLegibility;
+    
+}
+
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+    display: block;
+
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+
+}
+
+.article-img img{
+    width: 100%;
+    overflow: hidden;
+    vertical-align: middle;
+    border-style: none;
+}
+
+ul.info li {
+    display: inline-block;
+    margin-right: 3px;
+    color: #aaa;
+    text-align: -webkit-match-parent;
+}
+ul.info li a {
+    font-size: 14px;
+    color: #aaa;
+    font-weight: 400;
+    text-decoration: none!important;
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+}
+
+.outer p {
+    padding: 25px 0px;
+    margin: 25px 0px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    font-weight: 400;
+    color: #7a7a7a;
+    line-height: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    display: block;
+    float: left;
+}
+
+ul.article-tags li {
+    display: inline-block;
+    margin-right: 3px;
+    color:#0044ff
+
+}
+
+
+ul.article-tags li a{
+    font-size: 14px;
+    color: #aaa;
+    font-weight: 400;
+    transition: all .3s;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.article-share {
+    text-align: right;
+}
+ul.article-share li {
+    display: inline-block;
+    margin-right: 3px;
+    color:#0044ff
+
+}
+
+ul.article-share li a{
+    font-size: 14px;
+    color: #aaa;
+    font-weight: 400;
+    transition: all .3s;
+    text-decoration: none;
+    background-color: transparent;
+}
