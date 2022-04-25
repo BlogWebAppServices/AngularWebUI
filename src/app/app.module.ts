@@ -20,7 +20,13 @@ import{MatButtonModule} from '@angular/material/button';
 import{MatMenuModule} from '@angular/material/menu';
 import { HomeComponent } from './home/home/home.component';
 import{MatCardModule} from '@angular/material/card';
-import { CategoriComponent } from './categori/categori.component'
+import { CategoriComponent } from './categori/categori.component';
+import { CreateUserDialogComponent } from './admin/create-user-dialog/create-user-dialog.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
+import { CreateArticleDialogComponent } from './admin/create-article-dialog/create-article-dialog.component';
+import { ArticleListComponent } from './admin/article-list/article-list.component';
+import { CategoriListComponent } from './admin/categori-list/categori-list.component';
+import { CreateCategoriDialogComponent } from './admin/create-categori-dialog/create-categori-dialog.component'
 
 @NgModule({
   declarations: [
@@ -37,6 +43,12 @@ import { CategoriComponent } from './categori/categori.component'
     NavbarComponent,
     HomeComponent,
     CategoriComponent,
+    CreateUserDialogComponent,
+    UserListComponent,
+    CreateArticleDialogComponent,
+    ArticleListComponent,
+    CategoriListComponent,
+    CreateCategoriDialogComponent,
     
   ],
   imports: [
