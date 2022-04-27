@@ -28,6 +28,9 @@ import { ArticleListComponent } from './admin/article-list/article-list.componen
 import { CategoriListComponent } from './admin/categori-list/categori-list.component';
 import { CreateCategoriDialogComponent } from './admin/create-categori-dialog/create-categori-dialog.component';
 import { LoginscreenComponent } from './admin/loginscreen/loginscreen.component'
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
 
 @NgModule({
   declarations: [
@@ -54,6 +57,7 @@ import { LoginscreenComponent } from './admin/loginscreen/loginscreen.component'
     
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     NgbModule,
@@ -62,6 +66,8 @@ import { LoginscreenComponent } from './admin/loginscreen/loginscreen.component'
     MatButtonModule,
     MatMenuModule,
     MatCardModule,
+    MatFormFieldModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
