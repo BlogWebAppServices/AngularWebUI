@@ -29,6 +29,9 @@ import { CategoriListComponent } from './admin/categori-list/categori-list.compo
 import { CreateCategoriDialogComponent } from './admin/create-categori-dialog/create-categori-dialog.component';
 import { LoginscreenComponent } from './admin/loginscreen/loginscreen.component'
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { RecentPostsComponent } from './slider/recent-posts/recent-posts.component';
+import { PopularArticleComponent } from './slider/popular-article/popular-article.component';
+import { RightCategoriesComponent } from './slider/right-categories/right-categories.component';
 
 
 
@@ -54,6 +57,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CategoriListComponent,
     CreateCategoriDialogComponent,
     LoginscreenComponent,
+    RecentPostsComponent,
+    PopularArticleComponent,
+    RightCategoriesComponent,
     
   ],
   imports: [

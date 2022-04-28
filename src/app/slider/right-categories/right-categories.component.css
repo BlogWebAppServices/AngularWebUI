@@ -1,0 +1,20 @@
+.popular-post{
+    border-radius: 10px; 
+    margin-bottom: 10px;
+}
+
+.categories-title{
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.categories-cardtitle{
+    margin-top: 20px; 
+    font-size: 16px; 
+    font-weight: 800;
+}
+.categories-list{
+    list-style-type: none;
+    margin-left: -20px;
+}
