@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'article-detail', component: ArticleDetailComponent },
+  { path: 'category', component: CategoriComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'admin/loginscreen', component: LoginscreenComponent },
   { path: 'admin/categori-list', component: CategoriListComponent },
