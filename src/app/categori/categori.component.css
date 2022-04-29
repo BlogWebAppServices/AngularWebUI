@@ -1,3 +1,7 @@
+.container{
+	margin-top:100px
+}
+
 .category-header{
     padding-left: 20px;
     padding-top: 20px;
@@ -34,6 +38,36 @@
     margin-left: 0px;
 }
 
+.postinfo-detail{
+	float: right; 
+	margin-bottom: 10px;
+}
+
+.go-detail{
+	margin-bottom: 30px !important;
+}
+
+ul li a {
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	display: inline-block;
+	background-color: #212931;
+	color: #fff;
+	border-radius: 50%;
+	transition: all .3s;
+}
+
+ul li a:hover {
+	background-color: #4070f4;
+}
+
+
+ul.post-info{
+	margin-left: -35px;
+}
+
 ul.post-info li {
 	display: inline-block;
 	margin-right: 8px;
@@ -58,19 +92,21 @@ ul.post-info li:last-child::after {
 	display: none;
 }
 
-ul.post-info li a {
+ul.post-info a {
 	font-size: 14px;
-	color: #aaa;
+	color: black;
 	font-weight: 400;
 	transition: all .3s;
+	float: right;
 }
 
-ul.post-info li a:hover {
+ul.post-info a:hover {
 	color: #4070f4;
 }
 
 ul.page-numbers {
 	text-align: center;
+	margin-top: 25px;
 }
 
 ul.page-numbers li {
@@ -78,9 +114,6 @@ ul.page-numbers li {
 	margin: 0px 5px;
 }
 
-ul.page-numbers li:hover {
-    background-color: #ffffff;
-}
 
 ul.page-numbers li a {
 	width: 50px;
@@ -89,7 +122,7 @@ ul.page-numbers li a {
 	text-align: center;
 	line-height: 50px;
 	font-size: 15px;
-	color: #7a7a7a;
+	color: white;
 	border: 1px solid #eee;
 	font-weight: 500;
 	transition: all 0.3s;

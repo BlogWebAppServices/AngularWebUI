@@ -134,3 +134,35 @@ ul.post-info li a:hover {
 .bottompost-title:hover{
 	color: #1E90FF;
 }
+
+.article-content{
+	color: black;
+	font-size: 16px;
+}
+
+.author-link{
+	color: black !important;
+	margin-left: 5px;
+	font-weight: bold !important;
+
+}
+
+.author-link:hover{
+	color: dodgerblue !important;
+	font-weight: bold !important;
+}
+
+.release-date{
+	font-weight: 500;
+}
+.godetail-li{
+	float: right;
+}
+.go-detail{
+	font-weight: bold !important;
+	color: tomato !important;
+}
+.go-detail:hover{
+	font-weight: bold !important;
+	color: dodgerblue !important;
+}
