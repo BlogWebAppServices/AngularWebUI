@@ -5,11 +5,13 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { ArticleDetailComponent } from './home/article-detail/article-detail.component';
 import { CategoriComponent } from './categori/categori.component';
-import {AuthorProfileComponent} from './author-profile/author-profile.component'
-import { LoginscreenComponent } from './admin/loginscreen/loginscreen.component';
-import { CategoriListComponent } from './admin/categori-list/categori-list.component';
-import { UserListComponent } from './admin/user-list/user-list.component';
-import { ArticleListComponent } from './admin/article-list/article-list.component';
+import { AuthorProfileComponent } from './author-profile/author-profile.component'
+
+//Admin Paneli
+import { AdminCategoryListComponent } from './admin-panel-group/admin-category-list/admin-category-list.component';
+import { AdminUserDetailComponent } from './admin-panel-group/admin-user-detail/admin-user-detail.component';
+import { AdminUserListComponent } from './admin-panel-group/admin-user-list/admin-user-list.component';
+import { AdminUserArticlesComponent } from './admin-panel-group/admin-user-articles/admin-user-articles.component';
 
 
 
@@ -21,12 +23,13 @@ const routes: Routes = [
   { path: 'category', component: CategoriComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'authorprofile', component: AuthorProfileComponent },
-  { path: 'admin/loginscreen', component: LoginscreenComponent },
-  { path: 'admin/categori-list', component: CategoriListComponent },
-  { path: 'admin/user-list', component: UserListComponent },
-  { path: 'admin/article-list', component: ArticleListComponent }
-  
-  
+
+  // Admin Formu
+  { path: 'admin/user-list', component: AdminUserListComponent },
+  { path: 'admin/categori-list', component: AdminCategoryListComponent },
+  { path: 'admin/user-detail', component: AdminUserDetailComponent },
+  { path: 'admin/user-articles', component: AdminUserArticlesComponent },
+
 ];
 
 @NgModule({
