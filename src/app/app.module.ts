@@ -26,12 +26,12 @@ import { RightCategoriesComponent } from './slider/right-categories/right-catego
 
 // Admin Panel Sayfa Formları
 import { AdminPanelGroupComponent } from './admin-panel-group/admin-panel-group.component';
-import { AdminCreateUserComponent } from './admin-panel-group/admin-create-user/admin-create-user.component';
+import { AdminCreateUserComponent } from './admin-panel-group/admin-create-user-dialog/admin-create-user.component';
 import { AdminUserListComponent } from './admin-panel-group/admin-user-list/admin-user-list.component';
 import { AdminArticleConfirmationListComponent } from './admin-panel-group/admin-article-confirmation-list/admin-article-confirmation-list.component';
 import { AdminNavbarComponent } from './admin-panel-group/admin-navbar/admin-navbar.component';
 import { AdminCategoryListComponent } from './admin-panel-group/admin-category-list/admin-category-list.component';
-import { AdminCategoryCreateComponent } from './admin-panel-group/admin-category-create/admin-category-create.component';
+import { AdminCategoryCreateComponent } from './admin-panel-group/admin-category-create-dialog/admin-category-create.component';
 import { AdminUserDetailComponent } from './admin-panel-group/admin-user-detail/admin-user-detail.component';
 import { AdminUserArticlesComponent } from './admin-panel-group/admin-user-articles/admin-user-articles.component';
 
