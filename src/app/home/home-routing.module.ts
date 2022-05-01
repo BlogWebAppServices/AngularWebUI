@@ -9,14 +9,16 @@ import { AuthorProfileComponent } from '../author-profile/author-profile.compone
 import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent,children: [
+
+ { path: 'article', component: ArticleComponent },
   { path: 'about', component: AboutComponent },
   { path: 'article-detail', component: ArticleDetailComponent },
   { path: 'category', component: CategoriComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'authorprofile', component: AuthorProfileComponent },
 
-
+]},
 ];
 
 @NgModule({
