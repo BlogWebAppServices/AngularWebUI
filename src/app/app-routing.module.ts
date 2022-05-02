@@ -30,6 +30,7 @@ const routes: Routes = [
   // { path: 'admin/user-detail', component: AdminUserDetailComponent },
   // { path: 'admin/user-articles', component: AdminUserArticlesComponent },
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+  { path: 'admin-panel-group', loadChildren: () => import('./admin-panel-group/admin-panel-group.module').then(m => m.AdminPanelGroupModule) },
 
 ];
 
