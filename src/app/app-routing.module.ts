@@ -29,6 +29,7 @@ const routes: Routes = [
   // { path: 'admin/categori-list', component: AdminCategoryListComponent },
   // { path: 'admin/user-detail', component: AdminUserDetailComponent },
   // { path: 'admin/user-articles', component: AdminUserArticlesComponent },
+  { path: '', redirectTo: '/home/article', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'admin', loadChildren: () => import('./admin-panel-group/admin-panel-group.module').then(m => m.AdminPanelGroupModule) },
 

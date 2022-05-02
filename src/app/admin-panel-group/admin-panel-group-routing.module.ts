@@ -8,7 +8,7 @@ import { AdminUserDetailComponent } from './admin-user-detail/admin-user-detail.
 import { AdminUserListComponent } from './admin-user-list/admin-user-list.component';
 
 const routes: Routes = [
-
+  { path: '', redirectTo: '/admin/user-articles', pathMatch: 'full' },
   {
     path: '', component: AdminPanelGroupComponent, children: [
       { path: 'user-list', component: AdminUserListComponent },
@@ -16,6 +16,7 @@ const routes: Routes = [
       { path: 'user-detail', component: AdminUserDetailComponent },
       { path: 'user-articles', component: AdminUserArticlesComponent },
       { path: 'article-confirmation-list', component: AdminArticleConfirmationListComponent },
+      { path: 'user-detail', component: AdminUserDetailComponent },
 
     ]
   }
