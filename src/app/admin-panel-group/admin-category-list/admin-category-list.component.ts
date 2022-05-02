@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AdminCategoryCreateComponent } from '../admin-category-create-dialog/admin-category-create.component';
 
 @Component({
   selector: 'app-admin-category-list',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminCategoryListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog:MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  addCategory(){
+    this.dialog.open(AdminCategoryCreateComponent,{width: '250px'});
+
+
   }
 
 }
