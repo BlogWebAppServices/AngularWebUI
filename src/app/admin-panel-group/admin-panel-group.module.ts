@@ -13,6 +13,11 @@ import { AdminCategoryCreateComponent } from '../admin-panel-group/admin-categor
 import { AdminUserDetailComponent } from '../admin-panel-group/admin-user-detail/admin-user-detail.component';
 import { AdminUserArticlesComponent } from '../admin-panel-group/admin-user-articles/admin-user-articles.component';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +35,11 @@ import { AdminUserArticlesComponent } from '../admin-panel-group/admin-user-arti
   ],
   imports: [
     CommonModule,
-    AdminPanelGroupRoutingModule
+    AdminPanelGroupRoutingModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatDividerModule
   ]
 })
 export class AdminPanelGroupModule { }
