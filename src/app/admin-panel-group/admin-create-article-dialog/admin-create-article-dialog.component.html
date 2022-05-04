@@ -1,1 +1,39 @@
-<p>admin-create-article-dialog works!</p>
+<div class="row">
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>BAŞLIK</mat-label>
+            <input type="text" #header matInput placeholder="Makale Başlığı">
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Kategori</mat-label>
+            <select matNativeControl 
+            #category
+            required>
+                <option value="1">Eğitim</option>
+                <option value="2">Eğitim 2</option>
+            </select>
+        </mat-form-field>
+
+        <input type="file" class="file-input"
+       >
+
+
+
+        <mat-form-field [style.fontSize]="16" appearance="fill">
+            <mat-label>MAKALE İÇERİĞİ</mat-label>
+            <textarea matInput cdkTextareaAutosize 
+            placeholder="Makale İçeriği" 
+            #autosize="cdkTextareaAutosize"
+           #articleDetail
+           required=""
+                cdkAutosizeMinRows="28" cdkAutosizeMaxRows="25"></textarea>
+        </mat-form-field>
+
+    </form>
+
+    <button (click)="makaleKaydet(category.value,header.value,articleDetail.value)">Kaydet</button>
+
+</div>

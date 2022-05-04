@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminCreateArticleDialogComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  makaleKaydet(category:string ,header:string,articleDetail :string){
+    console.log(header);
+    console.log(category);
+    console.log(articleDetail);
+  
   }
 
 }

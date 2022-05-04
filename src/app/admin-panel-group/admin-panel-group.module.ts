@@ -11,15 +11,15 @@ import { AdminCategoryListComponent } from '../admin-panel-group/admin-category-
 import { AdminCategoryCreateComponent } from '../admin-panel-group/admin-category-create-dialog/admin-category-create.component';
 import { AdminUserDetailComponent } from '../admin-panel-group/admin-user-detail/admin-user-detail.component';
 import { AdminUserArticlesComponent } from '../admin-panel-group/admin-user-articles/admin-user-articles.component';
-
+import { AdminCreateArticleDialogComponent } from './admin-create-article-dialog/admin-create-article-dialog.component';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
-import { AdminCreateArticleDialogComponent } from './admin-create-article-dialog/admin-create-article-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -44,7 +44,8 @@ import { AdminCreateArticleDialogComponent } from './admin-create-article-dialog
     MatIconModule,
     MatDividerModule,
     MatTableModule,
-    MatDialogModule 
+    MatDialogModule,
+    MatInputModule
   ]
 })
 export class AdminPanelGroupModule { }
