@@ -1,3 +1,89 @@
+header{
+    padding: 12px 0;
+    background: #20232E;
+}
+
+.menu{
+ margin-top: 12px;
+}
+
+.menu ul{
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li{
+    list-style-type: none;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.menu ul li:hover{
+    color:dodgerblue;
+    cursor : pointer;
+    transition: 0.4s ease-in-out;
+}
+
+@media only screen and (max-width:1199px){
+    .menu{
+        z-index: 3;
+        position: fixed;
+        right: -280px;
+        top: 55px;
+        width: 280px;
+        height: 100%;
+        background: #20232E;
+        transition: 0.4s ease-in-out;
+    }
+    .menu ul li{
+        display:block !important;
+        text-align: left;
+        margin: 0;
+        padding: 10px 0 10px 26px;
+        border-bottom: 1px solid #312f2f;
+    }
+
+    .menu-icon{
+        display: inline-block;
+        position: relative;
+        right: 0;
+        top: 20px;
+        cursor: pointer;
+    }
+
+    .menu-icon span{
+        width: 32px;
+        height: 3px;
+        background:#ffffff;
+        display: block;
+        transition: 0.2s ease-in-out;
+    }
+    .menu-icon span:nth-child(2){
+        margin: 4px 0;
+    }
+
+    .menu-icon-Class span:nth-child(2){
+        display: none;
+        transition: 0.4s ease-in-out;
+    }
+    .menu-icon-Class span:nth-child(1){
+        transform: rotate(40deg);
+        transition: 0.4s ease-in-out;
+    }
+    .menu-icon-Class span:nth-child(3){
+        transform: rotate(-40deg);
+        margin-top: -3px;
+        transition: 0.4s ease-in-out;
+    }
+
+    .menuClass{
+        right: 0;
+        transition: 0.4s ease-in-out;
+    }
+}
+
+
 .nav-bg-color{
     background-color: #20232E;
     color: white;
@@ -8,6 +94,7 @@
 }
 .nav-item{
     font-size: 18px;
+    margin-bottom: 10px;
 }
 .nav-item:hover{
     color: #1E90FF;
@@ -17,5 +104,8 @@
 }
 .logo{
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
 }
 

@@ -1,19 +1,50 @@
-<mat-toolbar class="nav-bg-color fixed-top">
-    <!-- <span >kültürdelisi</span> -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-3">
+                <div class="logo">
+                    <img [src]="logo" class="logo" routerLink="/home/article" />
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-9 col-9 text-end">
+                <div class="menu-icon" [class.menu-icon-Class]="menu_icon_variable" (click)="openMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu" [class.menuClass]="menuVariable">
+                    <ul>
+                        <li><a mat-button class="nav-item active-item" routerLink="/home/article">Anasayfa</a></li>
+                        <li><a mat-button class="nav-item" routerLink="/home/category">Kategori 1</a></li>
+                        <li><a mat-button class="nav-item">Kategori 2</a></li>
+                        <li><a mat-button class="nav-item">Kategori 3</a></li>
+                        <li><a mat-button class="nav-item">Kategori 4</a></li>
+                        <li><button mat-button [matMenuTriggerFor]="menu" class="nav-item">Diğer Kategoriler</button></li>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item class="nav-item">Kategori 5</button>
+                            <button mat-menu-item class="nav-item">Kategori 6</button>
+                        </mat-menu>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<!-- <mat-toolbar class="nav-bg-color fixed-top">
     <img [src]="logo" class="logo" routerLink="/home/article" />
-
     <mat-toolbar class="center nav-bg-color">
-        <a mat-button class="nav-item active-item" routerLink="/home/article">Anasayfa</a>
-        <a mat-button class="nav-item" routerLink="/home/category">Kategori 1</a>
-        <a mat-button class="nav-item">Kategori 2</a>
-        <a mat-button class="nav-item">Kategori 3</a>
-        <a mat-button class="nav-item">Kategori 4</a>
-        <button mat-button [matMenuTriggerFor]="menu" class="nav-item">Diğer Kategoriler</button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item class="nav-item">Kategori 5</button>
-            <button mat-menu-item class="nav-item">Kategori 6</button>
-        </mat-menu>
+            <a mat-button class="nav-item active-item" routerLink="/home/article">Anasayfa</a>
+            <a mat-button class="nav-item" routerLink="/home/category">Kategori 1</a>
+            <a mat-button class="nav-item">Kategori 2</a>
+            <a mat-button class="nav-item">Kategori 3</a>
+            <a mat-button class="nav-item">Kategori 4</a>
+            <button mat-button [matMenuTriggerFor]="menu" class="nav-item">Diğer Kategoriler</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item class="nav-item">Kategori 5</button>
+                <button mat-menu-item class="nav-item">Kategori 6</button>
+            </mat-menu>
     </mat-toolbar>
-
-
-</mat-toolbar>
+</mat-toolbar> -->

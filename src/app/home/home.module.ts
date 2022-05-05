@@ -13,6 +13,9 @@ import { FooterComponent } from '../slider/footer/footer.component';
 import { HeaderComponent } from '../slider/header/header.component';
 import { NavbarComponent } from '../slider/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
@@ -50,6 +53,9 @@ import { RightCategoriesComponent } from '../slider/right-categories/right-categ
     MatMenuModule,
     MatCardModule,
     MatFormFieldModule,
+    MatTabsModule,
+    MatIconModule,
+    MatSidenavModule,
   ]
 })
 export class HomeModule { }
