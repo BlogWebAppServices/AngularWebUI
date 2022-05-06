@@ -19,6 +19,24 @@
     margin-left: -30px;
 }
 
+.author-link {
+	color: black !important;
+	margin-left: 5px;
+	font-weight: bold !important;
+
+}
+
+.author-link:hover {
+	color: dodgerblue !important;
+	font-weight: bold !important;
+}
+
+
+.release-date {
+	font-weight: 500;
+}
+
+
 ul.post-info li {
 	display: inline-block;
 	margin-right: 8px;

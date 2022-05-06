@@ -1,30 +1,33 @@
-.title-h3{
-	margin-left: 2%; 
+.title-h3 {
+	margin-left: 2%;
 	font-size: 20px;
 	background-color: tomato;
-	padding-left: 2%; 
-	padding-right: 2%; 
+	padding-left: 2%;
+	padding-right: 2%;
 	padding-bottom: 0.5%;
-	border-radius: 5px; 
-	margin-bottom: 2%; 
-	color: white; 
+	border-radius: 5px;
+	margin-bottom: 2%;
+	color: white;
 	font-family: 'Times New Roman', Times, serif;
 	width: fit-content;
 }
 
-.articles-bg{
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
+.articles-bg {
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
 	margin-bottom: 10px;
 }
-.subtitle{
-    color: black;
+
+.subtitle {
+	color: black;
+	margin-bottom: -3px;
 }
 
 
-.post-info{
-    margin-left: -35px;
+.post-info {
+	margin-left: -35px;
+	margin-bottom: -5px;
 }
 
 ul.post-info li {
@@ -62,107 +65,174 @@ ul.post-info li a:hover {
 	color: #4070f4;
 }
 
-.left-post{
+.left-post {
 	margin-bottom: 10px;
 }
 
-.leftpost-img{
+.leftpost-img {
 	border-radius: 10px !important;
 	cursor: pointer;
 	padding: 5px;
-	height: 260px;
+	height: auto;
 }
 
-.leftpost-img:hover{
+.leftpost-img:hover {
 	opacity: 0.7;
 }
 
-.leftpost-title{
-	font-size: 24px; 
+.leftpost-title {
+	font-size: 24px;
 	margin-left: -20px;
 	cursor: pointer;
 }
-.leftpost-title:hover{
+
+.leftpost-title:hover {
 	color: #1E90FF;
 }
 
-.right-post{
-   	margin-bottom: 10px;
+.rightposttitle-line {
+	margin-right: 20px;
+	color: #000000;
 }
-.rightpost-title{
+
+.right-post {
+	margin-bottom: 10px;
+}
+
+.rightpost-title {
 	cursor: pointer;
+	margin-bottom: 15px;
 }
-.rightpost-title:hover{
+
+.rightpost-title:hover {
 	color: #1E90FF;
 }
 
-.rightpost-img{
-	width: 250px; 
-	height: 100px; 
+.rightpost-subtitle{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5; /* Number of lines displayed before it truncate */
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.rightpost-img {
+	width: 100%;
+	height: auto;
 	border-radius: 10px;
 	cursor: pointer;
+	margin-right: 20px;
+	margin-bottom: 14px;
 }
 
-.rightpost-img:hover{
+.rightpost-img:hover {
 	opacity: 0.7;
 }
 
-.bottom-post{
-	margin-top: 8px; 
+.bottom-post {
+	margin-top: 8px;
 }
-.bottompost-subtitle{
-	margin-right:20px;
 
-
-
+.bottompost-subtitle {
+	margin-right: 20px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+	overflow: hidden;
+	margin-bottom: 20px;
 }
-.bottompost-img{
-	width: 400px; 
-	height: 150px; 
-	border-radius: 10px; 
+
+.bottompost-img {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
 	margin-top: 5px;
 	cursor: pointer;
 }
 
-.bottompost-img:hover{
+.bottompost-img:hover {
 	opacity: 0.7;
 }
 
-.bottompost-title{
-	cursor: pointer;    
+.bottompost-title {
+	cursor: pointer;
+	margin-top: 15px;
 }
-.bottompost-title:hover{
+
+.bottompost-title:hover {
 	color: #1E90FF;
 }
 
-.article-content{
+.article-content {
 	color: black;
 	font-size: 16px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 15;
+	overflow: hidden;
 }
 
-.author-link{
+.author-link {
 	color: black !important;
 	margin-left: 5px;
 	font-weight: bold !important;
 
 }
 
-.author-link:hover{
+.author-link:hover {
 	color: dodgerblue !important;
 	font-weight: bold !important;
 }
 
-.release-date{
+.release-date {
 	font-weight: 500;
 }
-.godetail-li{
+
+.godetail-li {
 	float: right;
 }
-.go-detail{
+
+.go-detail {
 	font-weight: bold !important;
 	color: tomato !important;
 }
-.go-detail:hover{
+
+.go-detail:hover {
 	font-weight: bold !important;
 	color: dodgerblue !important;
+}
+
+@media only screen and (max-width:1399px) {
+	.bottompost-img {
+		width: 100%;
+		height: auto;
+		border-radius: 10px;
+		margin-top: 10px;
+		cursor: pointer;
+	}
+	.bottompost-subtitle {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 4;
+		/* Number of lines displayed before it truncate */
+		overflow: hidden;
+	}
+	.rightpost-subtitle{
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 4;
+		/* Number of lines displayed before it truncate */
+		overflow: hidden;
+	}
+	
+	.article-content {
+	color: black;
+	font-size: 16px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 17;
+	overflow: hidden;
+}
+	
+
 }
