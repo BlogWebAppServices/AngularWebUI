@@ -67,6 +67,22 @@
             <th mat-header-cell *matHeaderCellDef> Symbol </th>
             <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
           </ng-container>
+
+               <!-- Symbol Column -->
+      <ng-container matColumnDef="positionDeleteId">
+        <th mat-header-cell *matHeaderCellDef> Sil </th>
+        <td mat-cell *matCellDef="let element"> <button class="d-flex justify-content-center btn btn-primary" mat-menu-item (click)="onDelete(element.position)">
+            <mat-icon>delete</mat-icon><span>Sil</span>
+          </button></td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="positionUpdateId">
+        <th mat-header-cell *matHeaderCellDef> Güncelle </th>
+        <td mat-cell *matCellDef="let element" > <button class="d-flex justify-content-center btn btn-primary " mat-menu-item (click)="onUpdate(element.position)">
+            <mat-icon class="btn-update-color">update</mat-icon><span>Güncelle</span>
+          </button></td>
+      </ng-container>
   
           <tr mat-header-row *matHeaderRowDef="headElements"></tr>
           <tr mat-row *matRowDef="let row; columns: headElements;"></tr>

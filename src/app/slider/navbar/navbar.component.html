@@ -14,14 +14,17 @@
                 </div>
                 <div class="menu" [class.menuClass]="menuVariable">
                     <ul>
-                        <li><a mat-button class="nav-item active-item" routerLink="/home/article">Anasayfa</a></li>
-                        <li><a mat-button class="nav-item" routerLink="/home/category">Kategori 1</a></li>
-                        <li><a mat-button class="nav-item">Kategori 2</a></li>
-                        <li><a mat-button class="nav-item">Kategori 3</a></li>
-                        <li><a mat-button class="nav-item">Kategori 4</a></li>
-                        <li><button mat-button [matMenuTriggerFor]="menu" class="nav-item">Diğer Kategoriler</button></li>
+                        <li><a mat-button routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true }"
+                                class="nav-item active-item" routerLink="/home/article">Anasayfa</a></li>
+                        <li><a mat-button routerLinkActive="active" class="nav-item"
+                                routerLink="/home/category">Kategori 1</a></li>
+                        <li><a mat-button routerLinkActive="active" class="nav-item">Kategori 2</a></li>
+                        <li><a mat-button routerLinkActive="active" class="nav-item">Kategori 3</a></li>
+                        <li><a mat-button routerLinkActive="active" class="nav-item">Kategori 4</a></li>
+                        <li><button mat-button [matMenuTriggerFor]="menu" class="nav-item">Diğer Kategoriler</button>
+                        </li>
                         <mat-menu #menu="matMenu">
-                            <button mat-menu-item class="nav-item">Kategori 5</button>
+                            <button mat-menu-item routerLinkActive="active" class="nav-item">Kategori 5</button>
                             <button mat-menu-item class="nav-item">Kategori 6</button>
                         </mat-menu>
                     </ul>

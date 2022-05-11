@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import { AdminArticleUpdateDialogComponent } from '../admin-article-update-dialog/admin-article-update-dialog.component';
 import { AdminCreateArticleDialogComponent } from '../admin-create-article-dialog/admin-create-article-dialog.component';
 
 @Component({
@@ -9,7 +10,7 @@ import { AdminCreateArticleDialogComponent } from '../admin-create-article-dialo
 })
 export class AdminUserArticlesComponent implements OnInit {
 
-  headElements = ['position', 'name', 'weight', 'symbol'];
+  headElements = ['position', 'name', 'weight', 'symbol','positionDeleteId','positionUpdateId'];
   elements: any = [
     {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
     {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
@@ -34,6 +35,28 @@ export class AdminUserArticlesComponent implements OnInit {
 
 addArticle(){
   this.dialog.open(AdminCreateArticleDialogComponent,{width: '250px'});
+
+}
+
+
+onDelete(Id:string){
+  console.log(Id+"numaralı kayıt silindi.");
+  if(confirm("Are you sure to delete "+Id)) {
+    console.log("Implement delete functionality here");
+  }
+
+}
+
+
+onUpdate(Id:string){
+  console.log(Id+" numaralı kayıt güncellendi.");
+  this.dialog.open(AdminArticleUpdateDialogComponent,{
+    width: '350px',
+    data: Id
+   
+  
+  });
+
 
 }
 

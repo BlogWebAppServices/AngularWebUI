@@ -13,6 +13,8 @@ import { AdminUserDetailComponent } from '../admin-panel-group/admin-user-detail
 import { AdminUserArticlesComponent } from '../admin-panel-group/admin-user-articles/admin-user-articles.component';
 import { AdminCreateArticleDialogComponent } from './admin-create-article-dialog/admin-create-article-dialog.component';
 import { AdminUserArticleListDialogComponent } from './admin-user-article-list-dialog/admin-user-article-list-dialog.component';
+import { AdminArticleUpdateDialogComponent } from './admin-article-update-dialog/admin-article-update-dialog.component';
+
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -36,7 +38,8 @@ import { MatInputModule } from '@angular/material/input';
     AdminUserDetailComponent,
     AdminUserArticlesComponent,
     AdminCreateArticleDialogComponent,
-    AdminUserArticleListDialogComponent
+    AdminUserArticleListDialogComponent,
+    AdminArticleUpdateDialogComponent
 
   ],
   imports: [
