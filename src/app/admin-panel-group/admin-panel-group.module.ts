@@ -12,6 +12,7 @@ import { AdminCategoryCreateComponent } from '../admin-panel-group/admin-categor
 import { AdminUserDetailComponent } from '../admin-panel-group/admin-user-detail/admin-user-detail.component';
 import { AdminUserArticlesComponent } from '../admin-panel-group/admin-user-articles/admin-user-articles.component';
 import { AdminCreateArticleDialogComponent } from './admin-create-article-dialog/admin-create-article-dialog.component';
+import { AdminUserArticleListDialogComponent } from './admin-user-article-list-dialog/admin-user-article-list-dialog.component';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,6 +21,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { MatInputModule } from '@angular/material/input';
     AdminCategoryCreateComponent,
     AdminUserDetailComponent,
     AdminUserArticlesComponent,
-    AdminCreateArticleDialogComponent
+    AdminCreateArticleDialogComponent,
+    AdminUserArticleListDialogComponent
 
   ],
   imports: [

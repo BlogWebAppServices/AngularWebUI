@@ -18,6 +18,10 @@ const routes: Routes = [
       { path: 'article-confirmation-list', component: AdminArticleConfirmationListComponent },
       { path: 'user-detail', component: AdminUserDetailComponent },
 
+      { path: 'article-confirmation-list', component: AdminArticleConfirmationListComponent },
+
+
+
     ]
   }
 
