@@ -1,32 +1,128 @@
-
 table {
-    width: 100%;
-  }
+  width: 100%;
+  margin-top: 75px;
+}
 
 
-  .header-div{
-    background-color: dodgerblue;
-    margin-top: 30px;
-    padding-left: 20px;
-    border-radius: 10px;
-  }
+.header-div {
+  background-color: dodgerblue;
+  margin-top: 30px;
+  padding-left: 20px;
+  border-radius: 10px;
+}
 
-  .page-header{
-    font-size: 36px;
-    color: white;
-    margin-top: 20px;
-  }
+.page-header {
+  font-size: 36px;
+  color: white;
+  margin-top: 20px;
+}
 
-  .add-button{
-    background-color: white;
-    color: dodgerblue;
-    margin-bottom: 20px;
-    float: right;
-    font-size: 16px;
-    border: none;
-    height: 40px;
-    font-weight: bold;
-    border-radius: 5px;
-  }
+.add-button {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  color: dodgerblue;
+  font-weight: bold;
+  float: right;
+  font-size: 18px;
+  margin-top: 3px;
+  margin-bottom: 20px;
+}
 
+.add-button:hover {
+  background-color: #198754;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
 
+.add-button-icon {
+  font-size: 18px;
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.filter-container {
+  margin-top: 15px;
+}
+
+.filter-background {
+  background-color: dodgerblue;
+  height: 60px;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-top: 15px;
+}
+
+.filter-header {
+  font-size: 24px;
+  color: white;
+}
+
+.filter-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.filterform-container {
+  height: 60px;
+}
+
+.filterform-border {
+  border-style: solid;
+  border-top: 0px;
+  border-width: 2px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  border-color: dodgerblue;
+}
+
+.filterform-element {
+  padding-top: 10px;
+  padding-left: 35px;
+  margin-bottom: 5px;
+  height: 50px;
+  font-size: 6px;
+}
+
+.filterformfield {
+  width: 100%;
+  height: 40px;
+}
+
+.filterform-label {
+  font-size: 16px;
+}
+
+.filterform-input {
+  height: 35px;
+  font-size: 16px;
+}
+
+.datepicker-toggle {
+  font-size: 16px;
+  color: dodgerblue;
+}
+
+.filter-button {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.filter-button-icon {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.filterbutton-position {
+  padding-top: 20px;
+  padding-left: 50px;
+  margin-bottom: 5px;
+}

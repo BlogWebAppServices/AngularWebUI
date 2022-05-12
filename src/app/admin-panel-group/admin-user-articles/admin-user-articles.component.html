@@ -5,61 +5,53 @@
         <div class="row">
           <div class="col-lg-11">
             <h1 class="page-header">Makale Listesi
-              <button mat-raised-button (click)="addArticle()" class="add-button" 
+              <button mat-raised-button (click)="addArticle()" class="add-button"
                 aria-label="Example icon button with a home icon">
-                  <i class="fa fa-plus" style="font-size: 18px; margin-right: 10px; margin-top: 3px;"></i>Makale Ekle
+                <i class="fa fa-plus add-button-icon"></i>Makale Ekle
               </button>
             </h1>
           </div>
         </div>
       </div>
-      <div class="col-lg-12" style="margin-top:15px;">
-        <div class="col-lg-12"
-          style="background-color: dodgerblue; height: 60px; border-radius: 5px; padding-left: 20px; padding-top: 15px;">
-          <span style="font-size: 24px; color: white;"><i class="fa fa-filter"
-              style="font-size: 24px; margin-right: 10px;"></i>Filtrele</span>
+      <div class="col-lg-12 filter-container">
+        <div class="col-lg-12 filter-background">
+          <h3 class="filter-header"><i class="fa fa-filter filter-icon"></i>Filtrele</h3>
         </div>
-        <div class="col-lg-12" style="height: 60px;">
-          <div
-            style="border-style:solid; border-top: 0px; border-width: 2px; padding-bottom: 25px; padding-top: 10px; padding-left: 10px; padding-right: 10px; border-radius: 5px;">
+        <div class="col-lg-12 filterform-container">
+          <div class="filterform-border">
             <div class="row">
-              <div class="col-lg-3"
-                style="padding-top: 10px; padding-left: 35px; margin-bottom: 5px; height: 50px; font-size:6px;">
-                <mat-form-field style="width:100%;" appearance="fill">
-                  <mat-label style="font-size:16px;">Makale Adı</mat-label>
-                  <input matInput placeholder="Örn. Var olmanın dayanılmaz hafifliği..."
-                    style="height:40px; font-size:16px;" />
+              <div class="col-lg-3 filterform-element">
+                <mat-form-field class="filterformfield" appearance="fill">
+                  <mat-label class="filterform-label">Makale Adı</mat-label>
+                  <input matInput placeholder="Örn. Var olmanın dayanılmaz hafifliği..." class="filterform-input" />
                 </mat-form-field>
               </div>
-              <div class="col-lg-3"
-                style="padding-top: 10px; padding-left: 35px; margin-bottom: 5px; height: 50px; font-size:6px;">
-                <mat-form-field style="width:100%;" appearance="fill">
-                  <mat-label style="font-size:16px;">Yazı içeriği</mat-label>
-                  <input matInput placeholder="Örn. Lorem ipsum..." style="height:40px; font-size:16px;" />
+              <div class="col-lg-3 filterform-element">
+                <mat-form-field class="filterformfield" appearance="fill">
+                  <mat-label class="filterform-label">Yazı içeriği</mat-label>
+                  <input class="filterform-input" matInput placeholder="Örn. Lorem ipsum..." />
                 </mat-form-field>
               </div>
-              <div class="col-lg-3"
-                style="padding-top: 10px; padding-left: 35px; margin-bottom: 5px; height: 50px; font-size:6px;">
-                <mat-form-field style="width:100%;" appearance="fill">
-                  <mat-label style="font-size:16px;">Tarih</mat-label>
-                  <input style="height:40px; font-size:15px;" matInput [matDatepicker]="picker"
-                    placeholder="Tarihe göre ara" maxlength="0">
-                  <mat-datepicker-toggle matSuffix [for]="picker" style="font-size: 16px; color: dodgerblue;">
+              <div class="col-lg-3 filterform-element">
+                <mat-form-field class="filterformfield" appearance="fill">
+                  <mat-label class="filterform-label">Tarih</mat-label>
+                  <input class="filterform-input" matInput [matDatepicker]="picker" placeholder="Tarihe göre ara"
+                    maxlength="0">
+                  <mat-datepicker-toggle matSuffix [for]="picker" class="datepicker-toggle">
                   </mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
               </div>
-              <div class="col-lg-3" style="padding-top: 20px; padding-left: 50px; margin-bottom: 5px;">
-                <button mat-raised-button
-                  style="background-color: dodgerblue; color: white; padding-top: 8px; padding-bottom: 8px; padding-left: 20px; padding-right: 20px; font-size: 20px; border-radius: 5px; border: none;"><i
-                    class="fa fa-filter" style="font-size: 18px; margin-right: 10px;"></i>Filtrele</button>
+              <div class="col-lg-3 filterbutton-position">
+                <button mat-raised-button class="btn-primary filter-button"><i
+                    class="fa fa-filter filter-button-icon"></i>Filtrele</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-12" style="margin-top:75px">
-        <table mat-table [dataSource]="elements" class="mat-elevation-z8">
+      <div class="col-lg-12 table-container">
+        <table mat-table [dataSource]="elements" class="mat-elevation-z2">
           <!-- Poszition Column -->
           <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> Makale Adı </th>
@@ -87,7 +79,7 @@
           <!-- Symbol Column -->
           <ng-container matColumnDef="positionDeleteId">
             <th mat-header-cell *matHeaderCellDef> Sil </th>
-            <td mat-cell *matCellDef="let element"> <button class="d-flex justify-content-center btn btn-danger"
+            <td mat-cell *matCellDef="let element"> <button class="d-flex justify-content-center btn btn-primary"
                 mat-menu-item (click)="onDelete(element.position)">
                 <mat-icon>delete</mat-icon><span>Sil</span>
               </button></td>
@@ -96,9 +88,9 @@
           <!-- Symbol Column -->
           <ng-container matColumnDef="positionUpdateId">
             <th mat-header-cell *matHeaderCellDef> Güncelle </th>
-            <td mat-cell *matCellDef="let element"> <button class="d-flex justify-content-center btn btn-success "
+            <td mat-cell *matCellDef="let element"> <button class="d-flex justify-content-center btn btn-primary "
                 mat-menu-item (click)="onUpdate(element.position)">
-                <mat-icon>update</mat-icon><span>Güncelle</span>
+                <mat-icon class="btn-update-color">update</mat-icon><span>Güncelle</span>
               </button></td>
           </ng-container>
 
