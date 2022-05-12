@@ -1,3 +1,4 @@
+
 table {
     width: 100%;
   }
@@ -19,18 +20,13 @@ table {
   .add-button{
     background-color: white;
     color: dodgerblue;
-    margin-top: 15px;
-    margin-right: 10px;
+    margin-bottom: 20px;
     float: right;
-    font-size: 18px;
+    font-size: 16px;
     border: none;
-    width: 150px;
     height: 40px;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 5px;
   }
 
-  
-.btn-update-color{
-  color:aqua;
-}  
+

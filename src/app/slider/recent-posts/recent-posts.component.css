@@ -71,3 +71,7 @@ ul.post-info li a {
 ul.post-info li a:hover {
 	color: #4070f4;
 }
+
+.bottom-border{
+	border-bottom:solid 2px dodgerblue;
+}

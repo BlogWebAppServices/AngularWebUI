@@ -51,3 +51,6 @@
     font-size:18px;
   }
 
+  .bottom-border{
+    border-bottom:solid 2px dodgerblue;
+  }

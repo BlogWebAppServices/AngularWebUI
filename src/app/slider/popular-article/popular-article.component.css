@@ -81,3 +81,6 @@ ul.post-info li a:hover {
 	color : royalblue;
 	transition : all .5s;
 } 
+.bottom-border{
+	border-bottom:solid 2px dodgerblue;
+}
