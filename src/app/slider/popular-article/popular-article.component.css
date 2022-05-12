@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .popular-post{
     border-radius: 10px; 
     margin-bottom: 10px;
+	font-family: 'Roboto' sans-serif;
+	font-weight:200;
 }
 
 .popularpost-title{
@@ -71,3 +75,9 @@ ul.post-info li a {
 ul.post-info li a:hover {
 	color: #4070f4;
 }
+
+.example-card div:hover {
+	
+	color : royalblue;
+	transition : all .5s;
+} 

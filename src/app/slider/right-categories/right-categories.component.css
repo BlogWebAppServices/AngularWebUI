@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 .popular-post{
     border-radius: 10px; 
     margin-bottom: 10px;
@@ -17,4 +18,36 @@
 .categories-list{
     list-style-type: none;
     margin-left: -20px;
+
 }
+
+.categories-list span:hover {
+    
+    color : royalblue;
+    transition: all 0.4s ease-in-out;
+}
+
+
+/*   
+  .liHoverBorder:hover {
+    border-color: red;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent; 
+    box-shadow: 0px 1px 0 0px blue inset, 0px -1px 0 0px blue inset;
+  } */
+
+  ul li {
+    padding: 0.5px 0;
+ 
+  }
+  
+  ul li:hover {
+    padding-left: 2px;
+    font-weight: 600;
+    color: #add8e6;
+    font-size:18px;
+  }
+
