@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-
+import * as DecoupledEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 @Component({
-  
   selector: 'app-admin-create-article-dialog',
   templateUrl: './admin-create-article-dialog.component.html',
   styleUrls: ['./admin-create-article-dialog.component.css'],
@@ -14,8 +13,13 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 )
 export class AdminCreateArticleDialogComponent implements OnInit {
-  name = 'Angular 6';
-  htmlContent = '';
+  public Editor = DecoupledEditor;
+  public onReady( editor:any ) {
+    editor.ui.getEditableElement().parentElement.insertBefore(
+        editor.ui.view.toolbar.element,
+        editor.ui.getEditableElement()
+    );
+}
 
   constructor(
     private dialogRef: MatDialogRef<AdminCreateArticleDialogComponent>,
@@ -28,7 +32,6 @@ export class AdminCreateArticleDialogComponent implements OnInit {
         this.onCancel();
       }
     });
-    console.log(this.htmlContent);
 
   }
 
@@ -40,7 +43,7 @@ export class AdminCreateArticleDialogComponent implements OnInit {
   }
 
   editorConfig: AngularEditorConfig = {
-      editable: true,
+    editable: true,
       spellcheck: true,
       height: 'auto',
       minHeight: '0',
@@ -82,5 +85,6 @@ export class AdminCreateArticleDialogComponent implements OnInit {
 
     this.dialogRef.close();
   }
+
 
 }

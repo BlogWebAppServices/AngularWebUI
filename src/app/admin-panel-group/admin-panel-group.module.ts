@@ -27,7 +27,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -65,8 +65,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     AngularEditorModule, 
     FormsModule,
-    ReactiveFormsModule 
-
+    ReactiveFormsModule, 
+    CKEditorModule,
   ],
   schemas:[NO_ERRORS_SCHEMA]
   
