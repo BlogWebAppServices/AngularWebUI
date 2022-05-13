@@ -45,16 +45,12 @@
                     </label>
                 </div>
                 <div class="col-lg-12">
-                    <mat-form-field class="example-full-width" [style.fontSize]="16" appearance="fill">
-                        <mat-label>MAKALE İÇERİĞİ</mat-label>
-                        <textarea matInput cdkTextareaAutosize placeholder="Makale İçeriği" #autosize="cdkTextareaAutosize"
-                            #articleDetail required="" cdkAutosizeMinRows="28" cdkAutosizeMaxRows="25"></textarea>
-                    </mat-form-field>
+                    <angular-editor id="editor1" #articleDetail formControlName="htmlContent1" [config]="editorConfig">31</angular-editor>
                 </div>
             </div>
-            <div class="col-lg-12 savebutton-position">
+            <!-- <div class="col-lg-12 savebutton-position">
                 <button (click)="makaleKaydet(category.value,header.value,articleDetail.value)" class="btn btn-success save-button">Makeleyi Yayınla<i class="fa-solid fa-paper-plane" style="margin-left: 10px;"></i></button>
-            </div>
+            </div> -->
         </div>
     </form>
 </div>
