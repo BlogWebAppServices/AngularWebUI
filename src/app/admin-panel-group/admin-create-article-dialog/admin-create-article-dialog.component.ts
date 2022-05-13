@@ -14,6 +14,7 @@ import * as DecoupledEditor from '@ckeditor/ckeditor5-build-classic';
 )
 export class AdminCreateArticleDialogComponent implements OnInit {
   public Editor = DecoupledEditor;
+  textAreaData="";
   public onReady( editor:any ) {
     editor.ui.getEditableElement().parentElement.insertBefore(
         editor.ui.view.toolbar.element,

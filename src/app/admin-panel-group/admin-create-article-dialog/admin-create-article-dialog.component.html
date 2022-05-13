@@ -47,9 +47,12 @@
                 <div class="col-lg-12">
 
                     
-                    <ckeditor [editor]="Editor" data="<p>Hello, world!</p>" (ready)="onReady($event)"></ckeditor>
+                    <ckeditor [editor]="Editor" [(ngModel)]="textAreaData"
+                    [ngModelOptions]="{standalone: true}"
+                     (ready)="onReady($event)"></ckeditor>
 
                 </div>
+               <div> Text Alanı: {{  textAreaData }} </div> 
                 <div class="col-lg-12 savebutton-position">
                     <!-- <button (click)="makaleKaydet(category.value,header.value,htmlContent)"
                         class="btn btn-success save-button">Makeleyi Yayınla<i class="fa-solid fa-paper-plane"
