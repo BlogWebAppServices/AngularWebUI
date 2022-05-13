@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminPanelGroupRoutingModule } from './admin-panel-group-routing.module';
@@ -26,6 +26,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -62,9 +63,12 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     MatNativeDateModule,
     MatDatepickerModule,
     HttpClientModule,
-    AngularEditorModule,
+    AngularEditorModule, 
+    FormsModule,
+    ReactiveFormsModule 
 
   ],
+  schemas:[NO_ERRORS_SCHEMA]
   
 })
 export class AdminPanelGroupModule { }

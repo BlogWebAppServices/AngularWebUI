@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 
+
 @Component({
   
   selector: 'app-admin-create-article-dialog',
@@ -13,7 +14,8 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 )
 export class AdminCreateArticleDialogComponent implements OnInit {
-
+  name = 'Angular 6';
+  htmlContent = '';
 
   constructor(
     private dialogRef: MatDialogRef<AdminCreateArticleDialogComponent>,
@@ -26,6 +28,7 @@ export class AdminCreateArticleDialogComponent implements OnInit {
         this.onCancel();
       }
     });
+    console.log(this.htmlContent);
 
   }
 
@@ -37,7 +40,7 @@ export class AdminCreateArticleDialogComponent implements OnInit {
   }
 
   editorConfig: AngularEditorConfig = {
-    editable: true,
+      editable: true,
       spellcheck: true,
       height: 'auto',
       minHeight: '0',
