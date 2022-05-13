@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-create-article-dialog.component.css']
 })
 export class AdminCreateArticleDialogComponent implements OnInit {
-
+  
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   makaleKaydet(category:string ,header:string,articleDetail :string){

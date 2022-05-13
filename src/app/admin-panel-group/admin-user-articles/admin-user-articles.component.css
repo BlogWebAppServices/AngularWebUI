@@ -30,8 +30,7 @@ table {
 }
 
 .add-button:hover {
-  background-color: #198754;
-  color: white;
+  background-color: rgb(226, 226, 226);
   transition: 0.3s ease-in-out;
 }
 
@@ -125,4 +124,25 @@ table {
   padding-top: 20px;
   padding-left: 50px;
   margin-bottom: 5px;
+}
+
+.delete-button{
+  background-color: #DC3545;
+  border-color: #DC3545;
+}
+.update-button{
+  background-color: #28A745;
+  border-color: #28A745;
+}
+.delete-button:hover{
+  color: #DC3545;
+  background-color: transparent;
+  border-color: #DC3545;
+  transition: 0.3s ease-in-out;
+}
+.update-button:hover{
+  color: #28A745;
+  background-color: transparent;
+  border-color: #28A745;
+  transition: 0.3s ease-in-out;
 }

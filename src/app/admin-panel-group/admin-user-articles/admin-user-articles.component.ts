@@ -34,13 +34,16 @@ export class AdminUserArticlesComponent implements OnInit {
     
   }
 
-addArticle(){
-  this.dialog.open(AdminCreateArticleDialogComponent,{width: '250px'});
+addArticleDialog(){
+  this.dialog.open(AdminCreateArticleDialogComponent,{
+    width: '1000px',
+    height: '900px',
+  });
 
 }
 
 
-onDelete(Id:string){
+onDeleteDialog(Id:string){
   console.log(Id+"numaralı kayıt silindi.");
   if(confirm("Are you sure to delete "+Id)) {
     console.log("Implement delete functionality here");
@@ -49,10 +52,11 @@ onDelete(Id:string){
 }
 
 
-onUpdate(Id:string){
+onUpdateDialog(Id:string){
   console.log(Id+" numaralı kayıt güncellendi.");
   this.dialog.open(AdminArticleUpdateDialogComponent,{
-    width: '350px',
+    width: '750px',
+    height: '750px',
     data: Id
    
   
