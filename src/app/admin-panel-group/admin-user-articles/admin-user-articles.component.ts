@@ -38,6 +38,7 @@ addArticleDialog(){
   this.dialog.open(AdminCreateArticleDialogComponent,{
     width: '1000px',
     height: '900px',
+    disableClose: true
   });
 
 }
@@ -57,13 +58,14 @@ onUpdateDialog(Id:string){
   this.dialog.open(AdminArticleUpdateDialogComponent,{
     width: '750px',
     height: '750px',
+    disableClose: true,
     data: Id
    
   
   });
-
-
 }
+
+
 
 }
 

@@ -23,13 +23,25 @@ export class AdminArticleUpdateDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data);
+
+    this._dialogRef.keydownEvents().subscribe(event => {
+      if (event.key === "Escape") {
+        this.onCancelDialog();
+      }
+    });
+
     this.articleId = this.data;
   }
-
-  close(resutl:any){
-    this._dialogRef.close(resutl);
+  onCancelDialog() {
+    this._dialogRef.close();
   }
 
+  close(){
+    this._dialogRef.close();
+  }
+
+  makaleGuncelle(category:string,header:string,articleDetail:string){
+    console.log("Güncelle butona basıldı");
+  }
 
 }
