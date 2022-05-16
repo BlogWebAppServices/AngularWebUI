@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
   
-  public logo = ("../../../assets/img/logo1.png");
+  public logo = ("../../../assets/img/logowhite.png");
 
   constructor() { }
 

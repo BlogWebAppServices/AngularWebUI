@@ -7,7 +7,7 @@ import{MatToolbarModule} from '@angular/material/toolbar';
 })
 export class NavbarComponent implements OnInit {
 
-  public logo = ("../../../assets/img/logo1.png");
+  public logo = ("../../../assets/img/logowhite.png");
 
   constructor() { }
 

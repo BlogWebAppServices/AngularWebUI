@@ -1,25 +1,29 @@
 
 <div class="container">
-    <div class="row ">
-<div class="col-lg-3"></div>
-<div class="col-lg-6 align-items: center;">
-    <mat-card class="box">
-      <mat-card-header>
-        <mat-card-title class="align-items:center;">Log in</mat-card-title>
-      </mat-card-header>
-      <form class="example-form">
-        <mat-card-content>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username">
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password">
-          </mat-form-field>
-        </mat-card-content>
-        <button mat-stroked-button color="accent" class="btn-block center">Giriş yap</button>
-      </form>
-    </mat-card>
-    <div class="col-lg-3"></div>
-</div>
+  <div class="col-lg-4">
+    <div class="row">
+      <mat-card class="card-container">
+        <mat-card-header class="card-header">
+          <mat-card-title><img [src]="logo"/><h2 class="card-h2">Admin Panel <span style="color:black">| Giriş</span> </h2></mat-card-title>
+        </mat-card-header>
+        <form class="example-form">
+          <mat-card-content >
+            <div class="col-lg-12 card-content">
+              <mat-form-field class="example-full-width card-formfield"><i class="fa-solid fa-envelope form-icon"></i>
+                <input matInput placeholder="E-posta Adresi" type="email">
+              </mat-form-field>
+            </div>
+            <div class="col-lg-12 card-content">
+              <mat-form-field class="example-full-width card-formfield"><i class="fa-solid fa-lock form-icon"></i>
+                <input matInput placeholder="Şifre" type="password">
+              </mat-form-field>
+            </div>
+          </mat-card-content>
+          <div class="col-lg-12" style="display:flex; justify-content: center;">
+            <button mat-stroked-button class="login-button">Giriş yap</button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
   </div>
 </div>

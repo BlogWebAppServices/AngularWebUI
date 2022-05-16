@@ -1,0 +1,40 @@
+.container{
+    display:flex; 
+    justify-content: center;
+}
+
+.card-container{
+    margin-top: 50%;
+}
+.card-header{
+    background-color: white;
+    border-bottom: 3px; 
+    border-color: dodgerblue; 
+    border-style: solid; 
+    border-left:0; 
+    border-right:0; 
+    border-top: 0;
+}
+.card-content{
+    display:flex; 
+    justify-content: center;
+}
+.card-formfield{
+    width: 400px; 
+    margin-top: 20px;
+}
+.card-h2{
+    margin-top: 10px;
+    color: dodgerblue;
+}
+.form-icon{
+    float: right;
+}
+.login-button{
+    color:dodgerblue;
+    border-color: dodgerblue;
+}
+/* .login-button:hover{
+    color:green;
+    border-color: green;
+} */
