@@ -1,29 +1,30 @@
-
-<div class="container">
-  <div class="col-lg-4">
-    <div class="row">
-      <mat-card class="card-container">
-        <mat-card-header class="card-header">
-          <mat-card-title><img [src]="logo"/><h2 class="card-h2">Admin Panel <span style="color:black">| Giriş</span> </h2></mat-card-title>
-        </mat-card-header>
-        <form class="example-form">
-          <mat-card-content >
-            <div class="col-lg-12 card-content">
-              <mat-form-field class="example-full-width card-formfield"><i class="fa-solid fa-envelope form-icon"></i>
-                <input matInput placeholder="E-posta Adresi" type="email">
-              </mat-form-field>
+<div class="background">
+  <div class="container">
+    <div class="col-lg-4">
+      <div class="row">
+        <mat-card class="card-container">
+          <mat-card-header class="card-header">
+            <mat-card-title><img [src]="logo"/><h2 class="card-h2">Admin Panel <span style="color:black">| Giriş </span> <span style="color:black;"></span> </h2></mat-card-title>
+          </mat-card-header>
+          <form class="example-form">
+            <mat-card-content >
+              <div class="col-lg-12 card-content">
+                <mat-form-field class="example-full-width card-formfield"><i class="fa-solid fa-envelope form-icon"></i>
+                  <input matInput placeholder="E-posta Adresi" type="email">
+                </mat-form-field>
+              </div>
+              <div class="col-lg-12 card-content">
+                <mat-form-field class="example-full-width card-formfield"><i class="fa-solid fa-lock form-icon"></i>
+                  <input matInput placeholder="Şifre" type="password">
+                </mat-form-field>
+              </div>
+            </mat-card-content>
+            <div class="col-lg-12" style="display:flex; justify-content: center;">
+              <button mat-stroked-button class="login-button">Giriş yap  <i class="fa-solid fa-right-to-bracket"></i></button>
             </div>
-            <div class="col-lg-12 card-content">
-              <mat-form-field class="example-full-width card-formfield"><i class="fa-solid fa-lock form-icon"></i>
-                <input matInput placeholder="Şifre" type="password">
-              </mat-form-field>
-            </div>
-          </mat-card-content>
-          <div class="col-lg-12" style="display:flex; justify-content: center;">
-            <button mat-stroked-button class="login-button">Giriş yap</button>
-          </div>
-        </form>
-      </mat-card>
+          </form>
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>

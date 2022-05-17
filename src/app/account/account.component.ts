@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
   public logo = ("../../../assets/img/logoblack.png");
+  public bacgroundImage = ("../../../assets/img/adminloginbg1.jpg");
   constructor() { }
 
   ngOnInit(): void { 
