@@ -3,7 +3,70 @@ table {
   margin-top: 75px;
 }
 
+.userinfo{
+  margin-top: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: dodgerblue;
+  border-radius: 10px;
+}
+.userinfo-card{
+  height: auto;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #9F2B68;
+  border-radius: 10px;
+}
+.avatar {
+  margin-top: 16px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
 
+}
+.name {
+  font-size: 20px;
+  margin-top: 8px;
+  font-weight: bold;
+  color: #9F2B68;
+}
+.designation {
+  font-size:  15px;
+  color: #000000;
+  margin-top: -3px;
+  text-decoration: overline;
+}
+.designation-name{
+  color: #9F2B68;
+  font-size: 18px;
+  margin-top: 8px;
+  font-weight: normal;
+  margin-top: -5px;
+}
+.about{
+  padding-top: 20px;
+  padding-left: 15px;
+}
+.about-header{
+  font-size: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: dodgerblue;
+  border-radius: 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.about-content{
+  font-size: 16px;
+}
 .header-div {
   background-color: dodgerblue;
   margin-top: 30px;
@@ -61,26 +124,8 @@ table {
   font-size: 24px;
   margin-right: 10px;
 }
-
-.filterform-container {
-  height: 60px;
-}
-
-.filterform-border {
-  border-style: solid;
-  border-top: 0px;
-  border-width: 2px;
-  padding-bottom: 20px;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 5px;
-  border-color: dodgerblue;
-}
-
 .filterform-element {
   padding-top: 10px;
-  padding-left: 35px;
   margin-bottom: 5px;
   height: 50px;
   font-size: 6px;
@@ -122,7 +167,7 @@ table {
 
 .filterbutton-position {
   padding-top: 20px;
-  padding-left: 50px;
+  padding-left: 30px;
   margin-bottom: 5px;
 }
 
@@ -145,4 +190,9 @@ table {
   background-color: transparent;
   border-color: #28A745;
   transition: 0.3s ease-in-out;
+}
+
+.table-container{
+  margin-top: -50px;
+  margin-bottom: 20px;
 }
