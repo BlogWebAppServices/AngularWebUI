@@ -21,6 +21,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 // import { CategoriComponent } from './categori/categori.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ErrorPageComponent } from './error-page/error-page.component';
 // import { RecentPostsComponent } from './slider/recent-posts/recent-posts.component';
 // import { PopularArticleComponent } from './slider/popular-article/popular-article.component';
 // import { RightCategoriesComponent } from './slider/right-categories/right-categories.component';
@@ -41,6 +42,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
+    ErrorPageComponent,
     // AboutComponent,
     // AuthorProfileComponent,
     // ContactComponent,
@@ -70,6 +72,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

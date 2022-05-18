@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminCategoryListComponent } from './admin-category-list.component';
+import { ErrorPageComponent } from './error-page.component';
 
-describe('AdminCategoryListComponent', () => {
-  let component: AdminCategoryListComponent;
-  let fixture: ComponentFixture<AdminCategoryListComponent>;
+describe('ErrorPageComponent', () => {
+  let component: ErrorPageComponent;
+  let fixture: ComponentFixture<ErrorPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminCategoryListComponent ]
+      declarations: [ ErrorPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminCategoryListComponent);
+    fixture = TestBed.createComponent(ErrorPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

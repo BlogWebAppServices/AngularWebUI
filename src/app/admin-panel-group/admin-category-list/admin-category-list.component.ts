@@ -9,7 +9,9 @@ import { AdminCategoryCreateComponent } from '../admin-category-create-dialog/ad
 })
 export class AdminCategoryListComponent implements OnInit {
   panelOpenState = false;
-
+  IsEditable:boolean=true;
+  ButtonName:string="Düzenle";
+  IconName:string="fa-pen-to-square";
   headElements = ['position', 'name', 'weight', 'symbol'];
   elements: any = [
     {name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -30,9 +32,28 @@ export class AdminCategoryListComponent implements OnInit {
   }
 
   addCategory(){
-    this.dialog.open(AdminCategoryCreateComponent,{width: '250px'});
+    this.IsEditable=!this.IsEditable;
+    if(!this.IsEditable){
+         
+    this.IconName="fa-plus";
+    this.ButtonName="Güncelle";
+    }else{
+
+ 
+      this.IconName="fa-pen-to-square";
+      this.ButtonName="Düzenle";
+    }
+
+    //this.dialog.open(AdminCategoryCreateComponent,{width: '250px'});
 
 
+  }
+
+  cancelUpdate(){
+
+    this.IsEditable=!this.IsEditable;
+    this.IconName="fa-pen-to-square";
+    this.ButtonName="Düzenle";
   }
 
 }

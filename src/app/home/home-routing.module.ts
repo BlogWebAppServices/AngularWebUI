@@ -9,7 +9,9 @@ import { AuthorProfileComponent } from '../author-profile/author-profile.compone
 import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
+  //{ path: '**', redirectTo: '/home/article' },
   {
+    
     path: '', component: HomeComponent, children: [
 
       { path: 'article', component: ArticleComponent },

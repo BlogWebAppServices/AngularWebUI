@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorPageComponent } from './error-page/error-page.component';
 // import { HomeComponent } from './home/home/home.component';
 // import { ContactComponent } from './contact/contact.component';
 // import { AboutComponent } from './about/about.component';
@@ -30,6 +31,10 @@ const routes: Routes = [
   // { path: 'admin/user-detail', component: AdminUserDetailComponent },
   // { path: 'admin/user-articles', component: AdminUserArticlesComponent },
   { path: '', redirectTo: '/home/article', pathMatch: 'full' },
+  //default bir yere giderse
+
+  { path: 'default', component: ErrorPageComponent },
+
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'admin', loadChildren: () => import('./admin-panel-group/admin-panel-group.module').then(m => m.AdminPanelGroupModule) },
   { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },

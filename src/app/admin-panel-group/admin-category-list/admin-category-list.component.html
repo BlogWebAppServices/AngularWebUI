@@ -38,9 +38,17 @@
             <!-- Categories Panel Table -->
             <table class="category-table">
               <tr>
-                <td class="category-name">Eğitim</td>
+
+                <td class="category-name" *ngIf="IsEditable">Eğitim</td>
+                <mat-form-field class="formfield" *ngIf="!IsEditable" appearance="fill">
+                  <mat-label class="form-label">Kategori Adı</mat-label>
+                  <input matInput placeholder="Örn. Eğitim" class="form-input" />
+                </mat-form-field>
+
                 <td><a class="categoryupdate-link" (click)="addCategory()"><i
-                  class="fa-solid fa-pen-to-square aboutlink-icon"></i>Düzenle</a></td>
+                  class="fa-solid {{IconName}} aboutlink-icon"></i>{{ButtonName}}</a>
+                  <a class="categoryupdate-link" *ngIf="!IsEditable"(click)="cancelUpdate()"><i
+                    class="fa-solid {{IconName}} aboutlink-icon"></i>İptal Et</a></td>
               </tr>
               <tr>
                 <td class="category-name">Sanat</td>
