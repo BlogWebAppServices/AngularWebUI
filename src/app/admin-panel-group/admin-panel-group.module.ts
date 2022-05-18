@@ -28,6 +28,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 
@@ -62,6 +63,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     MatInputModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatExpansionModule,
     HttpClientModule,
     AngularEditorModule, 
     FormsModule,
