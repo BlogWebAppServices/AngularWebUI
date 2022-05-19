@@ -11,7 +11,6 @@ export class AdminCategoryListComponent implements OnInit {
   panelOpenState = false;
   IsEditable:boolean=true;
   ButtonName:string="Düzenle";
-  IconName:string="fa-pen-to-square";
   headElements = ['position', 'name', 'weight', 'symbol'];
   elements: any = [
     {name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -31,18 +30,17 @@ export class AdminCategoryListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addCategory(){
+  editCategory(){
     this.IsEditable=!this.IsEditable;
     if(!this.IsEditable){
-         
-    this.IconName="fa-plus";
-    this.ButtonName="Güncelle";
+
+    this.ButtonName="";
     }else{
 
  
-      this.IconName="fa-pen-to-square";
       this.ButtonName="Düzenle";
     }
+    
 
     //this.dialog.open(AdminCategoryCreateComponent,{width: '250px'});
 
@@ -52,8 +50,12 @@ export class AdminCategoryListComponent implements OnInit {
   cancelUpdate(){
 
     this.IsEditable=!this.IsEditable;
-    this.IconName="fa-pen-to-square";
     this.ButtonName="Düzenle";
   }
 
+  saveUpdate(){
+
+    this.IsEditable=!this.IsEditable;
+    this.ButtonName="Düzenle";
+  }
 }

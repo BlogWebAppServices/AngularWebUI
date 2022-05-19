@@ -38,32 +38,48 @@
             <!-- Categories Panel Table -->
             <table class="category-table">
               <tr>
-
                 <td class="category-name" *ngIf="IsEditable">Eğitim</td>
-                <mat-form-field class="formfield" *ngIf="!IsEditable" appearance="fill">
-                  <mat-label class="form-label">Kategori Adı</mat-label>
-                  <input matInput placeholder="Örn. Eğitim" class="form-input" />
-                </mat-form-field>
-
-                <td><a class="categoryupdate-link" (click)="addCategory()"><i
-                  class="fa-solid {{IconName}} aboutlink-icon"></i>{{ButtonName}}</a>
-                  <a class="categoryupdate-link" *ngIf="!IsEditable"(click)="cancelUpdate()"><i
-                    class="fa-solid {{IconName}} aboutlink-icon"></i>İptal Et</a></td>
+                <td *ngIf="!IsEditable"  class="categoryedit-area"><input matInput placeholder="Örn. Eğitim" class="categoryedit-input" />
+                </td>
+                <td><a class="categoryupdate-link" *ngIf="IsEditable" (click)="editCategory()"><i
+                  class="fa-solid fa-pen-to-square aboutlink-icon"></i>{{ButtonName}}</a>
+                  <a class="categorysave-link" *ngIf="!IsEditable"(click)="saveUpdate()"><i
+                    class="fa-solid fa-check aboutlink-icon"></i></a>
+                  <a class="categorycancel-link" *ngIf="!IsEditable"(click)="cancelUpdate()"><i
+                    class="fa-solid fa-xmark aboutlink-icon"></i></a></td>
               </tr>
               <tr>
-                <td class="category-name">Sanat</td>
-                <td><a class="categoryupdate-link" (click)="addCategory()"><i
-                  class="fa-solid fa-pen-to-square aboutlink-icon"></i>Düzenle</a></td>
+                <td class="category-name" *ngIf="IsEditable">Sanat</td>
+                <td *ngIf="!IsEditable"  class="categoryedit-area"><input matInput placeholder="Örn. Eğitim" class="categoryedit-input" />
+                </td>
+                <td><a class="categoryupdate-link" *ngIf="IsEditable" (click)="editCategory()"><i
+                  class="fa-solid fa-pen-to-square aboutlink-icon"></i>{{ButtonName}}</a>
+                  <a class="categorysave-link" *ngIf="!IsEditable"(click)="saveUpdate()"><i
+                    class="fa-solid fa-check aboutlink-icon"></i></a>
+                  <a class="categorycancel-link" *ngIf="!IsEditable"(click)="cancelUpdate()"><i
+                    class="fa-solid fa-xmark aboutlink-icon"></i></a></td>
               </tr>
               <tr>
-                <td class="category-name">Tarih</td>
-                <td><a class="categoryupdate-link" (click)="addCategory()"><i
-                  class="fa-solid fa-pen-to-square aboutlink-icon"></i>Düzenle</a></td>
+                <td class="category-name" *ngIf="IsEditable">Tarih</td>
+                <td *ngIf="!IsEditable"  class="categoryedit-area"><input matInput placeholder="Örn. Eğitim" class="categoryedit-input" />
+                </td>
+                <td><a class="categoryupdate-link" *ngIf="IsEditable" (click)="editCategory()"><i
+                  class="fa-solid fa-pen-to-square aboutlink-icon"></i>{{ButtonName}}</a>
+                  <a class="categorysave-link" *ngIf="!IsEditable"(click)="saveUpdate()"><i
+                    class="fa-solid fa-check aboutlink-icon"></i></a>
+                  <a class="categorycancel-link" *ngIf="!IsEditable"(click)="cancelUpdate()"><i
+                    class="fa-solid fa-xmark aboutlink-icon"></i></a></td>
               </tr>
               <tr>
-                <td class="category-name">Yazılım</td>
-                <td><a class="categoryupdate-link" (click)="addCategory()"><i
-                  class="fa-solid fa-pen-to-square aboutlink-icon"></i>Düzenle</a></td>
+                <td class="category-name" *ngIf="IsEditable">Yazılım</td>
+                <td *ngIf="!IsEditable"  class="categoryedit-area"><input matInput placeholder="Örn. Eğitim" class="categoryedit-input" />
+                </td>
+                <td><a class="categoryupdate-link" *ngIf="IsEditable" (click)="editCategory()"><i
+                  class="fa-solid fa-pen-to-square aboutlink-icon"></i>{{ButtonName}}</a>
+                  <a class="categorysave-link" *ngIf="!IsEditable"(click)="saveUpdate()"><i
+                    class="fa-solid fa-check aboutlink-icon"></i></a>
+                  <a class="categorycancel-link" *ngIf="!IsEditable"(click)="cancelUpdate()"><i
+                    class="fa-solid fa-xmark aboutlink-icon"></i></a></td>
               </tr>
             </table>
             <!-- Categories Panel TableEnd -->
@@ -219,6 +235,107 @@
       <!-- contact End-->
 
       <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+       <div class="col-lg-12 users">
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false" class="users-panel-border">
+             <!-- Users Panel Header-->
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="col-lg-12">
+                  <h3 class="users-header">Kullanıcı Yönetimi</h3>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <!-- Users Panel Header End-->
+            <div class="row">
+              <!-- Users Panel Table-->
+              <div class="col-lg-12">
+                <table>
+                  <tr>
+                    <th class="user-table-header">Adı</th>
+                    <th class="user-table-header">Soyadı</th>
+                    <th class="user-table-header">Doğum Tarihi</th>
+                    <th class="user-table-header">Kayıt Tarihi</th>
+                    <th class="user-table-header">Şehir</th>
+                    <th class="user-table-header">E-Pasta Adresi</th>
+                    <th class="user-table-header">Makale Sayısı</th>
+                    <th class="user-table-header">Yetki</th>
+                  </tr>
+                  <tr>
+                    <td class="user-table-content">Maria</td>
+                    <td class="user-table-content">Anders</td>
+                    <td class="user-table-content">12.04.2022</td>
+                    <td class="user-table-content">17.02.2022</td>
+                    <td class="user-table-content">Thun</td>
+                    <td class="user-table-content">maria@mail.com</td>
+                    <td class="user-table-content">45</td>
+                    <td class="user-table-content">Admin</td>
+                  </tr>
+                  <tr>
+                    <td class="user-table-content">Francisco</td>
+                    <td class="user-table-content">Chang</td>
+                    <td class="user-table-content">09.06.2003</td>
+                    <td class="user-table-content">24.03.2022</td>
+                    <td class="user-table-content">Sevilla</td>
+                    <td class="user-table-content">francisco@mail.com</td>
+                    <td class="user-table-content">49</td>
+                    <td class="user-table-content">Moderator</td>
+                  </tr>
+                  <tr>
+                    <td class="user-table-content">Roland</td>
+                    <td class="user-table-content">Mendel</td>
+                    <td class="user-table-content">14.11.1996</td>
+                    <td class="user-table-content">30.05.2024</td>
+                    <td class="user-table-content">Kingston</td>
+                    <td class="user-table-content">roland@mail.com</td>
+                    <td class="user-table-content">37</td>
+                    <td class="user-table-content">Moderator</td>
+                  </tr>
+                  <tr>
+                    <td class="user-table-content">Helen</td>
+                    <td class="user-table-content">Bennett</td>
+                    <td class="user-table-content">28.01.1985</td>
+                    <td class="user-table-content">08.12.2023</td>
+                    <td class="user-table-content">Prague</td>
+                    <td class="user-table-content">helen@mail.com</td>
+                    <td class="user-table-content">18</td>
+                    <td class="user-table-content">Moderator</td>
+                  </tr>
+                  <tr>
+                    <td class="user-table-content">Yoshi</td>
+                    <td class="user-table-content">Tannamuri</td>
+                    <td class="user-table-content">23.02.1993</td>
+                    <td class="user-table-content">16.09.2025</td>
+                    <td class="user-table-content">Osaka</td>
+                    <td class="user-table-content">yoshi@mail.com</td>
+                    <td class="user-table-content">22</td>
+                    <td class="user-table-content">Admin</td>
+                  </tr>
+                  <tr>
+                    <td class="user-table-content">Giovanni</td>
+                    <td class="user-table-content">Rovelli</td>
+                    <td class="user-table-content">13.09.2001</td>
+                    <td class="user-table-content">02.05.2022</td>
+                    <td class="user-table-content">Bilbao</td>
+                    <td class="user-table-content">giovanni@mail.com</td>
+                    <td class="user-table-content">14</td>
+                    <td class="user-table-content">Moderator</td>
+                  </tr>
+                </table>
+              </div>
+              <!-- Users Panel Table End-->
+              <!-- Users Panel Edit Button-->
+              <div class="col-lg-12">
+                <a href="" class="usersupdate-link"><i
+                  class="fa-solid fa-pen-to-square sociallink-icon"></i>Düzenle</a>
+              </div>
+              <!-- Users Panel Edit Buttton End-->
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
 
     </div>
   </div>
