@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminCategoryCreateComponent } from '../admin-category-create-dialog/admin-category-create.component';
+import {AllservicesApiService} from '../../allservices-api.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-admin-category-list',
@@ -8,6 +10,8 @@ import { AdminCategoryCreateComponent } from '../admin-category-create-dialog/ad
   styleUrls: ['./admin-category-list.component.css']
 })
 export class AdminCategoryListComponent implements OnInit {
+  
+  someInput: string="";
   panelOpenState = false;
   IsEditable:boolean=true;
   ButtonName:string="Düzenle";
@@ -25,9 +29,13 @@ export class AdminCategoryListComponent implements OnInit {
     {name: 'Neon', weight: 20.1797, symbol: 'Ne'},
   ];
 
-  constructor(public dialog:MatDialog) { }
+
+  categoryList$!:Observable<any[]>;
+
+  constructor(public dialog:MatDialog, private service:AllservicesApiService) { }
 
   ngOnInit(): void {
+    this.categoryList$ = this.service.getCategoryList();
   }
 
   editCategory(){
@@ -58,4 +66,9 @@ export class AdminCategoryListComponent implements OnInit {
     this.IsEditable=!this.IsEditable;
     this.ButtonName="Düzenle";
   }
+
+  addCategoryButton(someInput:string){
+    this.service.addCategory(someInput);
+  }
+
 }

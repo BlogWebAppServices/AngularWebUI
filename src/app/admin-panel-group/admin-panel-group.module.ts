@@ -1,3 +1,5 @@
+import { AllservicesApiService } from '../allservices-api.service';
+
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -69,6 +71,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     FormsModule,
     ReactiveFormsModule, 
     CKEditorModule,
+  ],
+  providers: [
+    AllservicesApiService,
   ],
   schemas:[NO_ERRORS_SCHEMA]
   
