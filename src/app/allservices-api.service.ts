@@ -121,4 +121,9 @@ export class AllservicesApiService {
 
   /* Article İşlemleri Alanı Sonu*/
 
+  /* export classes */
+  
+
+   /* export classes */
+
 }
