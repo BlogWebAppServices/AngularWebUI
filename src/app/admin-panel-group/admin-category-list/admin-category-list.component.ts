@@ -14,7 +14,8 @@ export class AdminCategoryListComponent implements OnInit {
 
   someInput: string = "";
   panelOpenState = false;
-  IsEditable: boolean = true;
+  IsEditableForCategory: boolean = true;
+  IsEditableForUser: boolean = true;
   categoryEditButton: string = "Düzenle";
   categoryDeleteButton: string = "Sil";
   categoryNewName:string="";
@@ -75,7 +76,7 @@ export class AdminCategoryListComponent implements OnInit {
   }
 
   editCategory(entity: any) {
-    entity.IsEditable = !entity.IsEditable;
+    entity.IsEditableForCategory = !entity.IsEditableForCategory;
     this.categoryNewName = entity.categoryName;
   }
 
@@ -100,29 +101,29 @@ export class AdminCategoryListComponent implements OnInit {
   }
 
   editUser() {
-    this.IsEditable = !this.IsEditable;
+    this.IsEditableForUser = !this.IsEditableForUser;
   }
   addUser() {
-    this.IsEditable = !this.IsEditable;
-    if (!this.IsEditable) {
+    this.IsEditableForUser = !this.IsEditableForUser;
+    if (!this.IsEditableForUser) {
     }
 
   }
 
   cancelUpdate(entity: any) {
 
-    entity.IsEditable = !entity.IsEditable;
+    entity.IsEditableForUser = !entity.IsEditableForUser;
   }
 
   saveUpdate(entity: any) {
-    entity.IsEditable = !entity.IsEditable;
+    entity.IsEditableForUser = !entity.IsEditableForUser;
   }
 
   saveUserUpdate(){}
 
   cancelUserUpdate() {
 
-    this.IsEditable = !this.IsEditable;
+    this.IsEditableForUser = !this.IsEditableForUser;
   }
 
   saveUpdateCategoryClickEvent(category:any) {
