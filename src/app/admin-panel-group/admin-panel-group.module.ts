@@ -1,4 +1,4 @@
-import { AllservicesApiService } from '../allservices-api.service';
+import { Client } from '../allservices-api.service';
 
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -73,7 +73,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     CKEditorModule,
   ],
   providers: [
-    AllservicesApiService,
+    Client,
   ],
   schemas:[NO_ERRORS_SCHEMA]
   

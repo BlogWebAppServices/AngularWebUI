@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AllservicesApiService } from './allservices-api.service';
+import { Client } from './allservices-api.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +27,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 
   ],
   providers: [
-    AllservicesApiService,
+    Client,
   ],
   bootstrap: [AppComponent]
 })

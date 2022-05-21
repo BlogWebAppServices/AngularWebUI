@@ -3,14 +3,14 @@
   <div class="col-lg-12">
     <div class="row">
 
-       <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+      <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
       <!-- Categories -->
       <div class="col-lg-4 categories">
         <!-- Categories Panel -->
         <mat-accordion>
-          <mat-expansion-panel (opened)="panelOpenState = true"
-                               (closed)="panelOpenState = false" class="categories-panel-border">
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+            class="categories-panel-border">
             <!-- Categories Panel Header -->
             <mat-expansion-panel-header>
               <mat-panel-title>
@@ -25,11 +25,12 @@
               <div class="col-lg-9 ">
                 <mat-form-field class="formfield" appearance="fill">
                   <mat-label class="form-label">Kategori Adı</mat-label>
-                  <input matInput placeholder="Örn. Eğitim" class="form-input" name="someInput" [(ngModel)]="someInput"/>
+                  <input matInput placeholder="Örn. Eğitim" class="form-input" name="someInput"
+                    [(ngModel)]="someInput" />
                 </mat-form-field>
               </div>
               <div class="col-lg-3">
-                <button class="d-fle btn btn-success categoryadd-button" (click)="addCategoryButton(someInput)">
+                <button class="d-fle btn btn-success categoryadd-button" (click)="addCategoryClickEvent()">
                   <span><i class="fa-solid fa-plus"></i> Ekle</span>
                 </button>
               </div>
@@ -38,15 +39,19 @@
             <!-- Categories Panel Table -->
             <table class="category-table">
               <tr *ngFor="let item of categoryList$|async">
-                <td class="category-name" *ngIf="IsEditable">{{item.categoryName}}</td>
-                <td *ngIf="!IsEditable"  class="categoryedit-area"><input matInput placeholder="Örn. Eğitim" class="categoryedit-input" />
+                <td class="category-name" *ngIf="!item.IsEditable">{{item.categoryName}}</td>
+                <td *ngIf="item.IsEditable" class="categoryedit-area"><input matInput [(ngModel)]="categoryNewName" value="{{item.categoryName}}"
+                    class="categoryedit-input" />
                 </td>
-                <td><a class="categoryupdate-link" *ngIf="IsEditable" (click)="editCategory()"><i
-                  class="fa-solid fa-pen-to-square aboutlink-icon"></i>{{ButtonName}}</a>
-                  <a class="categorysave-link" *ngIf="!IsEditable"(click)="saveUpdate()"><i
-                    class="fa-solid fa-check aboutlink-icon"></i></a>
-                  <a class="categorycancel-link" *ngIf="!IsEditable"(click)="cancelUpdate()"><i
-                    class="fa-solid fa-xmark aboutlink-icon"></i></a></td>
+                <td><a class="categoryupdate-link" *ngIf="!item.IsEditable" (click)="editCategory(item)"><i
+                      class="fa-solid fa-pen-to-square aboutlink-icon"></i>{{categoryEditButton}}</a>
+                      <a class="categorydelete-link" *ngIf="!item.IsEditable" (click)="deleteCategoryClickEvent(item)"><i
+                        class="fa-solid fa-trash aboutlink-icon"></i>{{categoryDeleteButton}}</a>
+                  <a class="categorysave-link" *ngIf="item.IsEditable" (click)="saveUpdateCategoryClickEvent(item)"><i
+                      class="fa-solid fa-check aboutlink-icon"></i></a>
+                  <a class="categorycancel-link" *ngIf="item.IsEditable" (click)="cancelUpdate(item)"><i
+                      class="fa-solid fa-xmark aboutlink-icon"></i></a>
+                </td>
               </tr>
             </table>
             <!-- Categories Panel TableEnd -->
@@ -62,31 +67,40 @@
       <div class="col-lg-8 about">
         <!-- About Panel-->
         <mat-accordion>
-          <mat-expansion-panel (opened)="panelOpenState = true"
-                               (closed)="panelOpenState = false" class="about-panel-border">
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+            class="about-panel-border">
             <!-- About Panel Header -->
             <mat-expansion-panel-header>
               <mat-panel-title>
-                <div class="col-lg-12"> 
+                <div class="col-lg-12">
                   <h3 class="about-header">Hakkında</h3>
                 </div>
               </mat-panel-title>
             </mat-expansion-panel-header>
-             <!-- About Panel Header End-->
+            <!-- About Panel Header End-->
             <div class="row">
-             <!-- About Panel Content -->
+              <!-- About Panel Content -->
               <div class="col-lg-12">
-                <p class="about-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eligendi voluptas atque, alias non optio quos pariatur eaque laudantium obcaecati sed inventore totam deleniti similique nobis facere ut unde reprehenderit.
-                  Obcaecati officia, impedit tempora iure laudantium consequatur reiciendis cumque soluta quisquam modi! Maiores ut blanditiis tempore illo. Unde reiciendis non perferendis recusandae neque ab? Commodi accusamus magnam asperiores fuga eos.
-                  Nesciunt quae nisi, architecto vero quo illo aliquid repellat unde quibusdam quidem amet expedita velit nemo? Laborum consectetur perspiciatis odit impedit at, possimus commodi accusamus, cumque, enim nobis ullam veritatis.
-                  Adipisci aperiam quia asperiores cumque ducimus velit consectetur numquam fugiat, repellendus consequatur at ea dolore. Optio nesciunt unde delectus repellendus, possimus ipsa magnam blanditiis, fugit veritatis doloremque, recusandae quaerat ipsum!
-                  Ratione quo dolore assumenda sit enim nemo obcaecati quia recusandae fugit aliquid et iusto voluptates, atque a nam odit provident pariatur vel similique necessitatibus ad. Tempore quod repudiandae mollitia neque.</p>
+                <p class="about-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eligendi
+                  voluptas atque, alias non optio quos pariatur eaque laudantium obcaecati sed inventore totam deleniti
+                  similique nobis facere ut unde reprehenderit.
+                  Obcaecati officia, impedit tempora iure laudantium consequatur reiciendis cumque soluta quisquam modi!
+                  Maiores ut blanditiis tempore illo. Unde reiciendis non perferendis recusandae neque ab? Commodi
+                  accusamus magnam asperiores fuga eos.
+                  Nesciunt quae nisi, architecto vero quo illo aliquid repellat unde quibusdam quidem amet expedita
+                  velit nemo? Laborum consectetur perspiciatis odit impedit at, possimus commodi accusamus, cumque, enim
+                  nobis ullam veritatis.
+                  Adipisci aperiam quia asperiores cumque ducimus velit consectetur numquam fugiat, repellendus
+                  consequatur at ea dolore. Optio nesciunt unde delectus repellendus, possimus ipsa magnam blanditiis,
+                  fugit veritatis doloremque, recusandae quaerat ipsum!
+                  Ratione quo dolore assumenda sit enim nemo obcaecati quia recusandae fugit aliquid et iusto
+                  voluptates, atque a nam odit provident pariatur vel similique necessitatibus ad. Tempore quod
+                  repudiandae mollitia neque.</p>
               </div>
               <!-- About Panel Content End-->
               <!-- About Panel Edit Button -->
               <div class="col-lg-12">
-                <a href="" class="aboutupdate-link"><i
-                  class="fa-solid fa-pen-to-square aboutlink-icon"></i>Düzenle</a>
+                <a href="" class="aboutupdate-link"><i class="fa-solid fa-pen-to-square aboutlink-icon"></i>Düzenle</a>
               </div>
               <!-- About Panel Edit Button End-->
             </div>
@@ -102,9 +116,9 @@
       <div class="col-lg-4 social">
         <!-- Social Panel-->
         <mat-accordion>
-          <mat-expansion-panel (opened)="panelOpenState = true"
-                               (closed)="panelOpenState = false" class="social-panel-border">
-            <!-- Social Panel Header -->                  
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+            class="social-panel-border">
+            <!-- Social Panel Header -->
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <div class="col-lg-12">
@@ -112,36 +126,40 @@
                 </div>
               </mat-panel-title>
             </mat-expansion-panel-header>
-            <!-- Social Panel Header End--> 
+            <!-- Social Panel Header End-->
             <div class="row">
-              <!-- Social Panel Table --> 
+              <!-- Social Panel Table -->
               <div class="col-lg-12">
                 <table>
                   <tr>
                     <th class="social-icon"><i class="fa-brands fa-facebook-square"></i></th>
-                    <td class="social-link"><a href="https://www.facebook.com" target="_blank" class="sociallink-center">Facebook</a></td>
+                    <td class="social-link"><a href="https://www.facebook.com" target="_blank"
+                        class="sociallink-center">Facebook</a></td>
                   </tr>
                   <tr>
                     <th class="social-icon"><i class="fa-brands fa-twitter-square"></i></th>
-                    <td class="social-link"><a href="https://www.twitter.com" target="_blank" class="sociallink-center">Twitter</a></td>
+                    <td class="social-link"><a href="https://www.twitter.com" target="_blank"
+                        class="sociallink-center">Twitter</a></td>
                   </tr>
                   <tr>
                     <th class="social-icon"><i class="fa-brands fa-linkedin"></i></th>
-                    <td class="social-link"><a href="https://www.linkedin.com" target="_blank" class="sociallink-center">Linkedin</a></td>
+                    <td class="social-link"><a href="https://www.linkedin.com" target="_blank"
+                        class="sociallink-center">Linkedin</a></td>
                   </tr>
                   <tr>
                     <th class="social-icon"><i class="fa-brands fa-instagram-square"></i></th>
-                    <td class="social-link"><a href="https://www.instagram.com" target="_blank" class="sociallink-center">Instagram</a></td>
+                    <td class="social-link"><a href="https://www.instagram.com" target="_blank"
+                        class="sociallink-center">Instagram</a></td>
                   </tr>
                 </table>
               </div>
-              <!-- Social Panel Table End --> 
-              <!-- Social Panel Edit Button --> 
+              <!-- Social Panel Table End -->
+              <!-- Social Panel Edit Button -->
               <div class="col-lg-12">
                 <a href="" class="socialupdate-link"><i
-                  class="fa-solid fa-pen-to-square sociallink-icon"></i>Düzenle</a>
+                    class="fa-solid fa-pen-to-square sociallink-icon"></i>Düzenle</a>
               </div>
-              <!-- Social Panel Edit End --> 
+              <!-- Social Panel Edit End -->
             </div>
           </mat-expansion-panel>
         </mat-accordion>
@@ -149,15 +167,15 @@
       </div>
       <!-- Social End-->
 
-       <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+      <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
       <!-- Contact-->
       <div class="col-lg-8 contact">
         <!-- Social Panel -->
         <mat-accordion>
-          <mat-expansion-panel (opened)="panelOpenState = true"
-                               (closed)="panelOpenState = false" class="contact-panel-border">
-             <!-- Social Panel Header-->
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+            class="contact-panel-border">
+            <!-- Social Panel Header-->
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <div class="col-lg-12">
@@ -183,7 +201,8 @@
                   <tr>
                     <th class="contact-icon"><i class="fa-solid fa-location-dot"></i></th>
                     <td class="contact-type">Adres</td>
-                    <td class="contact-link"><span class="contactlink-center">123 Aenean id posuere dui, Praesent laoreet 10660</span></td>
+                    <td class="contact-link"><span class="contactlink-center">123 Aenean id posuere dui, Praesent
+                        laoreet 10660</span></td>
                   </tr>
                 </table>
               </div>
@@ -191,7 +210,7 @@
               <!-- Social Panel Edit Button-->
               <div class="col-lg-12">
                 <a href="" class="contactupdate-link"><i
-                  class="fa-solid fa-pen-to-square sociallink-icon"></i>Düzenle</a>
+                    class="fa-solid fa-pen-to-square sociallink-icon"></i>Düzenle</a>
               </div>
               <!-- Social Panel Edit Buttton End-->
             </div>
@@ -203,11 +222,11 @@
 
       <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-       <div class="col-lg-12 users">
+      <div class="col-lg-12 users">
         <mat-accordion>
-          <mat-expansion-panel (opened)="panelOpenState = true"
-                               (closed)="panelOpenState = false" class="users-panel-border">
-             <!-- Users Panel Header-->
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+            class="users-panel-border">
+            <!-- Users Panel Header-->
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <div class="col-lg-12">
@@ -217,9 +236,10 @@
             </mat-expansion-panel-header>
             <!-- Users Panel Header End-->
             <div class="row">
-              <!-- Users Panel Table-->
               <div class="col-lg-12">
+                <!-- Users Panel Table-->
                 <table>
+                  <!-- Table Column Header -->
                   <tr>
                     <th class="user-table-header">Adı</th>
                     <th class="user-table-header">Soyadı</th>
@@ -227,89 +247,226 @@
                     <th class="user-table-header">Kayıt Tarihi</th>
                     <th class="user-table-header">Şehir</th>
                     <th class="user-table-header">E-Pasta Adresi</th>
+                    <th class="user-table-header">Telefon</th>
                     <th class="user-table-header">Makale Sayısı</th>
                     <th class="user-table-header">Yetki</th>
+                    <th class="user-table-header">Durum</th>
+                    <td class="user-table-content"></td>
+                    <td class="user-table-content"></td>
                   </tr>
+                  <!-- Table Column Header End -->
+                  <!-- Users and Useredit Table Columns -->
+                  <tr *ngFor="let item of userList$|async">
+                    <!-- Table Name Column-->
+                    <td class="user-table-content" *ngIf="IsEditable">{{item.name}}</td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput value="{{item.name}}"
+                        class="useredit-input" />
+                    </td>
+                    <!-- Table Name Column End-->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Surname Column-->
+                    <td class="user-table-content" *ngIf="IsEditable">{{item.surname}}</td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput value="{{item.surname}}"
+                        class="useredit-input" />
+                    </td>
+                    <!-- Table Surname Column End-->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Birthdate Column-->
+                    <td class="user-table-content" *ngIf="IsEditable">{{item.birhtdate}}</td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput value="{{item.birthdate}}"
+                        class="useredit-input" type="date" />
+                    </td>
+                    <!-- Table Birthdate Column End-->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Createdate Column-->
+                    <td class="user-table-content" *ngIf="IsEditable">{{item.createdate}}</td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput value="{{item.createdate}}"
+                        class="useredit-input" type="date" disabled />
+                    </td>
+                    <!-- Table Createdate Column End-->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table City Column-->
+                    <td class="user-table-content" *ngIf="IsEditable">Thun</td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput value="Thun" class="useredit-input" />
+                    </td>
+                    <!-- Table City Column End-->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Email Column-->
+                    <td class="user-table-content" *ngIf="IsEditable">{{item.email}}</td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput value="{{item.email}}"
+                        class="useredit-input" />
+                    </td>
+                    <!-- Table Email Column End-->
+
+                    <!-- Table Email Column-->
+                    <td class="user-table-content" *ngIf="IsEditable">{{item.phone}}</td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput value="{{item.phone}}"
+                        class="useredit-input" />
+                    </td>
+                    <!-- Table Email Column End-->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Articles Column-->
+                    <td class="user-table-content" *ngIf="IsEditable">45</td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput value="45" class="useredit-input" />
+                    </td>
+                    <!-- Table Articles Column End-->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table PermissionLevel Column-->
+                    <td class="user-table-content" *ngIf="IsEditable">{{item.permissionLevelId}}</td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput value="{{item.permissionLevelId}}"
+                        class="useredit-input" />
+                    </td>
+                    <!-- Table PermissionLevel Column End-->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Status Column-->
+                    <td class="user-table-content" *ngIf="IsEditable">Aktif</td>
+                    <td *ngIf="!IsEditable" class="useredit-area">
+                      <label class="switch">
+                        <input class="avtiveSelect" type="checkbox" checked>
+                        <span class="slider round"></span>
+                      </label>                      
+                    </td>
+                    <!-- Table Status Column End-->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table User Edit And Save Update Link Column-->
+                    <td class="user-table-content">
+                      <a *ngIf="IsEditable" (click)="editUser()" class="useredit-link"><i
+                          class="fa-solid fa-square-pen"></i></a>
+                      <a class="usersave-link" *ngIf="!IsEditable" (click)="saveUserUpdate()"><i
+                          class="fa-solid fa-check aboutlink-icon"></i></a>
+                    </td>
+                    <!-- Table User Edit And Save Update Link Column End-->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Go User Profile and Cancel Link Column-->
+                    <td class="user-table-content" *ngIf="IsEditable"><a href="" class="userprofile-link"><i
+                          class="fa-solid fa-eye"></i></a></td>
+                    <td class="user-table-content" *ngIf="!IsEditable"><a class="usercancel-link" *ngIf="!IsEditable"
+                        (click)="cancelUserUpdate()"><i class="fa-solid fa-xmark aboutlink-icon"></i></a></td>
+                    <!-- Table Go User Profile and Cancel Link Column-->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+                  </tr>
+                  <!-- Users and Useredit Table Columns -->
+
+
+                   <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+                   <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                  <!-- Add User Table Columns -->
                   <tr>
-                    <td class="user-table-content">Maria</td>
-                    <td class="user-table-content">Anders</td>
-                    <td class="user-table-content">12.04.2022</td>
-                    <td class="user-table-content">17.02.2022</td>
-                    <td class="user-table-content">Thun</td>
-                    <td class="user-table-content">maria@mail.com</td>
-                    <td class="user-table-content">45</td>
-                    <td class="user-table-content">Admin</td>
+                    <!-- Table Add Name Column -->
+                    <td class="user-table-content" *ngIf="IsEditable"></td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput placeholder="Adı"
+                        class="useredit-input" />
+                    </td>
+                    <!-- Table Add Name Column End -->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Add Surname Column -->
+                    <td class="user-table-content" *ngIf="IsEditable"></td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput placeholder="Soyadı"
+                        class="useredit-input" />
+                    </td>
+                    <!-- Table Add Surname Column End -->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Add Birthdate Column -->
+                    <td class="user-table-content" *ngIf="IsEditable"></td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput placeholder="Doğum Tarihi"
+                        class="useredit-input" type="date" />
+                    </td>
+                    <!-- Table Add Birthdate Column End -->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Add City Column -->
+                    <td class="user-table-content" *ngIf="IsEditable"></td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput placeholder="Şehir"
+                        class="useredit-input" type="date" disabled />
+                    </td>
+                    <!-- Table Add City Column End -->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Add Email Column -->
+                    <td class="user-table-content" *ngIf="IsEditable"></td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput placeholder="E-posta Adresi"
+                        class="useredit-input" />
+                    </td>
+                    <!-- Table Add Email Column End -->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                    <!-- Table Add Password Column -->
+                    <td class="user-table-content" *ngIf="IsEditable"></td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput placeholder="Şifre" type="password"
+                        class="useredit-input" />
+                    </td>
+                    <!-- Table Add Password Column End -->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+                    
+                    <!-- Table Add Permission Level Column -->
+                    <td class="user-table-content" *ngIf="IsEditable"></td>
+                    <td *ngIf="!IsEditable" class="useredit-area"><input matInput placeholder="yetki"
+                        class="useredit-input" />
+                    </td>
+                    <!-- Table Add Permission Level Column End -->
+
+                    <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+                    
+                    <td class="user-table-content">
+                    </td>
+                    <td class="user-table-content">
+                    </td>
+                    <td class="user-table-content">
+                    </td>
+                    <!-- Table Add and Save Links -->
+                    <td class="user-table-content">
+                      <a *ngIf="IsEditable" (click)="addUser()" class="useradd-link">
+                        <i class="fa-solid fa-square-plus"></i></a>
+                      <a class="usersave-link" *ngIf="!IsEditable" (click)="saveUserUpdate()">
+                        <i class="fa-solid fa-check aboutlink-icon"></i></a>
+                    </td>
+                    <!-- Table Add and Save Links End -->
+                    <td class="user-table-content" *ngIf="!IsEditable">
+                      <a class="usercancel-link" *ngIf="!IsEditable" (click)="cancelUserUpdate()">
+                        <i class="fa-solid fa-xmark aboutlink-icon"></i></a>
+                    </td>
                   </tr>
-                  <tr>
-                    <td class="user-table-content">Francisco</td>
-                    <td class="user-table-content">Chang</td>
-                    <td class="user-table-content">09.06.2003</td>
-                    <td class="user-table-content">24.03.2022</td>
-                    <td class="user-table-content">Sevilla</td>
-                    <td class="user-table-content">francisco@mail.com</td>
-                    <td class="user-table-content">49</td>
-                    <td class="user-table-content">Moderator</td>
-                  </tr>
-                  <tr>
-                    <td class="user-table-content">Roland</td>
-                    <td class="user-table-content">Mendel</td>
-                    <td class="user-table-content">14.11.1996</td>
-                    <td class="user-table-content">30.05.2024</td>
-                    <td class="user-table-content">Kingston</td>
-                    <td class="user-table-content">roland@mail.com</td>
-                    <td class="user-table-content">37</td>
-                    <td class="user-table-content">Moderator</td>
-                  </tr>
-                  <tr>
-                    <td class="user-table-content">Helen</td>
-                    <td class="user-table-content">Bennett</td>
-                    <td class="user-table-content">28.01.1985</td>
-                    <td class="user-table-content">08.12.2023</td>
-                    <td class="user-table-content">Prague</td>
-                    <td class="user-table-content">helen@mail.com</td>
-                    <td class="user-table-content">18</td>
-                    <td class="user-table-content">Moderator</td>
-                  </tr>
-                  <tr>
-                    <td class="user-table-content">Yoshi</td>
-                    <td class="user-table-content">Tannamuri</td>
-                    <td class="user-table-content">23.02.1993</td>
-                    <td class="user-table-content">16.09.2025</td>
-                    <td class="user-table-content">Osaka</td>
-                    <td class="user-table-content">yoshi@mail.com</td>
-                    <td class="user-table-content">22</td>
-                    <td class="user-table-content">Admin</td>
-                  </tr>
-                  <tr>
-                    <td class="user-table-content">Giovanni</td>
-                    <td class="user-table-content">Rovelli</td>
-                    <td class="user-table-content">13.09.2001</td>
-                    <td class="user-table-content">02.05.2022</td>
-                    <td class="user-table-content">Bilbao</td>
-                    <td class="user-table-content">giovanni@mail.com</td>
-                    <td class="user-table-content">14</td>
-                    <td class="user-table-content">Moderator</td>
-                  </tr>
+                  <!-- Add User Table Columns End-->
                 </table>
+                <!-- Users Panel Table End-->
               </div>
-              <!-- Users Panel Table End-->
-              <!-- Users Panel Edit Button-->
-              <div class="col-lg-12">
-                <a href="" class="usersupdate-link"><i
-                  class="fa-solid fa-pen-to-square sociallink-icon"></i>Düzenle</a>
-              </div>
-              <!-- Users Panel Edit Buttton End-->
             </div>
           </mat-expansion-panel>
         </mat-accordion>
       </div>
-
     </div>
   </div>
 </div>
-
-
-
 
 
 

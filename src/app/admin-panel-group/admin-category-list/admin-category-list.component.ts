@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminCategoryCreateComponent } from '../admin-category-create-dialog/admin-category-create.component';
-import {AllservicesApiService} from '../../allservices-api.service';
+import { Client } from '../../allservices-api.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,65 +11,137 @@ import { Observable } from 'rxjs';
   styleUrls: ['./admin-category-list.component.css']
 })
 export class AdminCategoryListComponent implements OnInit {
-  
-  someInput: string="";
+
+  someInput: string = "";
   panelOpenState = false;
-  IsEditable:boolean=true;
-  ButtonName:string="Düzenle";
-  headElements = ['position', 'name', 'weight', 'symbol'];
-  elements: any = [
-    {name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {name: 'Boron', weight: 10.811, symbol: 'B'},
-    {name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  ];
+  IsEditable: boolean = true;
+  categoryEditButton: string = "Düzenle";
+  categoryDeleteButton: string = "Sil";
+  categoryNewName:string="";
+  categoryList$!: Observable<any[]>;
+  userList$!: Observable<any[]>;
+  // Map to display data associate with foreign keys
+  inspectionTypesMap: Map<number, string> = new Map()
+
+  constructor(
+    public dialog: MatDialog, 
+    private service: Client
+    ) { }
+
+  @Input() categoryclass:any;
+  id: number = 0;
+  categoryName: string = "";
+  createDate: Date = new Date();
+  updateDate: Date | undefined;
+  createUserId!: number;
+  updateUserId: number|undefined;
+  isDeleted!: boolean;
+  isActive!: boolean;
+  
 
 
-  categoryList$!:Observable<any[]>;
-
-  constructor(public dialog:MatDialog, private service:AllservicesApiService) { }
 
   ngOnInit(): void {
-    this.categoryList$ = this.service.getCategoryList();
-  }
-
-  editCategory(){
-    this.IsEditable=!this.IsEditable;
-    if(!this.IsEditable){
-
-    this.ButtonName="";
-    }else{
-
+    this.onload();
+    // this.id = this.categoryclass.id;
+    // this.categoryName = this.categoryclass.categoryName;
+    // this.createDate = this.categoryclass.createDate;
+    // this.updateDate = this.categoryclass.updateDate;
+    // this.createUserId = this.categoryclass.createUserIdd;
+    // this.updateUserId = this.categoryclass.updateUserId;
+    // this.isDeleted = this.categoryclass.isDeleted;
+    // this.isActive = this.categoryclass.isActive;
  
-      this.ButtonName="Düzenle";
+  }
+
+  onload() {
+    this.categoryList$ = this.service.getCategoryList();
+    this.userList$ = this.service.getUserList();
+  }
+  addCategoryClickEvent() {
+    var categoryclass = {
+      Id : 0,
+      categoryName:this.someInput,
+      createDate :new Date(),
+      createUserId:1,
+      isDeleted:false,
+      isActive:true
     }
-    
-
-    //this.dialog.open(AdminCategoryCreateComponent,{width: '250px'});
-
+    this.service.addCategory(categoryclass).subscribe(res => {
+      this.onload();
+      this.someInput = "";
+    });
 
   }
 
-  cancelUpdate(){
-
-    this.IsEditable=!this.IsEditable;
-    this.ButtonName="Düzenle";
+  editCategory(entity: any) {
+    entity.IsEditable = !entity.IsEditable;
+    this.categoryNewName = entity.categoryName;
   }
 
-  saveUpdate(){
 
-    this.IsEditable=!this.IsEditable;
-    this.ButtonName="Düzenle";
+  deleteCategoryClickEvent(item: any) {
+    if (confirm(`Are you sure you want to delete inspection ${item.id}`)) {
+      var categoryclass = {
+        id:item.id,
+        categoryName:item.categoryNewName,
+        createDate :item.createDate,
+        createUserId:item.createUserId,
+        updateDate :item.updateDate,
+        updateUserId:item.updateUserId,
+        isDeleted:true,
+        isActive:true
+      }
+
+      this.service.updateCategory(item.id,categoryclass).subscribe(res => {
+        this.onload();
+      })
+    }
   }
 
-  addCategoryButton(someInput:string){
-    this.service.addCategory(someInput);
+  editUser() {
+    this.IsEditable = !this.IsEditable;
+  }
+  addUser() {
+    this.IsEditable = !this.IsEditable;
+    if (!this.IsEditable) {
+    }
+
+  }
+
+  cancelUpdate(entity: any) {
+
+    entity.IsEditable = !entity.IsEditable;
+  }
+
+  saveUpdate(entity: any) {
+    entity.IsEditable = !entity.IsEditable;
+  }
+
+  saveUserUpdate(){}
+
+  cancelUserUpdate() {
+
+    this.IsEditable = !this.IsEditable;
+  }
+
+  saveUpdateCategoryClickEvent(category:any) {
+
+    var categoryclass = {
+      id:category.id,
+      categoryName:this.categoryNewName,
+      createDate :category.createDate,
+      createUserId:category.createUserId,
+      updateDate :new Date(),
+      updateUserId:1,
+      isDeleted:false,
+      isActive:true
+    }
+
+    this.service.updateCategory(category.id,categoryclass).subscribe(res => {
+      this.onload();
+      this.someInput = "";
+    });
   }
 
 }

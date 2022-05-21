@@ -3,17 +3,79 @@ table {
     border-collapse: collapse;
     font-size: 20px;
     width: 100%;
-  }
-  
-  td, th {
+}
+
+td,
+th {
     border: 1px solid #dddddd;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+    margin-left: 8px;
   }
   
-  tr:nth-child(even) {
-    background-color: #dddddd;
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .avtiveSelect:checked + .slider {
+    background-color: palevioletred;
+  }
+  
+  .avtiveSelect:focus + .slider {
+    box-shadow: 0 0 1px palevioletred;
+  }
+  
+  .avtiveSelect:checked + .slider:before {
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
   }
 
-.header{
+.header {
     font-size: 26px;
     font-weight: bold;
     padding-top: 30px;
@@ -25,17 +87,20 @@ table {
     border-radius: 5px;
     border-color: blueviolet;
 }
+
 .categories {
     height: 100%;
     margin-bottom: 5px;
     margin-top: 15px;
 }
-.categories-panel-border{
-    border-style: solid; 
-    border-width:2px; 
-    border-color:dodgerblue;
+
+.categories-panel-border {
+    border-style: solid;
+    border-width: 2px;
+    border-color: dodgerblue;
 }
-.categories-header{
+
+.categories-header {
     margin-top: 10px;
     margin-left: 10px;
     font-size: 20px;
@@ -46,73 +111,100 @@ table {
     border-right: none;
     border-color: dodgerblue;
 }
-.categoryadd-button{
+
+.categoryadd-button {
     margin-top: 3px;
     margin-left: -10px;
     height: 50px;
     width: 90px;
 }
-.category-table{
+
+.category-table {
     margin-top: 15px;
 }
-.category-name{
+
+.category-name {
     font-weight: 700;
     font-size: 18px;
-    margin-left: auto; 
+    margin-left: auto;
 }
 
-.categoryedit-area{
-    padding-left: 10px; 
+.categoryedit-area {
+    padding-left: 10px;
     padding-right: 10px;
 }
-.categoryedit-input{
+
+.categoryedit-input {
     border-style: solid;
     border-width: 2px;
-    border-left:none;
+    border-left: none;
     border-top: none;
     border-right: none;
     font-size: 18px;
 }
-.categoryedit-input:focus{
+
+.categoryedit-input:focus {
     border-color: dodgerblue;
     border-width: 3px;
 }
-.categoryupdate-link{
-    color: dodgerblue; 
-    float: right; 
+
+.categoryupdate-link {
+    color: dodgerblue;
+    float: right;
     font-size: 18px;
-    text-decoration: none; 
+    text-decoration: none;
     margin-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.categorycancel-link{
+
+
+.categorydelete-link {
     color: red;
-    float: right; 
+    float: right;
+    font-size: 18px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.categorycancel-link {
+    color: red;
+    float: right;
     font-size: 28px;
-    text-decoration: none; 
+    text-decoration: none;
     margin-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
 
 }
-.categorysave-link{
+
+.categorysave-link {
     color: forestgreen;
-    float: right; 
+    float: right;
     font-size: 26px;
-    text-decoration: none; 
+    text-decoration: none;
     margin-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
 
 }
-.categoryupdate-link:hover{
+
+.categoryupdate-link:hover {
     font-weight: bolder;
     text-decoration: underline;
     cursor: pointer;
 }
 
-.categoryform-input{
+.categorydelete-link:hover {
+    font-weight: bolder;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.categoryform-input {
     height: 10px;
 }
 
@@ -128,7 +220,8 @@ table {
 .form-input {
     font-size: 16px;
 }
-.row-line{
+
+.row-line {
     border-style: solid;
     border-top: none;
     border-left: none;
@@ -137,17 +230,20 @@ table {
     border-radius: 5px;
     border-color: dodgerblue;
 }
-.about{
+
+.about {
     height: 100%;
     margin-bottom: 5px;
     margin-top: 15px;
 }
-.about-panel-border{
-    border-style: solid; 
-    border-width:2px; 
-    border-color:#9F2B68;
+
+.about-panel-border {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #9F2B68;
 }
-.about-header{
+
+.about-header {
     margin-top: 10px;
     margin-left: 10px;
     font-size: 20px;
@@ -158,36 +254,42 @@ table {
     border-right: none;
     border-color: #9F2B68;
 }
-.about-content{
+
+.about-content {
     font-size: 18px;
 }
-.aboutupdate-link{
-    color: #9F2B68; 
-    float: right; 
+
+.aboutupdate-link {
+    color: #9F2B68;
+    float: right;
     font-size: 18px;
-    text-decoration: none; 
+    text-decoration: none;
     margin-right: 10px;
     margin-top: 10px;
 }
-.aboutupdate-link:hover{
+
+.aboutupdate-link:hover {
     font-weight: bolder;
     text-decoration: underline;
 }
-.aboutlink-icon{
+
+.aboutlink-icon {
     margin-right: 5px;
 }
 
-.social{
+.social {
     margin-bottom: 5px;
     margin-top: 18px;
     height: 100%;
 }
-.social-panel-border{
-    border-style: solid; 
-    border-width:2px; 
-    border-color:orangered;
+
+.social-panel-border {
+    border-style: solid;
+    border-width: 2px;
+    border-color: orangered;
 }
-.social-header{
+
+.social-header {
     margin-top: 10px;
     margin-left: 10px;
     font-size: 20px;
@@ -198,51 +300,60 @@ table {
     border-right: none;
     border-color: orangered;
 }
-.socialupdate-link{
-    color: orangered; 
-    float: right; 
+
+.socialupdate-link {
+    color: orangered;
+    float: right;
     font-size: 18px;
-    text-decoration: none; 
+    text-decoration: none;
     margin-right: 10px;
     margin-top: 10px;
 }
-.socialupdate-link:hover{
+
+.socialupdate-link:hover {
     font-weight: bolder;
     text-decoration: underline;
 }
-.sociallink-icon{
+
+.sociallink-icon {
     margin-right: 5px;
 }
-.social-link{
-   width: 100%;
+
+.social-link {
+    width: 100%;
 }
-.sociallink-center{
-    display: flex; 
-    justify-content:center;
+
+.sociallink-center {
+    display: flex;
+    justify-content: center;
     font-weight: bold;
     text-decoration: none;
     color: orangered;
 }
-.social-icon{
-    font-size: 36px; 
-    display: flex; 
-    justify-content: center; 
-    color: orangered; 
+
+.social-icon {
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    color: orangered;
     height: 50px;
     width: 50px;
     align-items: center;
 }
-.contact{
+
+.contact {
     margin-bottom: 5px;
     margin-top: 18px;
     height: 100%;
 }
-.contact-panel-border{
-    border-style: solid; 
-    border-width:2px; 
-    border-color:forestgreen;
+
+.contact-panel-border {
+    border-style: solid;
+    border-width: 2px;
+    border-color: forestgreen;
 }
-.contact-header{
+
+.contact-header {
     margin-top: 10px;
     margin-left: 10px;
     font-size: 20px;
@@ -253,53 +364,63 @@ table {
     border-right: none;
     border-color: forestgreen;
 }
-.contactupdate-link{
-    color: forestgreen; 
-    float: right; 
+
+.contactupdate-link {
+    color: forestgreen;
+    float: right;
     font-size: 18px;
-    text-decoration: none; 
+    text-decoration: none;
     margin-right: 10px;
     margin-top: 10px;
 }
-.contactupdate-link:hover{
+
+.contactupdate-link:hover {
     font-weight: bolder;
     text-decoration: underline;
 }
-.contactlink-icon{
+
+.contactlink-icon {
     margin-right: 5px;
 }
-.contact-icon{
-    font-size: 36px; 
-    color: forestgreen; 
+
+.contact-icon {
+    font-size: 36px;
+    color: forestgreen;
     height: 50px;
     width: 50px;
     padding-left: 4px;
 }
-.contact-type{
+
+.contact-type {
     font-size: 18px;
     font-weight: 600;
 }
-.contact-link{
+
+.contact-link {
     width: 70%;
 }
-.contactlink-center{
-    display: flex; 
-    justify-content:center;
+
+.contactlink-center {
+    display: flex;
+    justify-content: center;
     font-weight: bold;
     text-decoration: none;
     color: forestgreen;
 }
-.users{
+
+.users {
     margin-bottom: 5px;
     margin-top: 18px;
     height: 100%;
 }
-.users-panel-border{
-    border-style: solid; 
-    border-width:2px; 
-    border-color:palevioletred;
+
+.users-panel-border {
+    border-style: solid;
+    border-width: 2px;
+    border-color: palevioletred;
 }
-.users-header{
+
+.users-header {
     margin-top: 10px;
     margin-left: 10px;
     font-size: 20px;
@@ -310,26 +431,145 @@ table {
     border-right: none;
     border-color: palevioletred;
 }
-.user-table-header{
-    padding-top: 10px; 
-    padding-bottom:10px; 
-    font-size:18px;
+
+.user-table-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
 }
 
-.user-table-content{
-    padding-top: 5px; 
-    padding-bottom:5px; 
-    font-size:16px;
+.user-table-content {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
 }
-.usersupdate-link{
-    color: palevioletred; 
-    float: right; 
+
+.usersupdate-link {
+    color: palevioletred;
+    float: right;
     font-size: 18px;
-    text-decoration: none; 
+    text-decoration: none;
     margin-right: 10px;
     margin-top: 10px;
 }
-.usersupdate-link:hover{
+
+.usersupdate-link:hover {
     font-weight: bolder;
     text-decoration: underline;
+}
+
+.usercancel-link {
+    color: red;
+    float: right;
+    font-size: 28px;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left: 15px;
+
+}
+
+.usersave-link {
+    color: forestgreen;
+    float: right;
+    font-size: 26px;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left: 15px;
+
+}
+
+.useradd-link {
+    color: palevioletred;
+    font-size: 24px;
+    margin-left: 5px;
+    float: right;
+    margin-right: 10px;
+}
+.useradd-link:hover {
+    color: rgb(223, 103, 143);
+    font-size: 24px;
+    margin-left: 5px;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.userdelete-link{
+    color: palevioletred;
+    font-size: 20px;
+    margin-left: 5px;
+    float: right;
+    margin-right: 10px;
+}
+
+.userdelete-link:hover{
+    color: rgb(223, 103, 143);
+    font-size: 20px;
+    margin-left: 5px;
+    float: right;
+    margin-right: 10px;
+}
+
+.useradd-link:hover {
+    color: rgb(223, 103, 143);
+}
+
+.useredit-link {
+    color: palevioletred;
+    font-size: 24px;
+    float: right;
+    margin-right: 10px;
+}
+.useredit-link:hover {
+    color: rgb(223, 103, 143);
+    font-size: 24px;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.userprofile-link {
+    color: palevioletred;
+    font-size: 24px;
+    float: right;
+    margin-right: 10px;
+}
+
+.useredit-area {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.useredit-input {
+    border-style: solid;
+    border-width: 2px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    font-size: 18px;
+}
+
+.usercancel-link {
+    color: red;
+    float: right;
+    font-size: 28px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.usersave-link {
+    color: forestgreen;
+    float: right;
+    font-size: 26px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
 }

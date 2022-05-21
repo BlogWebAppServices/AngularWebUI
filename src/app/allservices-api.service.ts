@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AllservicesApiService {
+export class Client {
   readonly allServicesUrl = "https://localhost:7125/api";
   constructor(private http:HttpClient) { }
   /* User İşlemleri Alanı */
@@ -78,15 +78,16 @@ export class AllservicesApiService {
 
   
   /* Category İşlemleri Alanı */
+
   getCategoryList():Observable<any[]>{
-    return this.http.get<any>(this.allServicesUrl + '/categories');
+    return this.http.get<any>(this.allServicesUrl + `/categories`);
   }
 
   getCategoryById(id:number|string):Observable<any[]>{
     return this.http.get<any>(this.allServicesUrl + `/categories/${id}`);
   }
-  addCategory(data:any){
-    return this.http.post(this.allServicesUrl + '/categories',data);
+  addCategory(catName:any){
+    return this.http.post(this.allServicesUrl + `/categories`,catName);
   }
 
   updateCategory(id:number|string, data:any){
