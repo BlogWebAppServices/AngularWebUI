@@ -16,12 +16,15 @@ export class AdminCategoryListComponent implements OnInit {
   panelOpenState = false;
   IsEditableForCategory: boolean = true;
   IsEditableForUser: boolean = true;
+  IsEditableForContact: boolean = true;
   IsAddForUser: boolean = true;
   categoryEditButton: string = "Düzenle";
   categoryDeleteButton: string = "Sil";
   categoryNewName:string="";
   categoryList$!: Observable<any[]>;
   userList$!: Observable<any[]>;
+  contactList$!: Observable<any[]>;
+  contactEditButton:string= "Düzenle";
   userName: string="";
 
   //Add User Variables
@@ -35,6 +38,19 @@ export class AdminCategoryListComponent implements OnInit {
   addUserLevel:number=0;
   
   //Add User Variables End
+
+  //Add Contact Variables
+  contactPhone:string = "";
+  contactAdress:string ="";
+  contactEmail:string = "";
+  //Add Contact Variables End
+
+  //Add Social Links Variables
+  facebook:string = "";
+  instagram:string = "";
+  linkedin:string = "";
+  twitter:string = "";
+  //Add Social Links Variables End
 
   //Edit User Veriables
   editUserName:string="";
@@ -79,6 +95,7 @@ export class AdminCategoryListComponent implements OnInit {
   onload() {
     this.categoryList$ = this.service.getCategoryList();
     this.userList$ = this.service.getUserList();
+    this.contactList$ = this.service.getContactList();
   }
   addCategoryClickEvent() {
     var categoryclass = {
@@ -155,7 +172,7 @@ export class AdminCategoryListComponent implements OnInit {
         console.log(this.addUserLevelStr);
         console.log(this.addUserLevel);
     } 
-  else if (this.addUserLevelStr == "Moderator")
+    else if (this.addUserLevelStr == "Moderator")
     {
         this.addUserLevel = 1;
         console.log(this.addUserLevelStr);
@@ -202,6 +219,67 @@ export class AdminCategoryListComponent implements OnInit {
     this.IsAddForUser = !this.IsAddForUser;
   }
 
+  editContact(item:any){
+    item.IsEditableForContact = !item.IsEditableForContact;
+   this. contactPhone = item.phone;
+   this. contactAdress =item.adress;
+   this. contactEmail = item.email;
+  }
+  saveUpdateContactClickEvent(item:any){
+    var contactlass = {
+      id:item.id,
+      phone:this.contactPhone,
+      email:this.contactEmail,
+      adress:this.contactAdress,
+      createDate :item.createDate,
+      createUserId:item.createUserId,
+      updateDate :new Date(),
+      updateUserId:1,
+      instagramLink:item.instagramLink,
+      facebookLink:item.facebookLink,
+      linedinLink:item.linedinLink,
+      twitterLlink:item.twitterLlink,
+    }
+    this.service.updateContact(item.id,contactlass).subscribe(res => {
+      this.onload();
+      this.someInput = "";
+    });
+  }
 
 
+  cancelSocialLinkUpdate(item:any){
+    item.IsEditableForContact = !item.IsEditableForContact;
+  }
+
+  editSocialLink(item:any){
+    item.IsEditableForContact = !item.IsEditableForContact;
+   this.instagram = item.instagramLink;
+   this.facebook =item.facebookLink;
+   this.linkedin = item.linedinLink;
+   this.twitter = item.twitterLlink
+  }
+  saveUpdatesSocialLinkClickEvent(item:any){
+    var contactlass = {
+      id:item.id,
+      phone:item.phone,
+      email:item.email,
+      adress:item.adress,
+      createDate :item.createDate,
+      createUserId:item.createUserId,
+      updateDate :new Date(),
+      updateUserId:1,
+      instagramLink:this.instagram,
+      facebookLink:this.facebook,
+      linedinLink:this.linkedin,
+      twitterLlink:this.twitter,
+    }
+
+    this.service.updateContact(item.id,contactlass).subscribe(res => {
+      this.onload();
+      this.someInput = "";
+    });
+  }
+  cancelContactUpdate(item:any){
+    item.IsEditableForContact = !item.IsEditableForContact;
+  }
 }

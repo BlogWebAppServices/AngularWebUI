@@ -131,36 +131,52 @@
             <div class="row">
               <!-- Social Panel Table -->
               <div class="col-lg-12">
-                <table>
+                <table *ngFor="let item of contactList$|async">
                   <tr>
                     <th class="social-icon"><i class="fa-brands fa-facebook-square"></i></th>
-                    <td class="social-link"><a href="https://www.facebook.com" target="_blank"
+                    <td class="social-link" *ngIf="!item.IsEditableForContact"><a href="{{item.facebookLink}}" target="_blank"
                         class="sociallink-center">Facebook</a></td>
+                    <td *ngIf="item.IsEditableForContact" class="useredit-area"><input matInput value="{{item.facebookLink}}"
+                        class="useredit-input" [(ngModel)]="facebook"/>
+                    </td>
                   </tr>
                   <tr>
                     <th class="social-icon"><i class="fa-brands fa-twitter-square"></i></th>
-                    <td class="social-link"><a href="https://www.twitter.com" target="_blank"
+                    <td class="social-link" *ngIf="!item.IsEditableForContact"><a href="{{item.twitterLlink}}" target="_blank"
                         class="sociallink-center">Twitter</a></td>
+                        <td *ngIf="item.IsEditableForContact" class="useredit-area"><input matInput value="{{item.twitterLlink}}"
+                          class="useredit-input" [(ngModel)]="twitter"/>
+                      </td>
                   </tr>
                   <tr>
                     <th class="social-icon"><i class="fa-brands fa-linkedin"></i></th>
-                    <td class="social-link"><a href="https://www.linkedin.com" target="_blank"
+                    <td class="social-link" *ngIf="!item.IsEditableForContact"><a href="{{item.linedinLink}}" target="_blank"
                         class="sociallink-center">Linkedin</a></td>
+                        <td *ngIf="item.IsEditableForContact" class="useredit-area"><input matInput value="{{item.linedinLink}}"
+                          class="useredit-input" [(ngModel)]="linkedin"/>
+                      </td>
                   </tr>
                   <tr>
                     <th class="social-icon"><i class="fa-brands fa-instagram-square"></i></th>
-                    <td class="social-link"><a href="https://www.instagram.com" target="_blank"
+                    <td class="social-link" *ngIf="!item.IsEditableForContact"><a href="{{item.instagramLink}}" target="_blank"
                         class="sociallink-center">Instagram</a></td>
+                        <td *ngIf="item.IsEditableForContact" class="useredit-area"><input matInput value="{{item.instagramLink}}"
+                          class="useredit-input" [(ngModel)]="instagram"/>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><a class="categoryupdate-link" *ngIf="!item.IsEditableForContact" (click)="editSocialLink(item)"><i
+                           class="fa-solid fa-pen-to-square aboutlink-icon"></i>{{contactEditButton}}</a>
+                        <a class="categorysave-link" *ngIf="item.IsEditableForContact" (click)="saveUpdatesSocialLinkClickEvent(item)"><i
+                           class="fa-solid fa-check aboutlink-icon"></i></a>
+                        <a class="categorycancel-link" *ngIf="item.IsEditableForContact" (click)="cancelContactUpdate(item)"><i
+                           class="fa-solid fa-xmark aboutlink-icon"></i></a>
+                    </td>
                   </tr>
                 </table>
               </div>
               <!-- Social Panel Table End -->
-              <!-- Social Panel Edit Button -->
-              <div class="col-lg-12">
-                <a href="" class="socialupdate-link"><i
-                    class="fa-solid fa-pen-to-square sociallink-icon"></i>Düzenle</a>
-              </div>
-              <!-- Social Panel Edit End -->
             </div>
           </mat-expansion-panel>
         </mat-accordion>
@@ -188,32 +204,45 @@
             <div class="row">
               <!-- Social Panel Table-->
               <div class="col-lg-12">
-                <table>
+                <table *ngFor="let item of contactList$|async">
                   <tr>
                     <th class="contact-icon"><i class="fa-solid fa-square-phone"></i></th>
                     <td class="contact-type">Telefon Numarası</td>
-                    <td class="contact-link"><span class="contactlink-center">090-484-8080</span></td>
+                    <td class="contact-link" *ngIf="!item.IsEditableForContact"><span class="contactlink-center">{{item.phone}}</span></td>
+                    <td *ngIf="item.IsEditableForContact" class="useredit-area"><input matInput value="{{item.phone}}"
+                      class="useredit-input" [(ngModel)]="contactPhone"/>
+                    </td>
                   </tr>
                   <tr>
                     <th class="contact-icon"><i class="fa-solid fa-at"></i></th>
                     <td class="contact-type">E-Posta Adresi</td>
-                    <td class="contact-link"><span class="contactlink-center">info@company.com</span></td>
+                    <td class="contact-link" *ngIf="!item.IsEditableForContact"><span class="contactlink-center">{{item.email}}</span></td>
+                    <td *ngIf="item.IsEditableForContact" class="useredit-area"><input matInput value="{{item.email}}"
+                      class="useredit-input" [(ngModel)]="contactEmail"/>
+                    </td>
                   </tr>
                   <tr>
                     <th class="contact-icon"><i class="fa-solid fa-location-dot"></i></th>
                     <td class="contact-type">Adres</td>
-                    <td class="contact-link"><span class="contactlink-center">123 Aenean id posuere dui, Praesent
-                        laoreet 10660</span></td>
+                    <td class="contact-link" *ngIf="!item.IsEditableForContact"><span class="contactlink-center">{{item.adress}}</span></td>
+                    <td *ngIf="item.IsEditableForContact" class="useredit-area"><input matInput value="{{item.adress}}"
+                      class="useredit-input" [(ngModel)]="contactAdress"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td><a class="categoryupdate-link" *ngIf="!item.IsEditableForContact" (click)="editContact(item)"><i
+                           class="fa-solid fa-pen-to-square aboutlink-icon"></i>{{contactEditButton}}</a>
+                        <a class="categorysave-link" *ngIf="item.IsEditableForContact" (click)="saveUpdateContactClickEvent(item)"><i
+                           class="fa-solid fa-check aboutlink-icon"></i></a>
+                        <a class="categorycancel-link" *ngIf="item.IsEditableForContact" (click)="cancelContactUpdate(item)"><i
+                           class="fa-solid fa-xmark aboutlink-icon"></i></a>
+                    </td>
                   </tr>
                 </table>
               </div>
               <!-- Social Panel Table End-->
-              <!-- Social Panel Edit Button-->
-              <div class="col-lg-12">
-                <a href="" class="contactupdate-link"><i
-                    class="fa-solid fa-pen-to-square sociallink-icon"></i>Düzenle</a>
-              </div>
-              <!-- Social Panel Edit Buttton End-->
             </div>
           </mat-expansion-panel>
         </mat-accordion>
