@@ -277,6 +277,11 @@ tr:nth-child(even) {
     margin-right: 5px;
 }
 
+.aboutlink-icon:hover {
+    cursor: pointer;
+}
+
+
 .social {
     margin-bottom: 5px;
     margin-top: 18px;
@@ -550,6 +555,10 @@ tr:nth-child(even) {
     border-top: none;
     border-right: none;
     font-size: 18px;
+}
+
+.useredit-select{
+    width: 90px;
 }
 
 .usercancel-link {

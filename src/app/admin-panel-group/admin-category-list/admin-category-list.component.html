@@ -49,9 +49,10 @@
                         class="fa-solid fa-trash aboutlink-icon"></i>{{categoryDeleteButton}}</a>
                   <a class="categorysave-link" *ngIf="item.IsEditableForCategory" (click)="saveUpdateCategoryClickEvent(item)"><i
                       class="fa-solid fa-check aboutlink-icon"></i></a>
-                  <a class="categorycancel-link" *ngIf="item.IsEditableForCategory" (click)="cancelUpdate(item)"><i
+                  <a class="categorycancel-link" *ngIf="item.IsEditableForCategory" (click)="cancelCategoryUpdate(item)"><i
                       class="fa-solid fa-xmark aboutlink-icon"></i></a>
                 </td>
+                
               </tr>
             </table>
             <!-- Categories Panel TableEnd -->
@@ -258,8 +259,8 @@
                   <!-- Users and Useredit Table Columns -->
                   <tr *ngFor="let item of userList$|async">
                     <!-- Table Name Column-->
-                    <td class="user-table-content" *ngIf="IsEditableForUser">{{item.name}}</td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput value="{{item.name}}"
+                    <td class="user-table-content" *ngIf="!item.IsEditableForUser">{{item.name}}</td>
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input matInput value="{{item.name}}"
                         class="useredit-input" />
                     </td>
                     <!-- Table Name Column End-->
@@ -267,8 +268,8 @@
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Surname Column-->
-                    <td class="user-table-content" *ngIf="IsEditableForUser">{{item.surname}}</td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput value="{{item.surname}}"
+                    <td class="user-table-content" *ngIf="!item.IsEditableForUser">{{item.surname}}</td>
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input matInput value="{{item.surname}}"
                         class="useredit-input" />
                     </td>
                     <!-- Table Surname Column End-->
@@ -276,8 +277,8 @@
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Birthdate Column-->
-                    <td class="user-table-content" *ngIf="IsEditableForUser">{{item.birhtdate | date: 'dd/MM/yyyy'}}</td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput value="{{item.birhtdate  | date: 'yyyy-MM-dd'}}"
+                    <td class="user-table-content" *ngIf="!item.IsEditableForUser">{{item.birhtdate | date: 'dd/MM/yyyy'}}</td>
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input matInput value="{{item.birhtdate  | date: 'yyyy-MM-dd'}}"
                         class="useredit-input" type="date"/>
                     </td>
                     <!-- Table Birthdate Column End-->
@@ -285,8 +286,8 @@
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Createdate Column-->
-                    <td class="user-table-content" *ngIf="IsEditableForUser">{{item.createdate | date: 'dd/MM/yyyy'}}</td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput value="{{item.createdate | date: 'yyyy-MM-dd'}}"
+                    <td class="user-table-content" *ngIf="!item.IsEditableForUser">{{item.createdate | date: 'dd/MM/yyyy'}}</td>
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input matInput value="{{item.createdate | date: 'yyyy-MM-dd'}}"
                         class="useredit-input" type="date" disabled />
                     </td>
                     <!-- Table Createdate Column End-->
@@ -294,16 +295,16 @@
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table City Column-->
-                    <td class="user-table-content" *ngIf="IsEditableForUser">Thun</td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput value="Thun" class="useredit-input" />
+                    <td class="user-table-content" *ngIf="!item.IsEditableForUser">Thun</td>
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input matInput value="Thun" class="useredit-input" />
                     </td>
                     <!-- Table City Column End-->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Email Column-->
-                    <td class="user-table-content" *ngIf="IsEditableForUser">{{item.email}}</td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput value="{{item.email}}"
+                    <td class="user-table-content" *ngIf="!item.IsEditableForUser">{{item.email}}</td>
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input matInput value="{{item.email}}"
                         class="useredit-input" />
                     </td>
                     <!-- Table Email Column End-->
@@ -311,8 +312,8 @@
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Email Column-->
-                    <td class="user-table-content" *ngIf="IsEditableForUser">{{item.phone}}</td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput value="{{item.phone}}"
+                    <td class="user-table-content" *ngIf="!item.IsEditableForUser">{{item.phone}}</td>
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input matInput value="{{item.phone}}"
                         class="useredit-input" />
                     </td>
                     <!-- Table Email Column End-->
@@ -320,25 +321,28 @@
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Articles Column-->
-                    <td class="user-table-content" *ngIf="IsEditableForUser">45</td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput value="45" class="useredit-input" />
+                    <td class="user-table-content" *ngIf="!item.IsEditableForUser">45</td>
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input matInput value="45" class="useredit-input" />
                     </td>
                     <!-- Table Articles Column End-->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table PermissionLevel Column-->
-                    <td class="user-table-content" *ngIf="IsEditableForUser">{{item.permissionLevelId}}</td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput value="{{item.permissionLevelId}}"
-                        class="useredit-input" />
+                    <td class="user-table-content" *ngIf="!item.IsEditableForUser">{{item.permissionLevelId}}</td>
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area">
+                        <select class="useredit-input useredit-select " matNativeControl value="{{item.permissionLevelId}}" name="editUserLevel" [(ngModel)]="editUserLevel">
+                          <option value="Admin" selected>Admin</option>
+                          <option value="Moderator">Moderator</option>
+                        </select>
                     </td>
                     <!-- Table PermissionLevel Column End-->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Status Column-->
-                    <td class="user-table-content" *ngIf="IsEditableForUser">Aktif</td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area">
+                    <td class="user-table-content" *ngIf="!item.IsEditableForUser">Aktif</td>
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area">
                       <label class="switch">
                         <input class="avtiveSelect" type="checkbox" checked>
                         <span class="slider round"></span>
@@ -350,20 +354,20 @@
 
                     <!-- Table User Edit And Save Update Link Column-->
                     <td class="user-table-content">
-                      <a *ngIf="IsEditableForUser" (click)="editUser()" class="useredit-link"><i
+                      <a (click)="editUser(item)" *ngIf="!item.IsEditableForUser" class="useredit-link"><i
                           class="fa-solid fa-square-pen"></i></a>
-                      <a class="usersave-link" *ngIf="!IsEditableForUser" (click)="saveUserUpdate()"><i
-                          class="fa-solid fa-check aboutlink-icon"></i></a>
+                      <a class="usersave-link" *ngIf="item.IsEditableForUser" (click)="saveUserUpdate()"><i
+                         class="fa-solid fa-check aboutlink-icon"></i></a>
                     </td>
                     <!-- Table User Edit And Save Update Link Column End-->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Go User Profile and Cancel Link Column-->
-                    <td class="user-table-content" *ngIf="IsEditableForUser"><a href="" class="userprofile-link"><i
-                          class="fa-solid fa-eye"></i></a></td>
-                    <td class="user-table-content" *ngIf="!IsEditableForUser"><a class="usercancel-link" *ngIf="!IsEditableForUser"
-                        (click)="cancelUserUpdate()"><i class="fa-solid fa-xmark aboutlink-icon"></i></a></td>
+                    <td class="user-table-content">
+                      <a href="" class="userprofile-link" *ngIf="!item.IsEditableForUser"><i class="fa-solid fa-eye"></i></a>
+                      <a class="usercancel-link" (click)="cancelUserEdit(item)" *ngIf="item.IsEditableForUser"><i class="fa-solid fa-xmark aboutlink-icon"></i></a>
+                    </td>
                     <!-- Table Go User Profile and Cancel Link Column-->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
@@ -377,54 +381,48 @@
                   <!-- Add User Table Columns -->
                   <tr>
                     <!-- Table Add Name Column -->
-                    <td class="user-table-content" *ngIf="IsEditableForUser"></td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput placeholder="Adı"
-                        class="useredit-input" />
+                    <td class="user-table-content" *ngIf="IsAddForUser"></td>
+                    <td *ngIf="!IsAddForUser" class="useredit-area"><input matInput placeholder="Adı"
+                        class="useredit-input" name="addUserName" [(ngModel)]="addUserName" />
                     </td>
                     <!-- Table Add Name Column End -->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Add Surname Column -->
-                    <td class="user-table-content" *ngIf="IsEditableForUser"></td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput placeholder="Soyadı"
-                        class="useredit-input" />
+                    <td class="user-table-content" *ngIf="IsAddForUser"></td>
+                    <td *ngIf="!IsAddForUser" class="useredit-area"><input matInput placeholder="Soyadı"
+                        class="useredit-input" name="addUserSurname" [(ngModel)]="addUserSurname"/>
                     </td>
                     <!-- Table Add Surname Column End -->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Add Birthdate Column -->
-                    <td class="user-table-content" *ngIf="IsEditableForUser"></td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput placeholder="Doğum Tarihi"
-                        class="useredit-input" type="date" />
+                    <td class="user-table-content" *ngIf="IsAddForUser"></td>
+                    <td *ngIf="!IsAddForUser" class="useredit-area"><input matInput class="useredit-input" 
+                      type="date" name="addUserBirthDate" [(ngModel)]="addUserBirthDate"/>
                     </td>
                     <!-- Table Add Birthdate Column End -->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Add CreateDate Column -->
-                    <td class="user-table-content" *ngIf="IsEditableForUser"></td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput
+                    <td class="user-table-content" *ngIf="IsAddForUser"></td>
+                    <td *ngIf="!IsAddForUser" class="useredit-area"><input matInput
                         class="useredit-input" type="date" disabled/>
                     </td>
                     <!-- Table Add CreateDare Column End -->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
-                    <!-- Table Add City Column -->
-                    <td class="user-table-content" *ngIf="IsEditableForUser"></td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput placeholder="Şehir"
-                        class="useredit-input" type="text"/>
-                    </td>
-                    <!-- Table Add City Column End -->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Add Email Column -->
-                    <td class="user-table-content" *ngIf="IsEditableForUser"></td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput placeholder="E-posta Adresi"
-                        class="useredit-input" />
+                    <td class="user-table-content" *ngIf="IsAddForUser"></td>
+                    <td *ngIf="!IsAddForUser" class="useredit-area"><input matInput placeholder="E-posta Adresi"
+                        class="useredit-input" name="addUserEmail" [(ngModel)]="addUserEmail"/>
                     </td>
                     <!-- Table Add Email Column End -->
 
@@ -432,27 +430,30 @@
 
                     
                     <!-- Table Add Password Column -->
-                    <td class="user-table-content" *ngIf="IsEditableForUser"></td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput placeholder="Telefon"
-                        class="useredit-input" />
+                    <td class="user-table-content" *ngIf="IsAddForUser"></td>
+                    <td *ngIf="!IsAddForUser" class="useredit-area"><input matInput placeholder="Telefon"
+                        class="useredit-input" name="addUserPhone" [(ngModel)]="addUserPhone"/>
                     </td>
                     <!-- Table Add Password Column End -->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
 
                     <!-- Table Add Password Column -->
-                    <td class="user-table-content" *ngIf="IsEditableForUser"></td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput placeholder="Şifre" type="password"
-                        class="useredit-input" />
+                    <td class="user-table-content" *ngIf="IsAddForUser"></td>
+                    <td *ngIf="!IsAddForUser" class="useredit-area"><input matInput placeholder="Şifre" type="password"
+                        class="useredit-input" name="addUserPassword" [(ngModel)]="addUserPassword"/>
                     </td>
                     <!-- Table Add Password Column End -->
 
                     <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
                     
                     <!-- Table Add Permission Level Column -->
-                    <td class="user-table-content" *ngIf="IsEditableForUser"></td>
-                    <td *ngIf="!IsEditableForUser" class="useredit-area"><input matInput placeholder="yetki"
-                        class="useredit-input" />
+                    <td class="user-table-content" *ngIf="IsAddForUser"></td>
+                    <td *ngIf="!IsAddForUser" class="useredit-area">
+                          <select class="useredit-input useredit-select " matNativeControl placeholder="yetki" name="addUserLevelStr" [(ngModel)]="addUserLevelStr" required>
+                            <option value="Admin">Admin</option>
+                            <option value="Moderator">Moderator</option>
+                          </select>
                     </td>
                     <!-- Table Add Permission Level Column End -->
 
@@ -462,14 +463,14 @@
                     </td>
                     <!-- Table Add and Save Links -->
                     <td class="user-table-content">
-                      <a *ngIf="IsEditableForUser" (click)="addUser()" class="useradd-link">
+                      <a *ngIf="IsAddForUser" (click)="addUser()" class="useradd-link">
                         <i class="fa-solid fa-square-plus"></i></a>
-                      <a class="usersave-link" *ngIf="!IsEditableForUser" (click)="saveUserUpdate()">
+                      <a class="usersave-link" *ngIf="!IsAddForUser" (click)="addUserSubmitEvent()">
                         <i class="fa-solid fa-check aboutlink-icon"></i></a>
                     </td>
                     <!-- Table Add and Save Links End -->
-                    <td class="user-table-content" *ngIf="!IsEditableForUser">
-                      <a class="usercancel-link" *ngIf="!IsEditableForUser" (click)="cancelUserUpdate()">
+                    <td class="user-table-content" *ngIf="!IsAddForUser">
+                      <a class="usercancel-link" *ngIf="!IsAddForUser" (click)="cancelUserAdd()">
                         <i class="fa-solid fa-xmark aboutlink-icon"></i></a>
                     </td>
                   </tr>

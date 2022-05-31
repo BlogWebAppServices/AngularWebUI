@@ -16,14 +16,39 @@ export class AdminCategoryListComponent implements OnInit {
   panelOpenState = false;
   IsEditableForCategory: boolean = true;
   IsEditableForUser: boolean = true;
+  IsAddForUser: boolean = true;
   categoryEditButton: string = "Düzenle";
   categoryDeleteButton: string = "Sil";
   categoryNewName:string="";
   categoryList$!: Observable<any[]>;
   userList$!: Observable<any[]>;
+  userName: string="";
+
+  //Add User Variables
+  addUserName:string="";
+  addUserSurname:string="";
+  addUserPhone:string="";
+  addUserEmail:string="";
+  addUserPassword:string="";
+  addUserBirthDate:Date | undefined;
+  addUserLevelStr:string = "";
+  addUserLevel:number=0;
+  
+  //Add User Variables End
+
+  //Edit User Veriables
+  editUserName:string="";
+  editUserSurname:string="";
+  editUserPhone:string="";
+  editUserEmail:string="";
+  editUserPassword:string="";
+  editUserBirthDate:Date | undefined;
+  editUserLevel:string="";
+  //Edit User Variables End
+
   // Map to display data associate with foreign keys
   inspectionTypesMap: Map<number, string> = new Map()
-
+ 
   constructor(
     public dialog: MatDialog, 
     private service: Client
@@ -39,9 +64,6 @@ export class AdminCategoryListComponent implements OnInit {
   isDeleted!: boolean;
   isActive!: boolean;
   
-
-
-
   ngOnInit(): void {
     this.onload();
     // this.id = this.categoryclass.id;
@@ -54,7 +76,6 @@ export class AdminCategoryListComponent implements OnInit {
     // this.isActive = this.categoryclass.isActive;
  
   }
-
   onload() {
     this.categoryList$ = this.service.getCategoryList();
     this.userList$ = this.service.getUserList();
@@ -72,58 +93,11 @@ export class AdminCategoryListComponent implements OnInit {
       this.onload();
       this.someInput = "";
     });
-
   }
 
   editCategory(entity: any) {
     entity.IsEditableForCategory = !entity.IsEditableForCategory;
     this.categoryNewName = entity.categoryName;
-  }
-
-
-  deleteCategoryClickEvent(item: any) {
-    if (confirm(`Are you sure you want to delete inspection ${item.id}`)) {
-      var categoryclass = {
-        id:item.id,
-        categoryName:item.categoryNewName,
-        createDate :item.createDate,
-        createUserId:item.createUserId,
-        updateDate :item.updateDate,
-        updateUserId:item.updateUserId,
-        isDeleted:true,
-        isActive:true
-      }
-
-      this.service.updateCategory(item.id,categoryclass).subscribe(res => {
-        this.onload();
-      })
-    }
-  }
-
-  editUser() {
-    this.IsEditableForUser = !this.IsEditableForUser;
-  }
-  addUser() {
-    this.IsEditableForUser = !this.IsEditableForUser;
-    if (!this.IsEditableForUser) {
-    }
-
-  }
-
-  cancelUpdate(entity: any) {
-
-    entity.IsEditableForUser = !entity.IsEditableForUser;
-  }
-
-  saveUpdate(entity: any) {
-    entity.IsEditableForUser = !entity.IsEditableForUser;
-  }
-
-  saveUserUpdate(){}
-
-  cancelUserUpdate() {
-
-    this.IsEditableForUser = !this.IsEditableForUser;
   }
 
   saveUpdateCategoryClickEvent(category:any) {
@@ -144,5 +118,90 @@ export class AdminCategoryListComponent implements OnInit {
       this.someInput = "";
     });
   }
+  
+  deleteCategoryClickEvent(item: any) {
+    if (confirm(`Are you sure you want to delete inspection ${item.id}`)) {
+      var categoryclass = {
+        id:item.id,
+        categoryName:item.categoryName,
+        createDate :item.createDate,
+        createUserId:item.createUserId,
+        updateDate :item.updateDate,
+        updateUserId:item.updateUserId,
+        isDeleted:true,
+        isActive:true
+      }
+
+      this.service.updateCategory(item.id,categoryclass).subscribe(res => {
+        this.onload();
+      })
+    }
+  }
+
+  editUser(item:any) {
+    item.IsEditableForUser = !item.IsEditableForUser;
+  }
+  cancelUserEdit(item:any){
+    item.IsEditableForUser = !item.IsEditableForUser;
+  }
+  addUser(){
+    this.IsAddForUser = !this.IsAddForUser;
+  }
+
+  addUserSubmitEvent() {
+    if (this.addUserLevelStr == "Admin") 
+    {   
+        this.addUserLevel = 0;
+        console.log(this.addUserLevelStr);
+        console.log(this.addUserLevel);
+    } 
+  else if (this.addUserLevelStr == "Moderator")
+    {
+        this.addUserLevel = 1;
+        console.log(this.addUserLevelStr);
+        console.log(this.addUserLevel);
+    }
+    var userclass = {
+      id : 0,
+      name:this.addUserName,
+      surname:this.addUserSurname,
+      fullName:this.addUserName+" "+  this.addUserSurname,
+      phone:this.addUserPhone,
+      email:this.addUserEmail,
+      password:this.addUserPassword,
+      birhtdate:this.addUserBirthDate,
+      createdate :new Date(),
+      isActive:true,  
+      isDeleted:false,
+      permissionLevelId:this.addUserLevel,
+      isSelected:true,
+    }
+    this.service.addUser(userclass).subscribe(res => {
+      this.onload();
+      this.addUserName = "";
+      this.addUserSurname="";
+      this.addUserPhone="";
+      this.addUserEmail="";
+      this.addUserPassword="";
+      this.addUserLevel;
+      this.IsAddForUser = !this.IsAddForUser;
+    });
+  }
+  cancelCategoryUpdate(item: any) {
+    item.IsEditableForCategory = !item.IsEditableForCategory;
+  }
+
+  saveUserUpdate(){}
+
+  cancelUserUpdate() {
+
+    this.IsEditableForUser = !this.IsEditableForUser;
+  }
+
+  cancelUserAdd(){
+    this.IsAddForUser = !this.IsAddForUser;
+  }
+
+
 
 }

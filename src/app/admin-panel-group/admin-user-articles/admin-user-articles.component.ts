@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { AdminArticleUpdateDialogComponent } from '../admin-article-update-dialog/admin-article-update-dialog.component';
 import { AdminCreateArticleDialogComponent } from '../admin-create-article-dialog/admin-create-article-dialog.component';
-
+ 
 
 @Component({
   selector: 'app-admin-user-articles',
@@ -10,7 +10,6 @@ import { AdminCreateArticleDialogComponent } from '../admin-create-article-dialo
   styleUrls: ['./admin-user-articles.component.css']
 })
 export class AdminUserArticlesComponent implements OnInit {
-
   headElements = ['position', 'name', 'weight', 'symbol','positionDeleteId','positionUpdateId'];
   elements: any = [
     {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -65,6 +64,9 @@ onUpdateDialog(Id:string){
   });
 }
 
+  simplePictureUpload!: {
+    uploadUrl: 'http://localhost:4200/api/Image/ImageUpload';
+  };
 
 
 }
