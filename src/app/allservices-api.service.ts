@@ -13,9 +13,10 @@ export class Client {
     return this.http.get<any>(this.allServicesUrl + '/users');
   }
 
-  getUserById(id:number|string):Observable<any[]>{
+  getUserById(id:number|string):Observable<any>{
     return this.http.get<any>(this.allServicesUrl + `/users/${id}`);
   }
+  
   addUser(data:any){
     return this.http.post(this.allServicesUrl + '/users',data);
   }
@@ -36,7 +37,7 @@ export class Client {
     return this.http.get<any>(this.allServicesUrl + '/permissions');
   }
 
-  getPermissionById(id:number|string):Observable<any[]>{
+  getPermissionById(id:number|string):Observable<any>{
     return this.http.get<any>(this.allServicesUrl + `/permissions/${id}`);
   }
   addPermission(data:any){

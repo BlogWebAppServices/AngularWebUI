@@ -3,17 +3,19 @@
     <div class="row">
       <div class="col-lg-3">
         <div class="userinfo-card">
-          <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
-          <h4 class="name">Can Nasıf <a href="" style="color: #9F2B68;"><i class="fa-solid fa-pen-to-square"></i></a>
+          <div>
+            <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+          <h4 class="name">{{fullName}}<a href="" style="color: #9F2B68;"><i class="fa-solid fa-pen-to-square"></i></a>
           </h4>
-          <h4 class="designation-name">Yetki <p class="designation">Admin</p>
+          <h4 class="designation-name">Yetki<p class="designation">{{permissionName}}</p>
           </h4>
-          <h4 class="designation-name">Doğum Tarih: <p class="designation">06.07.1993</p>
+          <h4 class="designation-name" *ngIf="birhtdate != null">Doğum Tarih: <p class="designation">{{birhtdate | date: 'dd/MM/yyyy'}}</p>
           </h4>
-          <h4 class="designation-name">E-Posta Adresi <p class="designation">cannasif@mail.com</p>
+          <h4 class="designation-name">E-Posta Adresi <p class="designation">{{email}}</p>
           </h4>
-          <h4 class="designation-name">Şehir <p class="designation">İzmir</p>
+          <h4 class="designation-name" *ngIf="city != null">Şehir <p class="designation">{{city}}</p>
           </h4>
+          </div>
         </div>
       </div>
       <div class="col-lg-9 userinfo">
@@ -38,7 +40,7 @@
           </div>
           <div class="col-lg-12 about">
             <h4 class="about-header">Makale Listesi <a mat-raised-button (click)="addArticleDialog()"
-                style="color: #9F2B68; float: right; text-decoration: none; margin-right: 10px;"><i class="fa-solid fa-plus" style="margin-right: 5px;"></i>Makale
+                style="color: #9F2B68; float: right; text-decoration: none; margin-right: 10px; cursor: pointer;"><i class="fa-solid fa-plus" style="margin-right: 5px;"></i>Makale
                 Ekle</a></h4>
             <div class="col-lg-12">
               <div class="filterform-border">
@@ -69,59 +71,83 @@
                     <button mat-raised-button class="btn-primary filter-button"><i
                         class="fa fa-filter filter-button-icon"></i>Filtrele</button>
                   </div>
+                  <div class="col-lg-12">
+                    <div class="table-container">
+                      <!-- Articles Table-->
+                      <table class="mat-elevation-z2">
+                       <!-- Table Column Header -->
+                       <tr>
+                         <th class="article-table-header" style="width: 200px;">Makale Başlığı</th>
+                         <th class="article-table-header" style="width: 280px;">Makale İçeriği</th>
+                         <th class="article-table-header" style="width: 110px;">Yayınlanma Tarihi</th>
+                         <th class="article-table-header" style="width: 100px;">Yazar</th>
+                         <th class="article-table-header" style="width: 110px;">Kategori</th>
+                         <th class="article-table-header" style="width: 80px;"></th>
+                         <th class="article-table-header" style="width: 120px;"></th>
+                       </tr>
+                       <!-- Table Column Header End -->
+                       <!-- Articles Table Columns -->
+                       <tr>
+                         <!-- Table Article Title Column-->
+                         <td class="article-table-content" ><p class="article-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p></td>
+                         <!-- Table Article Title Column End-->
+       
+                         <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+       
+                         <!-- Table Article Detail Column-->
+                         <td class="article-table-content"><p class="article-detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores hic, cumque blanditiis, adipisci dolore, dolorem nisi laboriosam impedit eum quasi inventore quisquam officiis? Praesentium reiciendis doloribus ipsa architecto quae nihil?</p></td>
+                         <!-- Table Article Detail End-->
+       
+                         <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+       
+                         <!-- Table Article Release Date Column-->
+                         <td class="article-table-content">04.12.2022</td>
+                         <!-- Table Article Release Date End-->
+       
+                         <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+       
+                         <!-- Table Author Name Column-->
+                         <td class="article-table-content">Yazar</td>
+                         <!-- Table Author Name Column End-->
+
+                          <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+       
+                         <!-- Table Category Column-->
+                         <td class="article-table-content">Eğitim</td>
+                         <!-- Table Category Column End-->
+       
+                         <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+       
+                         <!-- Table Delete Button Column-->
+                         <td class="article-table-content">
+                           <button
+                             class="d-flex justify-content-center btn btn-primary delete-button" mat-menu-item>
+                             <span><i class="fa-solid fa-trash"></i> Sil</span>
+                           </button>
+                         </td>
+                         <!-- Table Delete Button Column End-->
+       
+                         <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+       
+                         <!-- Table Edit Button Column-->
+                         <td class="article-table-content">
+                           <button
+                             class="d-flex justify-content-center btn btn-primary update-button" mat-menu-item>
+                             <span><i class="fa-solid fa-pen-to-square"></i> Güncelle</span>
+                           </button>
+                         </td>
+                         <!-- Table Edit Button Column End-->
+       
+                         <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+                       </tr>
+                       <!-- Articles Table Columns -->
+                     </table>
+                     <!-- Articles Table End-->
+       
+                   </div>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div class="table-container">
-              <table mat-table [dataSource]="elements" class="mat-elevation-z2">
-                <!-- Poszition Column -->
-                <ng-container matColumnDef="position">
-                  <th mat-header-cell *matHeaderCellDef> Makale Adı </th>
-                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                </ng-container>
-
-                <!-- Name Column -->
-                <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef> Makale İçeriği </th>
-                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-                </ng-container>
-
-                <!-- Weight Column -->
-                <ng-container matColumnDef="weight">
-                  <th mat-header-cell *matHeaderCellDef> Yayınlanma Tarihi </th>
-                  <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-                </ng-container>
-
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="symbol">
-                  <th mat-header-cell *matHeaderCellDef> Yazar </th>
-                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-                </ng-container>
-
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="positionDeleteId">
-                  <th mat-header-cell *matHeaderCellDef> Sil </th>
-                  <td mat-cell *matCellDef="let element"> <button
-                      class="d-flex justify-content-center btn btn-primary delete-button" mat-menu-item
-                      (click)="onDeleteDialog(element.position)">
-                      <span><i class="fa-solid fa-trash"></i> Sil</span>
-                    </button></td>
-                </ng-container>
-
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="positionUpdateId">
-                  <th mat-header-cell *matHeaderCellDef> Güncelle </th>
-                  <td mat-cell *matCellDef="let element"> <button
-                      class="d-flex justify-content-center btn btn-primary update-button" mat-menu-item
-                      (click)="onUpdateDialog(element.position)">
-                      <span><i class="fa-solid fa-pen-to-square"></i> Güncelle</span>
-                    </button></td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="headElements"></tr>
-                <tr mat-row *matRowDef="let row; columns: headElements;"></tr>
-              </table>
             </div>
           </div>
         </div>

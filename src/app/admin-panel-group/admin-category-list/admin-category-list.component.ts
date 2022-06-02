@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { AdminCategoryCreateComponent } from '../admin-category-create-dialog/admin-category-create.component';
 import { Client } from '../../allservices-api.service';
 import { Observable } from 'rxjs';
 
@@ -36,7 +35,6 @@ export class AdminCategoryListComponent implements OnInit {
   addUserBirthDate:Date | undefined;
   addUserLevelStr:string = "";
   addUserLevel:number=0;
-  
   //Add User Variables End
 
   //Add Contact Variables
@@ -269,7 +267,7 @@ export class AdminCategoryListComponent implements OnInit {
       updateDate :new Date(),
       updateUserId:1,
       instagramLink:this.instagram,
-      facebookLink:this.facebook,
+      facebookLink:this.facebook, 
       linedinLink:this.linkedin,
       twitterLlink:this.twitter,
     }

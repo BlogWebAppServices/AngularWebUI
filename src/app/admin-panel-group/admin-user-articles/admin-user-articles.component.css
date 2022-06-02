@@ -1,6 +1,48 @@
 table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  font-size: 20px;
   width: 100%;
-  margin-top: 75px;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.article-table-header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+.article-table-content {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+}
+.article-detail{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;  
+   overflow: hidden;
+   font-size: 16px;
+   margin-left: 3px;
+   margin-right: 3px;
+}
+.article-title{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;  
+   overflow: hidden;
+   font-size: 16px;
+   font-weight: bold;
+   margin-left: 3px;
+   margin-right: 3px;
 }
 
 .userinfo{
@@ -174,10 +216,12 @@ table {
 .delete-button{
   background-color: #DC3545;
   border-color: #DC3545;
+  margin-left: 5px;
 }
 .update-button{
   background-color: #28A745;
   border-color: #28A745;
+  margin-left: 5px;
 }
 .delete-button:hover{
   color: #DC3545;
@@ -193,6 +237,6 @@ table {
 }
 
 .table-container{
-  margin-top: -50px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
