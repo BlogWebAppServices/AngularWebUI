@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import * as DecoupledEditor from '@ckeditor/ckeditor5-build-classic';
-
 
 @Component({
   selector: 'app-admin-create-article-dialog',
@@ -13,7 +11,6 @@ import * as DecoupledEditor from '@ckeditor/ckeditor5-build-classic';
 
 )
 export class AdminCreateArticleDialogComponent implements OnInit {
-  public Editor = DecoupledEditor;
   textAreaData="";
   public onReady( editor:any ) {
     editor.ui.getEditableElement().parentElement.insertBefore(
