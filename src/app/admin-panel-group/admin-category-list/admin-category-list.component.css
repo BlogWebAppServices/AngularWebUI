@@ -434,7 +434,7 @@ tr:nth-child(even) {
     border-left: none;
     border-top: none;
     border-right: none;
-    border-color: palevioletred;
+    border-color: palevioletred; 
 }
 
 .user-table-header {

@@ -1,0 +1,308 @@
+<div class="panel-container">
+    <div class="row">
+        <!-- All Articles Area -->
+        <div class="col-lg-12 all-articles">
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                    class="allarticles-panel-border">
+                    <!-- Social Panel Header -->
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div class="col-lg-12">
+                                <h3 class="allarticles-header">Tüm Makaleler</h3>
+                            </div>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <table class="allarticles-table">
+                        <!-- Table Column Header -->
+                        <tr class="allarticles-tableheaders">
+                            <th class="allarticles-tableheader-articlename">Makale Adı</th>
+                            <th class="allarticles-tableheader-articlecontent">Makale İçeriği</th>
+                            <th class="allarticles-tableheader-articleauthor">Yazar</th>
+                            <th class="allarticles-tableheader-articlewritingdate">Yazılma Tarihi</th>
+                            <th class="allarticles-tableheader-articlestatus">Onay Durumu</th>
+                            <th class="allarticles-tableheader-articlwhoapproved">Onaylayan</th>
+                        </tr>
+                        <!-- Table Column Header End -->
+                        <!-- Users and Useredit Table Columns -->
+                        <tr>
+                            <!-- Article Name Column-->
+                            <td class="allarticles-table-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                            <!-- Article Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Content Column-->
+                            <td class="allarticles-table-content">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi aliquam provident
+                                    ullam saepe, porro ipsa corrupti reiciendis ab eveniet, odio tempora autem natus
+                                    quia explicabo impedit laboriosam debitis ad tenetur.</p>
+                            </td>
+                            <!-- Article Content Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Author Name Column-->
+                            <td class="allarticles-table-content">Admin</td>
+                            <!-- Article Author Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Writing Date Column-->
+                            <td class="allarticles-table-content">02.04.2022</td>
+                            <!-- Article Writing Date Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Approval Status Column-->
+                            <td class="allarticles-table-content">Onaylandı</td>
+                            <!-- Article Approval Status Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Person Who Approved The Article Column-->
+                            <td class="allarticles-table-content">Admin</td>
+                            <!-- Person Who Approved The Article Column End-->
+
+                        </tr>
+                        <tr>
+                            <!-- Article Name Column-->
+                            <td class="allarticles-table-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                            <!-- Article Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Content Column-->
+                            <td class="allarticles-table-content">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi aliquam provident
+                                    ullam saepe, porro ipsa corrupti reiciendis ab eveniet, odio tempora autem natus
+                                    quia explicabo impedit laboriosam debitis ad tenetur.</p>
+                            </td>
+                            <!-- Article Content Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Author Name Column-->
+                            <td class="allarticles-table-content">Admin</td>
+                            <!-- Article Author Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Writing Date Column-->
+                            <td class="allarticles-table-content">02.04.2022</td>
+                            <!-- Article Writing Date Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Approval Status Column-->
+                            <td class="allarticles-table-content">Onaylandı</td>
+                            <!-- Article Approval Status Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Person Who Approved The Article Column-->
+                            <td class="allarticles-table-content">Admin</td>
+                            <!-- Person Who Approved The Article Column End-->
+
+                        </tr>
+                    </table>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <!-- All Articles Area End -->
+
+        <!-- Approved Articles Area -->
+        <div class="col-lg-12 approved-articles ">
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                    class="approvedarticles-panel-border">
+                    <!-- Social Panel Header -->
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div class="col-lg-12">
+                                <h3 class="approvedarticles-header">Onaylanmış Makaleler</h3>
+                            </div>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <table class="approvedarticles-table">
+                        <!-- Table Column Header -->
+                        <tr class="approvedarticles-tableheaders">
+                            <th class="approvedarticles-tableheader-articlename">Makale Adı</th>
+                            <th class="approvedarticles-tableheader-articlecontent">Makale İçeriği</th>
+                            <th class="approvedarticles-tableheader-articleauthor">Yazar</th>
+                            <th class="approvedarticles-tableheader-articlewritingdate">Yazılma Tarihi</th>
+                            <th class="approvedarticles-tableheader-articleapprovaldate">Onaylanma Tarihi</th>
+                            <th class="approvedarticles-tableheader-articlwhoapproved">Onaylayan</th>
+                        </tr>
+                        <!-- Table Column Header End -->
+                        <!-- Approved Articles Table Columns -->
+                        <tr>
+                            <!-- Article Name Column-->
+                            <td class="approvedarticles-table-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                            <!-- Article Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Content Column-->
+                            <td class="approvedarticles-table-content">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi aliquam provident
+                                    ullam saepe, porro ipsa corrupti reiciendis ab eveniet, odio tempora autem natus
+                                    quia explicabo impedit laboriosam debitis ad tenetur.</p>
+                            </td>
+                            <!-- Article Content Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Author Name Column-->
+                            <td class="approvedarticles-table-content">Admin</td>
+                            <!-- Article Author Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Writing Date Column-->
+                            <td class="approvedarticles-table-content">02.04.2022</td>
+                            <!-- Article Writing Date Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Approval Date Column-->
+                            <td class="approvedarticles-table-content">02.04.2022</td>
+                            <!-- Article Approval Date Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Person Who Approved The Article Column-->
+                            <td class="approvedarticles-table-content">Admin</td>
+                            <!-- Person Who Approved The Article Column End-->
+                        </tr>
+                        <tr>
+                            <!-- Article Name Column-->
+                            <td class="approvedarticles-table-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                            <!-- Article Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Content Column-->
+                            <td class="approvedarticles-table-content">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi aliquam provident
+                                    ullam saepe, porro ipsa corrupti reiciendis ab eveniet, odio tempora autem natus
+                                    quia explicabo impedit laboriosam debitis ad tenetur.</p>
+                            </td>
+                            <!-- Article Content Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Author Name Column-->
+                            <td class="approvedarticles-table-content">Admin</td>
+                            <!-- Article Author Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Writing Date Column-->
+                            <td class="approvedarticles-table-content">02.04.2022</td>
+                            <!-- Article Writing Date Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Approval Date Column-->
+                            <td class="approvedarticles-table-content">02.04.2022</td>
+                            <!-- Article Approval Date Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Person Who Approved The Article Column-->
+                            <td class="approvedarticles-table-content">Admin</td>
+                            <!-- Person Who Approved The Article Column End-->
+                        </tr>
+                    </table>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <!-- Approved Articles Area End -->
+
+        <!-- Pending Approval Articles Area -->
+        <div class="col-lg-12 pendingapproval-articles">
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                    class="pendingarticles-panel-border">
+                    <!-- Social Panel Header -->
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div class="col-lg-12">
+                                <h3 class="pendingarticles-header">Onay Bekleyen Makaleler</h3>
+                            </div>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <table class="pendingarticles-table">
+                        <!-- Table Column Header -->
+                        <tr class="pendingarticles-tableheaders">
+                            <th class="pendingarticles-tableheader-articlename">Makale Adı</th>
+                            <th class="pendingarticles-tableheader-articlecontent">Makale İçeriği</th>
+                            <th class="pendingarticles-tableheader-articleauthor">Yazar</th>
+                            <th class="pendingarticles-tableheader-articlewritingdate">Yazılma Tarihi</th>
+                        </tr>
+                        <!-- Table Column Header End -->
+                        <!-- Pending Articles Table Columns -->
+                        <tr>
+                            <!-- Article Name Column-->
+                            <td class="pendingarticles-table-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                            <!-- Article Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Content Column-->
+                            <td class="pendingarticles-table-content">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi aliquam provident
+                                    ullam saepe, porro ipsa corrupti reiciendis ab eveniet, odio tempora autem natus
+                                    quia explicabo impedit laboriosam debitis ad tenetur.</p>
+                            </td>
+                            <!-- Article Content Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Author Name Column-->
+                            <td class="pendingarticles-table-content">Admin</td>
+                            <!-- Article Author Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Writing Date Column-->
+                            <td class="pendingarticles-table-content">02.04.2022</td>
+                            <!-- Article Writing Date Column End-->
+
+                        </tr>
+                        <tr>
+                            <!-- Article Name Column-->
+                            <td class="pendingarticles-table-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                            <!-- Article Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Content Column-->
+                            <td class="pendingarticles-table-content">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi aliquam provident
+                                    ullam saepe, porro ipsa corrupti reiciendis ab eveniet, odio tempora autem natus
+                                    quia explicabo impedit laboriosam debitis ad tenetur.</p>
+                            </td>
+                            <!-- Article Content Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Author Name Column-->
+                            <td class="pendingarticles-table-content">Admin</td>
+                            <!-- Article Author Name Column End-->
+
+                            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+
+                            <!-- Article Writing Date Column-->
+                            <td class="pendingarticles-table-content">02.04.2022</td>
+                            <!-- Article Writing Date Column End-->
+
+                        </tr>
+                    </table>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <!-- Pending Approval Articles Area End -->
+    </div>
+</div>

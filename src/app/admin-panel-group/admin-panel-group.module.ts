@@ -13,6 +13,7 @@ import { AdminUserArticlesComponent } from '../admin-panel-group/admin-user-arti
 import { AdminCreateArticleDialogComponent } from './admin-create-article-dialog/admin-create-article-dialog.component';
 import { AdminUserArticleListDialogComponent } from './admin-user-article-list-dialog/admin-user-article-list-dialog.component';
 import { AdminArticleUpdateDialogComponent } from './admin-article-update-dialog/admin-article-update-dialog.component';
+import { AdminAllArticlesComponent } from './admin-all-articles/admin-all-articles.component';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -26,9 +27,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { MyCkEditorComponent } from './my-ck-editor/my-ck-editor.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -38,14 +39,15 @@ import { MatExpansionModule } from '@angular/material/expansion';
   declarations: [
     AdminPanelGroupComponent,
     AdminPanelGroupComponent,
-
     AdminUserListComponent,
     AdminArticleConfirmationListComponent,
     AdminCategoryListComponent,
     AdminUserArticlesComponent,
     AdminCreateArticleDialogComponent,
     AdminUserArticleListDialogComponent,
-    AdminArticleUpdateDialogComponent
+    AdminArticleUpdateDialogComponent,
+    MyCkEditorComponent,
+    AdminAllArticlesComponent
 
   ],
   imports: [
@@ -65,7 +67,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     AngularEditorModule, 
     FormsModule,
     ReactiveFormsModule, 
-    CKEditorModule,
+    CKEditorModule
   ],
   providers: [
     Client,

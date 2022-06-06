@@ -5,6 +5,7 @@ import { AdminCategoryListComponent } from './admin-category-list/admin-category
 import { AdminPanelGroupComponent } from './admin-panel-group.component';
 import { AdminUserArticlesComponent } from './admin-user-articles/admin-user-articles.component';
 import { AdminUserListComponent } from './admin-user-list/admin-user-list.component';
+import { AdminAllArticlesComponent } from './admin-all-articles/admin-all-articles.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/admin/user-articles', pathMatch: 'full' },
@@ -14,8 +15,10 @@ const routes: Routes = [
       { path: 'categori-list', component: AdminCategoryListComponent },
       { path: 'user-articles', component: AdminUserArticlesComponent },
       { path: 'article-confirmation-list', component: AdminArticleConfirmationListComponent },
-
       { path: 'article-confirmation-list', component: AdminArticleConfirmationListComponent },
+      { path: 'all-articles', component: AdminAllArticlesComponent },
+      
+
 
 
 

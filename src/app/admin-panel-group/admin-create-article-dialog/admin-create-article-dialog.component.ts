@@ -11,14 +11,13 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 )
 export class AdminCreateArticleDialogComponent implements OnInit {
-  textAreaData="";
+textAreaData="";
   public onReady( editor:any ) {
     editor.ui.getEditableElement().parentElement.insertBefore(
         editor.ui.view.toolbar.element,
         editor.ui.getEditableElement()
-    );
+    );  
 }
-
   constructor(
     private dialogRef: MatDialogRef<AdminCreateArticleDialogComponent>,
   ) { }

@@ -1,0 +1,246 @@
+.panel-container{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* All Articles Css*/
+.all-articles {
+    margin-top: 30px;
+}
+
+.allarticles-panel-border {
+    border-style: solid;
+    border-width: 2px;
+    border-color: palevioletred;
+}
+
+.allarticles-header {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    border-style: solid;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-color: palevioletred;
+}
+
+.allarticles-table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    font-size: 20px;
+    width: 100%;
+}
+
+.allarticles-table td,
+th:hover{
+    border: 1px solid #dddddd;
+}
+
+.allarticles-table tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+.allarticles-table tr:hover{
+    background-color: rgba(216, 112, 147, 0.5);
+}
+
+.allarticles-tableheader-articlename {
+    width: 175px;
+    font-size: 18px;
+}
+.allarticles-tableheaders{
+    background-color: rgba(216, 112, 147, 0.5);
+}
+
+.allarticles-tableheader-articlecontent {
+    width: 350px;
+    font-size: 18px;
+}
+
+.allarticles-tableheader-articleauthor {
+    width: 90px;
+    font-size: 18px;
+}
+
+.allarticles-tableheader-articlewritingdate {
+    width: 70px;
+    font-size: 18px;
+}
+
+.allarticles-tableheader-articlestatus {
+    width: 110px;
+    font-size: 18px;
+}
+
+.allarticles-tableheader-articlwhoapproved {
+    width: 100px;
+    font-size: 18px;
+}
+
+.allarticles-table-content {
+    font-size: 16px;
+}
+
+/* All Articles Css End*/
+
+/* Approved Articles Css*/
+.approved-articles {
+    margin-top: 20px;
+}
+.approvedarticles-panel-border {
+    border-style: solid;
+    border-width: 2px;
+    border-color: forestgreen;
+}
+
+.approvedarticles-header {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    border-style: solid;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-color: forestgreen;
+}
+
+.approvedarticles-table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    font-size: 20px;
+    width: 100%;
+}
+
+.approvedarticles-table td,
+th{
+    border: 1px solid #dddddd;
+}
+
+.approvedarticles-table tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+.approvedarticles-table tr:hover{
+    background-color: rgba(34, 139, 34, 0.5);
+}
+
+.approvedarticles-tableheader-articlename {
+    width: 175px;
+    font-size: 18px;
+}
+
+.approvedarticles-tableheaders{
+    background-color: rgba(34, 139, 34, 0.5);
+}
+
+.approvedarticles-tableheader-articlecontent {
+    width: 350px;
+    font-size: 18px;
+}
+
+.approvedarticles-tableheader-articleauthor {
+    width: 90px;
+    font-size: 18px;
+}
+
+.approvedarticles-tableheader-articlewritingdate {
+    width: 70px;
+    font-size: 18px;
+}
+
+.approvedarticles-tableheader-articleapprovaldate {
+    width: 110px;
+    font-size: 18px;
+}
+
+.approvedarticles-tableheader-articlwhoapproved {
+    width: 100px;
+    font-size: 18px;
+}
+
+.approvedarticles-table-content {
+    font-size: 16px;
+}
+/* Approved Articles Css End*/
+
+/* Pendind Approval Articles Css */
+.pendingapproval-articles {
+    margin-top: 20px;
+}
+
+.pendingarticles-panel-border {
+    border-style: solid;
+    border-width: 2px;
+    border-color: darkorange;
+}
+
+
+
+.pendingarticles-table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    font-size: 20px;
+    width: 100%;
+}
+
+.pendingarticles-table td,
+th{
+    border: 1px solid #dddddd;
+}
+
+.pendingarticles-table tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+.pendingarticles-table tr:hover{
+    background-color: rgba(250, 140, 0, 0.5);
+}
+
+.pendingarticles-tableheaders{
+    background-color: rgba(250, 140, 0, 0.5);
+}
+.pendingarticles-header {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    border-style: solid;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-color: darkorange;
+}
+.pending-content-backgorund{
+    background-color: rgba(250, 140, 0, 0.5);
+}
+.pendingarticles-tableheader-articlename {
+    width: 175px;
+    font-size: 18px;
+}
+
+.pendingarticles-tableheader-articlecontent {
+    width: 350px;
+    font-size: 18px;
+}
+
+.pendingarticles-tableheader-articleauthor {
+    width: 90px;
+    font-size: 18px;
+}
+
+.pendingarticles-tableheader-articlewritingdate {
+    width: 70px;
+    font-size: 18px;
+}
+
+
+.pendingarticles-table-content {
+    font-size: 16px;
+}
+
+/* Pendind Approval Articles Css End*/
+
+
