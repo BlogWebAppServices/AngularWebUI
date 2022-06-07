@@ -4,6 +4,7 @@ import { AdminArticleUpdateDialogComponent } from '../admin-article-update-dialo
 import { AdminCreateArticleDialogComponent } from '../admin-create-article-dialog/admin-create-article-dialog.component';
 import { Client } from '../../allservices-api.service';
 import { Observable } from 'rxjs';
+import { AdminUserEditDialogComponent } from '../admin-user-edit-dialog/admin-user-edit-dialog.component';
 @Component({
   selector: 'app-admin-user-articles',
   templateUrl: './admin-user-articles.component.html',
@@ -62,11 +63,15 @@ export class AdminUserArticlesComponent implements OnInit {
       this.service.getPermissionById(result.permissionLevelId).subscribe(nameResult =>{
        this.permissionName = nameResult.name;
       });
-
-    console.log(this.city)
-
     });
+  }
 
+  editUserDialog(){
+    this.dialog.open(AdminUserEditDialogComponent,{
+      width: '1000px',
+      height: '900px',
+      disableClose: true
+    });
   }
 
   addArticleDialog() {

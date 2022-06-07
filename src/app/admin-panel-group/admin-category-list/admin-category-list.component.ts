@@ -37,6 +37,17 @@ export class AdminCategoryListComponent implements OnInit {
   addUserLevel:number=0;
   //Add User Variables End
 
+  //Update User Variables
+  newUserName:string="";
+  newUserSurname:string="";
+  newUserPhone:string="";
+  newUserCity:string="";
+  newUserEmail:string="";
+  newUserBirthdate:Date | undefined;
+  newUserLevelId:number=0;
+  newCreateDate:Date | undefined;
+  //Update User Variables
+
   //Add Contact Variables
   contactPhone:string = "";
   contactAdress:string ="";
@@ -155,6 +166,17 @@ export class AdminCategoryListComponent implements OnInit {
 
   editUser(item:any) {
     item.IsEditableForUser = !item.IsEditableForUser;
+    this.newUserName=item.name;
+    this.newUserSurname=item.surname;
+    this.newUserPhone=item.phone;
+    this.newUserCity=item.city;
+    this.newUserEmail=item.email;
+    this.newUserBirthdate=item.birhtdate;
+    this.newCreateDate=item.createdate;
+    console.log(this.newCreateDate);
+    console.log(this.newUserBirthdate);
+   
+
   }
   cancelUserEdit(item:any){
     item.IsEditableForUser = !item.IsEditableForUser;
@@ -206,7 +228,39 @@ export class AdminCategoryListComponent implements OnInit {
     item.IsEditableForCategory = !item.IsEditableForCategory;
   }
 
-  saveUserUpdate(){}
+  saveUserUpdate(user:any){
+    var userclass = {
+      id:user.id,
+      name:this.newUserName,
+      surname:this.newUserSurname,
+      fullName: this.newUserName+" "+this.newUserSurname,
+      phone:this.newUserPhone,
+      city:this.newUserCity,
+      email:this.newUserEmail,
+      password:user.password,
+      birhtdate:this.newUserBirthdate,
+      createDate :user.createDate,
+      updateDate :new Date(),
+      isDeleted:false,
+      isActive:true,
+      permissionLevelId:this.newUserLevelId,
+    }
+    console.log("UserId:" +" "+user.id);
+    console.log("Name:" +" "+this.newUserName);
+    console.log("Surname:" +" "+this.newUserSurname);
+    console.log("FullName:" +" "+this.newUserName + " "+this.newUserSurname);
+    console.log("Phone:" +" "+this.newUserPhone);
+    console.log("City:" +" "+this.newUserCity);
+    console.log("Email:" +" "+this.newUserEmail);
+    console.log("Password:" +" "+user.password);
+    console.log("CreateDate:" +" "+user.createDate);
+    console.log("Birthdate:" +" "+this.newUserBirthdate);
+    console.log("LevelId:" +" "+this.newUserLevelId);
+    // this.service.updateUser(user.id,userclass).subscribe(res => {
+    //   this.onload();
+    //   this.someInput = "";
+    // });
+  }
 
   cancelUserUpdate() {
 

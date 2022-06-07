@@ -30,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MyCkEditorComponent } from './my-ck-editor/my-ck-editor.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { AdminUserEditDialogComponent } from './admin-user-edit-dialog/admin-user-edit-dialog.component';
 
 
 
@@ -47,7 +48,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     AdminUserArticleListDialogComponent,
     AdminArticleUpdateDialogComponent,
     MyCkEditorComponent,
-    AdminAllArticlesComponent
+    AdminAllArticlesComponent,
+    AdminUserEditDialogComponent
 
   ],
   imports: [

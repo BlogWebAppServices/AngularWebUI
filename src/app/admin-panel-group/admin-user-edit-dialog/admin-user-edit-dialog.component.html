@@ -1,0 +1,67 @@
+
+<div class="container">
+    <form class="example-form">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    <button class="close-button" [mat-dialog-close]="true"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="col-lg-12 addarticle-header">
+                    <h2>Profil Düzenle</h2>
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Ad</mat-label>
+                        <input type="text" #header matInput value="{{name}}" required>
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Soyad</mat-label>
+                        <input type="text" #header matInput value="{{surname}}" required>
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Telefon</mat-label>
+                        <input type="text" #header matInput value="{{phone}}">
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Doğum Tarihi</mat-label>
+                        <input type="date" #header matInput value="{{birhtdate  | date: 'yyyy-MM-dd'}}">
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Şehir</mat-label>
+                        <input type="text" #header matInput value="{{city}}">
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <span>Profil Fotoğrafı Ekle:</span>
+                    <label class="file">
+                        <input type="file" class="file-input" id="file" aria-label="File browser example">
+                        <span class="file-custom"></span>
+                    </label>
+                </div>
+                <div class="col-lg-12 addarticle-header">
+                    <h3 style="font-size: 20px;">Hakkımda</h3>
+                </div>
+                <div class="col-lg-12">
+                    <!-- Editor Alanı -->
+                    <app-my-ck-editor></app-my-ck-editor>
+                </div>
+                <div class="col-lg-12 savebutton-position">
+                    <button (click)="saveUserEdit()"
+                        class="btn btn-success save-button">Kaydet<i class="fa-solid fa-floppy-disk"
+                            style="margin-left: 10px;"></i></button>
+                </div>
+            </div>
+        </div>

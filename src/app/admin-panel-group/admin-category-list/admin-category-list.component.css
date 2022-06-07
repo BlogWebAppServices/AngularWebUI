@@ -582,3 +582,15 @@ tr:nth-child(even) {
     margin-bottom: 10px;
 
 }
+
+.savebutton-position{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .save-button{
+    height: 50px;
+    width: 200px;
+    font-size: 18px;
+  }
