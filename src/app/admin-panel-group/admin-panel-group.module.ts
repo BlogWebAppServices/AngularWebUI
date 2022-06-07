@@ -31,6 +31,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MyCkEditorComponent } from './my-ck-editor/my-ck-editor.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AdminUserEditDialogComponent } from './admin-user-edit-dialog/admin-user-edit-dialog.component';
+import { AdminUserEditarticleDialogComponent } from './admin-user-editarticle-dialog/admin-user-editarticle-dialog.component';
 
 
 
@@ -49,7 +50,8 @@ import { AdminUserEditDialogComponent } from './admin-user-edit-dialog/admin-use
     AdminArticleUpdateDialogComponent,
     MyCkEditorComponent,
     AdminAllArticlesComponent,
-    AdminUserEditDialogComponent
+    AdminUserEditDialogComponent,
+    AdminUserEditarticleDialogComponent
 
   ],
   imports: [

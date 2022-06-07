@@ -5,6 +5,7 @@ import { AdminCreateArticleDialogComponent } from '../admin-create-article-dialo
 import { Client } from '../../allservices-api.service';
 import { Observable } from 'rxjs';
 import { AdminUserEditDialogComponent } from '../admin-user-edit-dialog/admin-user-edit-dialog.component';
+import { AdminUserEditarticleDialogComponent } from '../admin-user-editarticle-dialog/admin-user-editarticle-dialog.component';
 @Component({
   selector: 'app-admin-user-articles',
   templateUrl: './admin-user-articles.component.html',
@@ -88,14 +89,11 @@ export class AdminUserArticlesComponent implements OnInit {
       console.log("Implement delete functionality here");
     }
   }
-
-  onUpdateDialog(Id: string) {
-    console.log(Id + " numaralı kayıt güncellendi.");
-    this.dialog.open(AdminArticleUpdateDialogComponent, {
-      width: '750px',
-      height: '750px',
-      disableClose: true,
-      data: Id
+  editArticleDialog(){
+    this.dialog.open(AdminUserEditarticleDialogComponent, {
+      width: '1000px',
+      height: '900px',
+      disableClose: true
     });
   }
 
