@@ -298,7 +298,7 @@
 
                     <!-- Table Surname Column-->
                     <td class="user-table-content" *ngIf="!item.IsEditableForUser">{{item.surname}}</td>
-                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input [(ngModel)]="newUserSurname" matInput value="{{item.surname}}"
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input [(ngModel)]="newUserSurname" matInput 
                         class="useredit-input" />
                     </td>
                     <!-- Table Surname Column End-->
@@ -307,7 +307,7 @@
 
                     <!-- Table Birthdate Column-->
                     <td class="user-table-content" *ngIf="!item.IsEditableForUser">{{item.birhtdate | date: 'dd/MM/yyyy'}}</td>
-                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input [(ngModel)]="newUserBirthdate" matInput value="{{item.birhtdate  | date: 'yyyy-MM-dd'}}"
+                    <td *ngIf="item.IsEditableForUser" class="useredit-area"><input [(ngModel)]="newUserBirthdate" matInput 
                         class="useredit-input" type="date"/>
                     </td>
                     <!-- Table Birthdate Column End-->

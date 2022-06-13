@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { AboutComponent } from '../about/about.component';
@@ -43,6 +42,7 @@ import { RightCategoriesComponent } from '../slider/right-categories/right-categ
     RecentPostsComponent,
     PopularArticleComponent,
     RightCategoriesComponent,
+
   ],
   imports: [
     CommonModule,
@@ -56,6 +56,6 @@ import { RightCategoriesComponent } from '../slider/right-categories/right-categ
     MatTabsModule,
     MatIconModule,
     MatSidenavModule,
-  ]
+  ],
 })
 export class HomeModule { }

@@ -39,6 +39,8 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./admin-panel-group/admin-panel-group.module').then(m => m.AdminPanelGroupModule) },
   { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
 
+  
+
 ];
 
 @NgModule({

@@ -1,3 +1,4 @@
+
 .title-h3 {
 	margin-left: 2%;
 	font-size: 20px;
@@ -232,7 +233,6 @@ ul.post-info li a:hover {
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 17;
 	overflow: hidden;
-}
-	
+}	
 
 }

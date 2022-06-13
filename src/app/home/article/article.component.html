@@ -5,7 +5,10 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="container">
-
+        <div *ngFor="let item of articleList$|async">
+            <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(item.content)"></div> 
+           <!-- {{item.content}} --> 
+        </div>
       </div>
       <div class="row">
         <div class="col-lg-6">
@@ -39,7 +42,7 @@
                 <ul class="post-info">
                   <li><a class="author-link" routerLink="/authorprofile">Admin</a></li>
                   <li class="release-date">31 May 2020</li>
-                  <li class="godetail-li"><a class="go-detail" routerLink="/article-detail">Devamını Oku</a></li>
+                  <li class="godetail-li"><a class="go-detail" routerLink="/home/article-detail">Devamını Oku</a></li>
                 </ul>
               </div>
 

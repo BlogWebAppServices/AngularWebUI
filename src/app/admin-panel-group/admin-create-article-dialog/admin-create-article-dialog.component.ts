@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { Client } from 'src/app/allservices-api.service';
 
 @Component({
   selector: 'app-admin-create-article-dialog',
@@ -11,6 +12,16 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 )
 export class AdminCreateArticleDialogComponent implements OnInit {
+  public htmlData: string = "hello";
+  public readonly: boolean = true;
+
+//Create Article Veriables
+articleTitle:string="";
+articleContent:string="";
+articleMetaDescription:string="";
+articleMetaTitle:string="";
+artcileCategoryId:number=0;
+
 textAreaData="";
   public onReady( editor:any ) {
     editor.ui.getEditableElement().parentElement.insertBefore(
@@ -19,6 +30,7 @@ textAreaData="";
     );  
 }
   constructor(
+    private service: Client,
     private dialogRef: MatDialogRef<AdminCreateArticleDialogComponent>,
   ) { }
 
@@ -30,13 +42,30 @@ textAreaData="";
       }
     });
 
+    this.onload();
+    
+  }
+  onload() {
+    
   }
 
-  makaleKaydet(category: string, header: string, articleDetail: string) {
-    console.log(header);
-    console.log(category);
-    console.log(articleDetail);
-
+  makaleKaydet() {
+    var articleclass = {
+    id: 0,
+    title: this.articleTitle,
+    content: this.articleContent,
+    metaDescription: this.articleMetaDescription,
+    metaTitle: this.articleMetaTitle,
+    categoryId: this.artcileCategoryId,
+    createTime: new Date(),
+    createUser: 1,
+    isDeleted: false,
+    isActive: true,
+    }
+      console.log(articleclass)
+      this.service.addArticle(articleclass).subscribe(res => {
+     this.onCancel();
+     });
   }
 
   editorConfig: AngularEditorConfig = {
@@ -82,6 +111,5 @@ textAreaData="";
 
     this.dialogRef.close();
   }
-
 
 }

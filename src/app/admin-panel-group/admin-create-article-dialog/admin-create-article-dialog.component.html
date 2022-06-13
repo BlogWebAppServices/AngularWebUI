@@ -11,14 +11,14 @@
                 <div class="col-lg-6">
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Makale Başlığı</mat-label>
-                        <input type="text" #header matInput placeholder="Makale Başlığı" required>
+                        <input type="text" [(ngModel)]="articleTitle" name="articleTitle" matInput placeholder="Makale Başlığı" required>
                         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                     </mat-form-field>
                 </div>
                 <div class="col-lg-6">
-                    <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-form-field class="example-full-width" appearance="fill" >
                         <mat-label>Kategori</mat-label>
-                        <select matNativeControl #category required>
+                        <select matNativeControl  [(ngModel)]="artcileCategoryId" name="artcileCategoryId" required>
                             <option value="1">Eğitim</option>
                             <option value="2">Eğitim 2</option>
                         </select>
@@ -27,14 +27,14 @@
                 <div class="col-lg-6">
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Meta Title</mat-label>
-                        <input type="text" #header matInput placeholder="Makale Başlığı" required>
+                        <input type="text"  matInput placeholder="Makale Başlığı" [(ngModel)]="articleMetaTitle" name="articleMetaTitle" required>
                         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                     </mat-form-field>
                 </div>
                 <div class="col-lg-6">
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Meta Description</mat-label>
-                        <input type="text" #header matInput placeholder="Makale Başlığı" required>
+                        <input type="text" matInput placeholder="Makale Başlığı" [(ngModel)]="articleMetaDescription" name="articleMetaDescription" required>
                         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                     </mat-form-field>
                 </div>
@@ -47,13 +47,14 @@
                 </div>
                 <div class="col-lg-12">
                     <!-- Editor Alanı -->
-                    <app-my-ck-editor></app-my-ck-editor>
+                    <app-my-ck-editor [(ngModel)]="articleContent" name="articleContent"></app-my-ck-editor>
+                    
                 </div>
                <div> Text Alanı: {{  textAreaData }} </div> 
                 <div class="col-lg-12 savebutton-position">
-                    <!-- <button (click)="makaleKaydet(category.value,header.value,htmlContent)"
+                    <button (click)="makaleKaydet()"
                         class="btn btn-success save-button">Makeleyi Yayınla<i class="fa-solid fa-paper-plane"
-                            style="margin-left: 10px;"></i></button> -->
+                            style="margin-left: 10px;"></i></button> 
                 </div>
             </div>
         </div>

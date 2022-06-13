@@ -45,7 +45,7 @@ export class AdminCategoryListComponent implements OnInit {
   newUserEmail:string="";
   newUserBirthdate:Date | undefined;
   newUserLevelId:number=0;
-  newCreateDate:Date | undefined;
+  newCreateDate:Date = new Date("dd,MM,yyyy");
   //Update User Variables
 
   //Add Contact Variables
@@ -175,6 +175,7 @@ export class AdminCategoryListComponent implements OnInit {
     this.newCreateDate=item.createdate;
     console.log(this.newCreateDate);
     console.log(this.newUserBirthdate);
+    
    
 
   }

@@ -1,6 +1,6 @@
 import { Client } from '../allservices-api.service';
 
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminPanelGroupRoutingModule } from './admin-panel-group-routing.module';
@@ -76,7 +76,8 @@ import { AdminUserEditarticleDialogComponent } from './admin-user-editarticle-di
   providers: [
     Client,
   ],
-  schemas:[NO_ERRORS_SCHEMA]
+  schemas:[NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA]
+
   
 })
 export class AdminPanelGroupModule { }
