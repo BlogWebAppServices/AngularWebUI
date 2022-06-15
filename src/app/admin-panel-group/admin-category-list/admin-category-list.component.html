@@ -131,7 +131,7 @@
             <div class="row">
               <!-- Social Panel Table -->
               <div class="col-lg-12">
-                <table *ngFor="let item of contactList$|async">
+                <table *ngFor="let item of contactList$|async"> 
                   <tr>
                     <th class="social-icon"><i class="fa-brands fa-facebook-square"></i></th>
                     <td class="social-link" *ngIf="!item.IsEditableForContact"><a href="{{item.facebookLink}}" target="_blank"

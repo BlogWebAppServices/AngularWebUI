@@ -30,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MyCkEditorComponent } from './my-ck-editor/my-ck-editor.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { RichTextEditorModule, ToolbarService, LinkService, ImageService, HtmlEditorService,TableService, QuickToolbarService,} from '@syncfusion/ej2-angular-richtexteditor';
 import { AdminUserEditDialogComponent } from './admin-user-edit-dialog/admin-user-edit-dialog.component';
 import { AdminUserEditarticleDialogComponent } from './admin-user-editarticle-dialog/admin-user-editarticle-dialog.component';
 
@@ -51,7 +52,7 @@ import { AdminUserEditarticleDialogComponent } from './admin-user-editarticle-di
     MyCkEditorComponent,
     AdminAllArticlesComponent,
     AdminUserEditDialogComponent,
-    AdminUserEditarticleDialogComponent
+    AdminUserEditarticleDialogComponent,
 
   ],
   imports: [
@@ -71,9 +72,10 @@ import { AdminUserEditarticleDialogComponent } from './admin-user-editarticle-di
     AngularEditorModule, 
     FormsModule,
     ReactiveFormsModule, 
-    CKEditorModule
+    CKEditorModule,
+    RichTextEditorModule,
   ],
-  providers: [
+  providers: [ToolbarService, LinkService, ImageService, HtmlEditorService,TableService,QuickToolbarService,
     Client,
   ],
   schemas:[NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA]

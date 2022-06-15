@@ -1,14 +1,13 @@
-<div class="col-lg-12 articles-bg">
+<div class="col-lg-12 articles-bg" *ngFor="let item of categoryList$|async">
   <div class="row">
-    <h3 class="title-h3">Eğitim</h3>
+    <h3 class="title-h3">{{item.categoryName}}</h3>
   </div>
   <div class="row">
     <div class="col-lg-12">
       <div class="container">
-        <div *ngFor="let item of articleList$|async">
-            <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(item.content)"></div> 
-           <!-- {{item.content}} --> 
-        </div>
+        <!-- <div *ngFor="let item of articleList$|async">
+            <div [innerHTML]="item.content"></div> 
+        </div> -->
       </div>
       <div class="row">
         <div class="col-lg-6">

@@ -12,13 +12,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 
 export class ArticleComponent implements OnInit {
+  categoryList$!: Observable<any[]>;
   articleList$!: Observable<any[]>;
-  public htmlData: string = "hello"
-  public readonly: boolean = true;
   constructor(
     public sanitizer:DomSanitizer,
     private service: Client,
-  ) {  }
+  ) { }
   
  
 
@@ -26,6 +25,7 @@ export class ArticleComponent implements OnInit {
     this.onload();
   }
   onload() {
+    this.categoryList$ = this.service.getCategoryList();
     this.articleList$ = this.service.getArticleList();
     this.sanitizer;
   }

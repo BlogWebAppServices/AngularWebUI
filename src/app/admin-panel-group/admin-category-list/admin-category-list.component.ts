@@ -76,7 +76,7 @@ export class AdminCategoryListComponent implements OnInit {
  
   constructor(
     public dialog: MatDialog, 
-    private service: Client
+    private service: Client 
     ) { }
 
   @Input() categoryclass:any;

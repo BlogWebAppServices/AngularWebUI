@@ -16,15 +16,22 @@
     font-weight: 800;
 }
 .categories-list{
-    list-style-type: none;
-    margin-left: -20px;
-
+    list-style-type: circle;  
+}
+.category-name:hover{
+    border-style: solid;
+    border-width: 2px;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-color: dodgerblue;
 }
 
 .categories-list span:hover {
     
     color : royalblue;
     transition: all 0.4s ease-in-out;
+    cursor: pointer;
 }
 
 
