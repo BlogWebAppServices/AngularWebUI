@@ -33,6 +33,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { RichTextEditorModule, ToolbarService, LinkService, ImageService, HtmlEditorService,TableService, QuickToolbarService,} from '@syncfusion/ej2-angular-richtexteditor';
 import { AdminUserEditDialogComponent } from './admin-user-edit-dialog/admin-user-edit-dialog.component';
 import { AdminUserEditarticleDialogComponent } from './admin-user-editarticle-dialog/admin-user-editarticle-dialog.component';
+import { AdminAboutEditDialogComponent } from './admin-about-edit-dialog/admin-about-edit-dialog.component';
 
 
 
@@ -53,6 +54,7 @@ import { AdminUserEditarticleDialogComponent } from './admin-user-editarticle-di
     AdminAllArticlesComponent,
     AdminUserEditDialogComponent,
     AdminUserEditarticleDialogComponent,
+    AdminAboutEditDialogComponent,
 
   ],
   imports: [

@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Data } from '@angular/router';
-import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { Client } from 'src/app/allservices-api.service';
 @Component({
   selector: 'app-admin-create-article-dialog',
@@ -26,12 +25,7 @@ articleMetaTitle:string="";
 artcileCategoryId:number=0;
 
 textAreaData="";
-  public onReady( editor:any ) {
-    editor.ui.getEditableElement().parentElement.insertBefore(
-        editor.ui.view.toolbar.element,
-        editor.ui.getEditableElement()
-    );  
-}
+
   constructor(
     private service: Client,
     private dialogRef: MatDialogRef<AdminCreateArticleDialogComponent>,
@@ -47,17 +41,12 @@ textAreaData="";
     document.getElementById("js-licensing")?.remove();
     this.dialogRef.keydownEvents().subscribe(event => {
       if (event.key === "Escape") {
-        this.onCancel();
+        this.onCancel(); 
       }
     });
-
-    this.onload();
-    
+     
   }
-  onload() {
-    
-  }
-
+  
   makaleKaydet() {
     var articleclass = {
     id: 0,
@@ -77,43 +66,6 @@ textAreaData="";
      });
   }
 
-  editorConfig: AngularEditorConfig = {
-    editable: true,
-      spellcheck: true,
-      height: 'auto',
-      minHeight: '0',
-      maxHeight: 'auto',
-      width: 'auto',
-      minWidth: '0',
-      translate: 'yes',
-      enableToolbar: true,
-      showToolbar: true,
-      placeholder: 'Enter text here...',
-      defaultParagraphSeparator: '',
-      defaultFontName: '',
-      defaultFontSize: '',
-      fonts: [
-        {class: 'arial', name: 'Arial'},
-        {class: 'times-new-roman', name: 'Times New Roman'},
-        {class: 'calibri', name: 'Calibri'},
-        {class: 'comic-sans-ms', name: 'Comic Sans MS'}
-      ],
-      customClasses: [
-      {
-        name: 'quote',
-        class: 'quote',
-      },
-      {
-        name: 'redText',
-        class: 'redText'
-      },
-      {
-        name: 'titleText',
-        class: 'titleText',
-        tag: 'h1',
-      },
-    ]
-};
   
 
   onCancel(): void {

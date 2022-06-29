@@ -16,18 +16,30 @@
                     <ul>
                         <!-- <li><a mat-button routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true }"
                                 class="nav-item" routerLink="/home/article">Anasayfa</a></li> -->
-                        <li *ngFor="let item of categoryList$|async|slice:0:7" ><a mat-button routerLinkActive="active" class="nav-item"
-                                routerLink="/home/category">{{item.categoryName}}</a></li>
-                        <li id="otherCategories"><button mat-button [matMenuTriggerFor]="menu" class="nav-item">Diğer Kategoriler</button>
+                        <li *ngFor="let categoryitem of categoryList$|async|slice:0:7" id="categoryLink{{categoryitem.id}}"><a mat-button routerLinkActive="active" class="nav-item"
+                                routerLink="/home/category">{{categoryitem.categoryName}}</a></li>
+                        <li *ngFor="let categoryitem of categoryList$|async|slice:0:7" id="childCategoryDropdown{{categoryitem.id}}">
+                            <button mat-button [matMenuTriggerFor]="childCategoryMenu" (click)="listChildCategories(categoryitem.id)" class="nav-item">{{categoryitem.categoryName}}</button>
+                        </li>
+                         <mat-menu #childCategoryMenu="matMenu" style="background-color: black;" >
+                            <div style="margin-top: 30px; width: 200px;">
+                                        <!-- <button mat-menu-item routerLinkActive="active" class="nav-item">Kategori 5</button>
+                                        <button mat-menu-item class="nav-item">Kategori 6</button> -->
+                                <a mat-menu-item routerLinkActive="active" *ngFor="let childitem of childCategoryList$!|async" class="nav-item" routerLink="/home/category" id="childCategoryId{{childitem.id}}">{{childitem.categoryName}}</a>
+                            </div>
+                        </mat-menu>
+
+                        <li id="otherCategories">
+                            <button mat-button [matMenuTriggerFor]="menu" class="nav-item">Diğer Kategoriler</button>
                         </li>
                          <mat-menu #menu="matMenu" style="background-color: black;" >
                             <div style="margin-top: 30px; width: 200px;">
                                 <!-- <button mat-menu-item routerLinkActive="active" class="nav-item">Kategori 5</button>
                                 <button mat-menu-item class="nav-item">Kategori 6</button> -->
-                                <a mat-menu-item routerLinkActive="active" class="nav-item" routerLink="/home/category" *ngFor="let item of categoryList$|async|slice:7">{{item.categoryName}}</a>
+                                <a mat-menu-item routerLinkActive="active" class="nav-item" routerLink="/home/category" *ngFor="let categoryitem of categoryList$|async|slice:7" >{{categoryitem.categoryName}}</a>
                             </div>
                          </mat-menu>
-                    </ul>
+                    </ul> 
                 </div>
             </div>
         </div>

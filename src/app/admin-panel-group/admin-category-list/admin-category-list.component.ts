@@ -3,6 +3,7 @@ import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { Client } from '../../allservices-api.service';
 import { Observable } from 'rxjs';
+import { AdminAboutEditDialogComponent } from '../admin-about-edit-dialog/admin-about-edit-dialog.component';
 
 @Component({
   selector: 'app-admin-category-list',
@@ -21,10 +22,16 @@ export class AdminCategoryListComponent implements OnInit {
   categoryDeleteButton: string = "Sil";
   categoryNewName:string="";
   categoryList$!: Observable<any[]>;
+  childCategoryList$!:Observable<any[]>
   userList$!: Observable<any[]>;
   contactList$!: Observable<any[]>;
   contactEditButton:string= "Düzenle";
   userName: string="";
+
+  //addChildCategory Variables
+  mainCategoryId: number =0;
+  childCategoryName:string ="";
+  //addChildCategory Variables End
 
   //Add User Variables
   addUserName:string="";
@@ -103,6 +110,7 @@ export class AdminCategoryListComponent implements OnInit {
   }
   onload() {
     this.categoryList$ = this.service.getCategoryList();
+    this.childCategoryList$ = this.service.getChildCategoryList();
     this.userList$ = this.service.getUserList();
     this.contactList$ = this.service.getContactList();
   }
@@ -118,6 +126,22 @@ export class AdminCategoryListComponent implements OnInit {
     this.service.addCategory(categoryclass).subscribe(res => {
       this.onload();
       this.someInput = "";
+    });
+  }
+
+  addChildCategoryClickEvent(){
+    var childcategoryclass = {
+      Id : 0,
+      CategoryId : this.mainCategoryId,
+      categoryName:this.childCategoryName,
+      createDate :new Date(),
+      createUserId:1,
+      isDeleted:false,
+      isActive:true
+    }
+    this.service.addChildCategory(childcategoryclass).subscribe(res => {
+      this.onload();
+      this.childCategoryName = "";
     });
   }
 
@@ -146,7 +170,7 @@ export class AdminCategoryListComponent implements OnInit {
   }
   
   deleteCategoryClickEvent(item: any) {
-    if (confirm(`Are you sure you want to delete inspection ${item.id}`)) {
+    if (confirm(`Are you sure you want to delete inspection ${item.categoryName}`)) {
       var categoryclass = {
         id:item.id,
         categoryName:item.categoryName,
@@ -159,6 +183,25 @@ export class AdminCategoryListComponent implements OnInit {
       }
 
       this.service.updateCategory(item.id,categoryclass).subscribe(res => {
+        this.onload();
+      })
+    }
+  }
+
+  deleteChildCategoryClickEvent(item: any) {
+    if (confirm(`Are you sure you want to delete inspection ${item.categoryName}`)) {
+      var categoryclass = {
+        id:item.id,
+        categoryName:item.categoryName,
+        createDate :item.createDate,
+        createUserId:item.createUserId,
+        updateDate :item.updateDate,
+        updateUserId:item.updateUserId,
+        isDeleted:true,
+        isActive:true
+      }
+
+      this.service.updateChildCategory(item.id,categoryclass).subscribe(res => {
         this.onload();
       })
     }
@@ -292,6 +335,7 @@ export class AdminCategoryListComponent implements OnInit {
       facebookLink:item.facebookLink,
       linedinLink:item.linedinLink,
       twitterLlink:item.twitterLlink,
+      about:item.about
     }
     this.service.updateContact(item.id,contactlass).subscribe(res => {
       this.onload();
@@ -324,7 +368,8 @@ export class AdminCategoryListComponent implements OnInit {
       instagramLink:this.instagram,
       facebookLink:this.facebook, 
       linedinLink:this.linkedin,
-      twitterLlink:this.twitter,
+      twitterLlink:this.twitter, 
+      about:item.about,
     }
 
     this.service.updateContact(item.id,contactlass).subscribe(res => {
@@ -334,5 +379,13 @@ export class AdminCategoryListComponent implements OnInit {
   }
   cancelContactUpdate(item:any){
     item.IsEditableForContact = !item.IsEditableForContact;
+  }
+
+  editAboutDialog(){
+    this.dialog.open(AdminAboutEditDialogComponent, {
+      width: '1000px',
+      height: '900px',
+      disableClose: true
+    });
   }
 }

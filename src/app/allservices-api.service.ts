@@ -101,6 +101,33 @@ export class Client {
 
   /* Category İşlemleri Alanı Sonu*/
 
+
+  /* Child Category İşlemleri Alanı */
+
+  getChildCategoryList():Observable<any[]>{
+    return this.http.get<any>(this.allServicesUrl + `/childCategories`);
+  }
+
+  getChildCategoryById(id:number|string):Observable<any[]>{
+    return this.http.get<any>(this.allServicesUrl + `/childCategories/${id}`);
+  }
+  addChildCategory(catName:any){
+    return this.http.post(this.allServicesUrl + `/childCategories`,catName);
+  }
+
+  updateChildCategory(id:number|string, data:any){
+    return this.http.put(this.allServicesUrl + `/childCategories/${id}`,data);
+  } 
+
+  deleteChildCategory(id:number|string){
+    return this.http.delete(this.allServicesUrl + `/childCategories/${id}`);
+  }
+
+  
+
+  /* Child Category İşlemleri Alanı Sonu*/
+
+
    /* Article İşlemleri Alanı */
    getArticleList():Observable<any[]>{
     return this.http.get<any>(this.allServicesUrl + '/articles');
