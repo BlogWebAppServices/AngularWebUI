@@ -1,40 +1,72 @@
-import { Component, OnInit, } from '@angular/core';
+import { ApplicationModule, Component, OnInit, } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Client } from 'src/app/allservices-api.service';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { right } from '@popperjs/core';
+import {MenuItem} from 'primeng/api';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
+
+
 export class NavbarComponent implements OnInit {
+
+  
   categoryList$!: Observable<any[]>;
   childCategoryList$!: Observable<any[]>
- 
+  items: BehaviorSubject<MenuItem[]> = new BehaviorSubject<MenuItem[]>([]);
+  menus: MenuItem[] = [];
+  menuPosition: string = "end";
+  scrWidth:any;
   public logo = ("../../../assets/img/logowhite.png");
 
   constructor(
     private service: Client
   ) { }
   
+  
 
   menuVariable: boolean = false;
-
   menu_icon_variable: boolean = false;
 
   onload() {
     this.categoryList$ = this.service.getCategoryList();
     this.childCategoryList$ = this.service.getChildCategoryList();
+    this.getScreenSize()
   }
 
   openMenu() {
     this.menuVariable = !this.menuVariable;
     this.menu_icon_variable = !this.menu_icon_variable;
   }
-
+  
+  getScreenSize() {
+    this.scrWidth = window.innerWidth;
+    
+    if(this.scrWidth>960){
+      this.menuPosition= "end";
+      this.logo = ("../../../assets/img/logowhite.png");
+    }else if(this.scrWidth<961 && this.scrWidth>379){
+      this.menuPosition= "start";
+      this.logo = ("../../../assets/img/logo3.png");
+    }else{
+      this.menuPosition= "start"; 
+      document.getElementById("kdlogo")?.remove();
+    }
+    
+}
+  
+  
   ngOnInit(): void {
+    this.items.subscribe({
+      next: (data: MenuItem[]) => this.menus = data
+    });
+
     this.onload();
+    this.getCategories();
     this.visibleOtherCategories();
     this.visibleChildCategories();
 
@@ -44,6 +76,51 @@ export class NavbarComponent implements OnInit {
       }))
     }))
   }
+
+  getCategories(){
+
+    this.categoryList$.subscribe({
+      next: (categoryMenu:Array<any>)=>{
+        this.childCategoryList$.subscribe({
+          next: (childCategoryMenu:Array<any>)=>{
+            var getCategory:MenuItem[]=[]
+            categoryMenu.forEach(category=>{
+              var control = true;
+              var multiCategory = ""
+              childCategoryMenu.forEach(childCategory=>{
+                if(category.id == childCategory.categoryId ){
+                  multiCategory = category.categoryName
+                  const categories : MenuItem =
+                    {
+                      label : category.categoryName,
+                      items :[
+                        {
+                          label:childCategory.categoryName,
+                        },
+                      ]
+                    };
+                  getCategory.push(categories);
+                  this.items.next(getCategory);
+                  control = false
+                }
+              })
+              if(control){
+                const categories : MenuItem =
+                {
+                  label : category.categoryName,
+                }
+                getCategory.push(categories);
+                this.items.next(getCategory);
+              }
+
+
+
+            })
+          }
+        })
+      }
+    })
+   }
 
   visibleOtherCategories() {
     this.categoryList$.subscribe(res => {

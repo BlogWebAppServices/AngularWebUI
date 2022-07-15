@@ -6,6 +6,28 @@
                     <img [src]="logo" class="logo" routerLink="/home/article" />
                 </div>
             </div>
+            <div class="col-md-9 col-sm-9 col-9">
+                <p-menubar [model]="menus">
+                    <ng-template pTemplate="{{menuPosition}}">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input type="text" pInputText placeholder="Search">
+                        </span>
+                    </ng-template>
+                </p-menubar>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- <header class="fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-3">
+                <div class="logo">
+                    <img [src]="logo" class="logo" routerLink="/home/article" />
+                </div>
+            </div>
             <div class="col-md-9 col-sm-9 col-9 text-end">
                 <div class="menu-icon" [class.menu-icon-Class]="menu_icon_variable" (click)="openMenu()">
                     <span></span>
@@ -14,8 +36,6 @@
                 </div> 
                 <div class="menu" [class.menuClass]="menuVariable">
                     <ul>
-                        <!-- <li><a mat-button routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true }"
-                                class="nav-item" routerLink="/home/article">Anasayfa</a></li> -->
                         <li *ngFor="let categoryitem of categoryList$|async|slice:0:7" id="categoryLink{{categoryitem.id}}"><a mat-button routerLinkActive="active" class="nav-item"
                                 routerLink="/home/category">{{categoryitem.categoryName}}</a></li>
                         <li *ngFor="let categoryitem of categoryList$|async|slice:0:7" id="childCategoryDropdown{{categoryitem.id}}">
@@ -23,8 +43,6 @@
                         </li>
                          <mat-menu #childCategoryMenu="matMenu" style="background-color: black;" >
                             <div style="margin-top: 30px; width: 200px;">
-                                        <!-- <button mat-menu-item routerLinkActive="active" class="nav-item">Kategori 5</button>
-                                        <button mat-menu-item class="nav-item">Kategori 6</button> -->
                                 <a mat-menu-item routerLinkActive="active" *ngFor="let childitem of childCategoryList$!|async" class="nav-item" routerLink="/home/category" id="childCategoryId{{childitem.id}}">{{childitem.categoryName}}</a>
                             </div>
                         </mat-menu>
@@ -34,8 +52,6 @@
                         </li>
                          <mat-menu #menu="matMenu" style="background-color: black;" >
                             <div style="margin-top: 30px; width: 200px;">
-                                <!-- <button mat-menu-item routerLinkActive="active" class="nav-item">Kategori 5</button>
-                                <button mat-menu-item class="nav-item">Kategori 6</button> -->
                                 <a mat-menu-item routerLinkActive="active" class="nav-item" routerLink="/home/category" *ngFor="let categoryitem of categoryList$|async|slice:7" >{{categoryitem.categoryName}}</a>
                             </div>
                          </mat-menu>
@@ -44,7 +60,7 @@
             </div>
         </div>
     </div>
-</header>
+</header> -->
 
 
 

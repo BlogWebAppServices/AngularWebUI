@@ -24,6 +24,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { RecentPostsComponent } from '../slider/recent-posts/recent-posts.component';
 import { PopularArticleComponent } from '../slider/popular-article/popular-article.component';
 import { RightCategoriesComponent } from '../slider/right-categories/right-categories.component';
+import {MenubarModule} from 'primeng/menubar';
+import {InputTextModule} from 'primeng/inputtext';
+import {MegaMenuModule} from 'primeng/megamenu';
+import {CarouselModule} from 'primeng/carousel';
+
 
 
 @NgModule({
@@ -56,6 +61,10 @@ import { RightCategoriesComponent } from '../slider/right-categories/right-categ
     MatTabsModule,
     MatIconModule,
     MatSidenavModule,
+    MenubarModule,
+    InputTextModule,
+    MegaMenuModule,
+    CarouselModule
   ],
 })
 export class HomeModule { }
